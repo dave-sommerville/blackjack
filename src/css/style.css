@@ -79,4 +79,64 @@ button {
     display: inline-block;
     opacity: 1;
 }
+/*
 
+				A treat for later 
+
+
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #282c34;
+    }
+
+    .confetti {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 9999;
+    }
+
+    .confetti-piece {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background-color: #ff8c00;
+      animation: fall 3s ease-in infinite;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-100px) rotate(0deg);
+      }
+      100% {
+        transform: translateY(100vh) rotate(360deg);
+      }
+    }
+
+    /* Randomize each confetti piece 
+    .confetti-piece:nth-child(1) { animation-duration: 2s; animation-delay: 0s; background-color: #ff5733; }
+    .confetti-piece:nth-child(2) { animation-duration: 2.5s; animation-delay: 0.2s; background-color: #33ff57; }
+    .confetti-piece:nth-child(3) { animation-duration: 3s; animation-delay: 0.4s; background-color: #339fff; }
+    .confetti-piece:nth-child(4) { animation-duration: 2.8s; animation-delay: 0.1s; background-color: #ff33ff; }
+    .confetti-piece:nth-child(5) { animation-duration: 3.2s; animation-delay: 0.3s; background-color: #ffcc00; }
+
+
+
+  <div class="confetti">
+    <div class="confetti-piece"></div>
+    <div class="confetti-piece"></div>
+    <div class="confetti-piece"></div>
+    <div class="confetti-piece"></div>
+    <div class="confetti-piece"></div>
+    <!-- Add more pieces as needed -->
+  </div>
+
+*/

@@ -14,11 +14,11 @@ function listen(event, element, callback) {
 <--------------------------------------------------------------*/
 
 const dealerDisplay = select('.dealer-value-display');
-const dealerValueDisplay = select('.value-display')
+const dealerValueDisplay = select('.value-display');
 
 const finalResultDisplay = select('h2');
 const playerDisplay = select('.player-display');
-const playerValueDisplay = select('.player-value-display')
+const playerValueDisplay = select('.player-value-display');
 const startButton = select('.start-btn');
 const hitButton = select('.hit-btn');
 const holdButton = select('.hold-btn');
@@ -52,7 +52,20 @@ const dealer = {
 /*-------------------------------------------------------------->
 	Deck Shuffle
 <--------------------------------------------------------------*/
+/*
+		MY NEXT PLAN IS TO CREATE A DECK CLASS AND USE THAT AS AN OBJECT TO CARRY
+		THE IMG LOCATIONS		---			EACH GAME WILL GENERATE A NEW DECK 
+		THE ARRAY WILL BE THE ID IN THE CLASS SETTER AND THAT WILL BE USED FOR 
+		SHUFFLING THE DECK
 
+		TO DISPLAY CARDS, WILL NEED A MAP FUNCTION TO SORT THROUGH ARRAY 
+		AND CREATE IMGS WITH SOURCES (DON'T FORGET DEALER HAND REVEAL)
+
+		CSS WILL HAVE TO BE ADJUSTED ACCORDINGLY 
+
+
+		I THINK I WILL NOW DISCARD DECK FOR RESET 
+*/
 function shuffle() {
 	const deck = [...new Array(52).keys()];
 	for (let i = deck.length - 1; i > 0; i--) {
@@ -62,7 +75,7 @@ function shuffle() {
 	return deck;
 }
 
-const shuffledDeck = shuffle();
+let shuffledDeck = shuffle();
 
 function getCardValue(rank) {
 	let cardValue = 0;
@@ -78,10 +91,13 @@ function getCardValue(rank) {
 
 function dealOne(handObj) {
 	const { hand, handDisplay } = handObj;
-	const dealtCard = shuffledDeck.splice(0, 1)[0];
-	hand.push(dealtCard);
-	const suit = suits[Math.trunc((dealtCard - 1) / 13)];
-	const rank = ranks[(dealtCard - 1) % 13];
+	const dealtCard = shuffledDeck.splice(0, 1)[0]; 
+	if (dealtCard === undefined) { 
+		console.error("Error: The deck ran out of cards or was modified incorrectly.");
+		return; 
+	}
+	const suit = suits[Math.trunc((dealtCard) / 13)];
+	const rank = ranks[(dealtCard) % 13];
 	const cardValue = getCardValue(rank);
 
 	handObj.handValue += cardValue;
@@ -103,28 +119,34 @@ function aceAdjust(handObj) {
 
 function bustCheck(handObj) {
 	if (handObj.handValue > 21) {
-		aceAdjust(handObj);
+			aceAdjust(handObj);  
 
-		if (handObj.handValue > 21) {
-			if (handObj === player) {
-				finalResultDisplay.textContent = 'YOU LOSE!';
-			} else if (handObj === dealer) {
-				finalResultDisplay.textContent = 'YOU WIN!';
+			if (handObj.handValue > 21) {  
+					if (handObj === player) {
+							finalResultDisplay.textContent = 'YOU BUSTED! YOU LOSE!';
+							hitButton.classList.remove('visible');
+							holdButton.classList.remove('visible');
+							restartButton.classList.add('visible');  
+					} else if (handObj === dealer) {
+							finalResultDisplay.textContent = 'DEALER BUSTS! YOU WIN!';
+							hitButton.classList.remove('visible');
+							holdButton.classList.remove('visible');
+							restartButton.classList.add('visible');  
+					}
 			}
-		}
-
-		hitButton.classList.remove('visible');
-		holdButton.classList.remove('visible');
 	}
 }
+
 
 function updateDisplay() {
 	playerDisplay.textContent = player.handDisplay.join(', ');
 	playerValueDisplay.textContent = `Player Hand Total: ${player.handValue}`;
-	dealerDisplay.textContent = dealer.handDisplay[0];
+	dealerDisplay.textContent = dealer.handDisplay[0];  
 }
 
 function startingDeal() {
+	shuffledDeck = shuffle(); 
+
 	for (let i = 0; i < 2; i++) {
 		dealOne(player);
 		dealOne(dealer);
@@ -135,6 +157,7 @@ function startingDeal() {
 	startButton.classList.add('hidden');
 	hitButton.classList.add('visible');
 	holdButton.classList.add('visible');
+	restartButton.classList.add('hidden'); 
 }
 
 function hit(handObj) {
@@ -145,25 +168,31 @@ function hit(handObj) {
 }
 
 function finalResult() {
-  if (dealer.handValue > player.handValue) {
-    finalResultDisplay.textContent = 'DEALER WINS!';
-  } else if (dealer.handValue < player.handValue) {
-    finalResultDisplay.textContent = 'YOU WIN!';
-  } else {
-    finalResultDisplay.textContent = 'TIE GAME';
-  }
+	if (dealer.handValue > 21) {
+			finalResultDisplay.textContent = 'DEALER BUSTS! YOU WIN!';
+	} else if (dealer.handValue > player.handValue) {
+			finalResultDisplay.textContent = 'DEALER WINS!';
+	} else if (dealer.handValue < player.handValue) {
+			finalResultDisplay.textContent = 'YOU WIN!';
+	} else {
+			finalResultDisplay.textContent = 'TIE GAME';
+	}
+
 	hitButton.classList.remove('visible');
 	holdButton.classList.remove('visible');
-
+	restartButton.classList.add('visible');  
 }
 
 
 function dealerTurn() {
-  while (dealer.handValue < 17) {
-    hit(dealer);  
-  }
-  updateDisplay(); 
-	finalResult();
+	while (dealer.handValue < 17) {
+			hit(dealer);
+	}
+	updateDisplay();
+	finalResult(); 
+	hitButton.classList.remove('visible');
+	holdButton.classList.remove('visible');
+	restartButton.classList.add('visible');
 }
 
 function resetGame() {
@@ -177,8 +206,7 @@ function resetGame() {
 	dealer.aceCount = 0;
 	dealer.handDisplay = [];
 
-	shuffledDeck.length = 0; 
-	shuffledDeck.push(...shuffle()); 
+	shuffledDeck = shuffle(); 
 
 	finalResultDisplay.textContent = '';
 	playerDisplay.textContent = '';
@@ -188,8 +216,12 @@ function resetGame() {
 	startButton.classList.remove('hidden');
 	hitButton.classList.remove('visible');
 	holdButton.classList.remove('visible');
-	restartButton.classList.add('hidden');
+	
+	restartButton.classList.remove('visible');
+	restartButton.classList.add('hidden'); 
 }
+
+
 
 listen('click', startButton, () => { 
 	startingDeal();
@@ -208,5 +240,8 @@ listen('click', holdButton, () => {
 
 listen('click', restartButton, () => {
 	resetGame();
+	restartButton.classList.add('hidden');
+
 });
+
 
