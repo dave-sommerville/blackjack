@@ -4,6 +4,8 @@ html{
     font-family:"poppins", "inter", sans-serif;
 }
 
+
+
 .container {
     width: min(100% - 30px, 1200px);
     margin-inline: auto;
@@ -13,29 +15,35 @@ html{
     flex-direction: column;
 }
 
+.flex {
+	display: flex;
+}
+
+
 body {
     background-color: #275;
     color: #fff;
 }
 
 main {
-    min-height: 100svh;
-    justify-content: flex-end;
+  width: 100%;
+	height: 100%;
+	justify-content: center;
+	align-items: center;
+	position: relative;
 }
+
 
 h1 {
     font-size: 4rem;
 }
 
-.display-wrapper {
-    height: calc(100svh - 200px - 200px);
-    width: 100%; 
-    align-items: center;
-}
-
-
 h2 {
-    font-size: 6rem;
+	font-size: 2.5rem;
+	position: absolute;
+	z-index: 100;
+  font-size: 6rem;
+	margin: auto;
 }
 
 h3 {
@@ -46,15 +54,51 @@ h1, h2, h3, h4 {
     text-align: center;
 }
 
-h1, h2, h4 {
-    height: 200px;
-}
-
 p {
     text-align: center;
     height: 50px;
     font-size: 1.5rem;
 }
+
+
+header {
+	height: 15svh;
+	line-height: 15svh;
+}
+
+.player-image-wrapper {
+  display: grid;
+  position: relative; 
+  grid-template-columns: 1fr; 
+  grid-template-rows: auto; 
+  width: 100%; 
+  height: 300px; 
+}
+
+.player-image-wrapper > * {
+  position: absolute; 
+  top: 0; 
+  left: 0; 
+  right: 0;
+  bottom: 0;
+  z-index: 1; 
+  transition: transform 0.3s ease-in-out; 
+}
+
+.player-image-wrapper > *:nth-child(1) {
+  z-index: 1;
+}
+
+.player-image-wrapper > *:nth-child(2) {
+  z-index: 2; 
+  transform: translateX(50%); 
+}
+
+.player-image-wrapper > *:nth-child(3) {
+  z-index: 3; 
+  transform: translateX(100%); 
+}
+/* 	Need to add more, currently only display 3 and covering the first in stack*/
 
 button {
     width: 100px; height: 50px;
@@ -79,64 +123,4 @@ button {
     display: inline-block;
     opacity: 1;
 }
-/*
 
-				A treat for later 
-
-
-    body {
-      margin: 0;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background-color: #282c34;
-    }
-
-    .confetti {
-      position: absolute;
-      top: 0;
-      left: 50%;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      overflow: hidden;
-      z-index: 9999;
-    }
-
-    .confetti-piece {
-      position: absolute;
-      width: 10px;
-      height: 10px;
-      background-color: #ff8c00;
-      animation: fall 3s ease-in infinite;
-    }
-
-    @keyframes fall {
-      0% {
-        transform: translateY(-100px) rotate(0deg);
-      }
-      100% {
-        transform: translateY(100vh) rotate(360deg);
-      }
-    }
-
-    /* Randomize each confetti piece 
-    .confetti-piece:nth-child(1) { animation-duration: 2s; animation-delay: 0s; background-color: #ff5733; }
-    .confetti-piece:nth-child(2) { animation-duration: 2.5s; animation-delay: 0.2s; background-color: #33ff57; }
-    .confetti-piece:nth-child(3) { animation-duration: 3s; animation-delay: 0.4s; background-color: #339fff; }
-    .confetti-piece:nth-child(4) { animation-duration: 2.8s; animation-delay: 0.1s; background-color: #ff33ff; }
-    .confetti-piece:nth-child(5) { animation-duration: 3.2s; animation-delay: 0.3s; background-color: #ffcc00; }
-
-
-
-  <div class="confetti">
-    <div class="confetti-piece"></div>
-    <div class="confetti-piece"></div>
-    <div class="confetti-piece"></div>
-    <div class="confetti-piece"></div>
-    <div class="confetti-piece"></div>
-    <!-- Add more pieces as needed -->
-  </div>
-
-*/

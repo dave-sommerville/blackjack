@@ -1,0 +1,15 @@
+- BlackJack
+	- UI 
+		- Elements linked, just need to place
+		- Enhance design 
+			- Including the poker chips
+		- Responsive build
+	- Starting dealer reveal
+		- Copy css 
+		- Adjust logic
+		- Include value
+	- Add betting capacity 
+		- What way is money added? 
+	- Add Nat 21 logic 
+	- Add Double logic 
+	- Add Split logic 

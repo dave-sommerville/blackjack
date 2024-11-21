@@ -30,6 +30,7 @@ const dealerValueDisplay = select('.value-display');
 const finalResultDisplay = select('h2');
 const playerDisplay = select('.player-display');
 const playerValueDisplay = select('.player-value-display');
+const playerImgDisplay = select('.player-image-wrapper');
 const startButton = select('.start-btn');
 const hitButton = select('.hit-btn');
 const holdButton = select('.hold-btn');
@@ -158,14 +159,14 @@ class Player {
 		return this.#aceCount;
 	}
 
-		addCard(card, shuffledDeck) {
+	addCard(card, shuffledDeck) {
 		if (!Array.isArray(this.#handDisplayText)) {
 			this.#handDisplayText = [];
 		}
 		if (!Array.isArray(this.#handDisplayImg)) {
 			this.#handDisplayImg = [];
 		}
-
+/*			--  */
 		this.#hand.push(card); 
 		this.#handDisplayText.push(card.carddisplay);  
 		this.#handDisplayImg.push(card.imgsrc); 
@@ -232,11 +233,11 @@ function updateDisplay() {
 }
 
 function playerDisplayImages(images) {
-	playerValueDisplay.innerHTML = '';  
+	playerImgDisplay.innerHTML = '';  
 
 	images.forEach(imageSrc => {
 		let imgElement = createImage(imageSrc);
-		playerValueDisplay.appendChild(imgElement);
+		playerImgDisplay.appendChild(imgElement);
 	});
 }
 
