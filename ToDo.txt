@@ -10,6 +10,50 @@
 		- Include value
 	- Add betting capacity 
 		- What way is money added? 
-	- Add Nat 21 logic 
-	- Add Double logic 
-	- Add Split logic 
+
+Game Logic: Math distribution
+
+--Opening--
+Bet placement 
+- Player bank set up
+- Buttons set for amount (function each)
+- Add value to a "pot"
+Deal (in place of start)
+- Subtract bet from player bank 
+- Beginning deal
+- Hide deal button and betting tokens
+- Reveal action buttons
+
+--Actions--
+Hit 
+- Deal one card to player 
+Hold
+- Pass turn to dealer
+Double Down (only one chance to beat the dealer)
+- Deal one card to player
+- Pass turn to dealer 
+- Alter payout logic (either multiplies pot by 4 or the new value by 2)
+
+--Results--
+Loss
+- Clear the pot
+- Possibly record the loss, but it doesn't effect game play
+Push (tie)
+- Clear the pot
+- Return value to player bank
+Win (pays 2:1)
+- Clear the pot
+- Multiply value by two 
+- Return new value to player bank
+Blackjack (nat 21, wtih no push) (pays 3:2)
+- Function watching for certain values 
+	- If Ace + (any value 10 card) then 
+- Clear the pot
+- Multiply value by 3/2
+- Return new value to player bank
+
+--Possible Additions--
+Split
+- Action: Play two hands with two separate bets
+Insurance
+- Action: watch dealer cards and separate logic for watching bet 
