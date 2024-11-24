@@ -19,26 +19,25 @@
   <link rel="stylesheet" href="./src/css/style.css" media="all">
   <script src="./src/js/app.js" defer></script>
 </head>
-<body>
-  <main class="container flex f-col">
+<body class="container flex f-col">
+	<header>
     <h1>BLACKJACK</h1>
-    <section class="dealer">
-      <h3>Dealer's Hand</h3>
+		<h3>Dealer's Hand</h3>
+		<div class="dealer-hand-info">
 			<div class="dealer-image-wrapper"></div>
-      <div class="dealer-hand-info">
-				<p class="dealer-display"></p>
-        <p class="dealer-value-display"></p>
-			</div>
-		</section>
+			<p class="dealer-display"></p>
+			<p class="dealer-value-display"></p>
+		</div>
     <h2></h2>
-		<section class="player">
-      <h3>Your Hand</h3>
-			<div class="player-image-wrapper"></div>
-      <div>
-        <p class="player-display"></p>
-        <p class="player-value-display"></p>
-      </div>
-		</section>
+	</header>
+  <main class="player flex f-col">
+		<h3>Your Hand</h3>
+		<div class="player-image-wrapper"></div>
+		<div>
+			<p class="player-display"></p>
+			<p class="player-value-display"></p>
+		</div>
+	</main>
   	<footer>
 			<h4>
 				<button type="button" class="start-btn">START</button>
@@ -47,6 +46,5 @@
         <button type="button" class="restart-btn hidden">RESTART</button>
 			</h4>
 		</footer>
-   </main>
 </body>
 </html>

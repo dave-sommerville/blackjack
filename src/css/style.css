@@ -5,6 +5,24 @@ html{
 }
 
 
+header {
+	width: 100%;
+	height: 40svh;
+	background-color: rgb(34 119 85 / 0.1);
+}
+
+main {
+	width: 100%;
+	height: 50svh;
+	background-color: rgb(34 119 85 / 0.1);
+	justify-content: center;
+}
+
+footer {
+	width: 100%;
+	height: 10svh;
+	background-color: rgb(34 119 85 / 0.1);
+}
 
 .container {
     width: min(100% - 30px, 1200px);
@@ -35,11 +53,11 @@ main {
 
 
 h1 {
-    font-size: 4rem;
+    font-size: 2rem;
 }
-
+/*	This says the result, but probably needs to be rethought	*/
 h2 {
-	font-size: 2.5rem;
+	font-size: 1.6rem;
 	position: absolute;
 	z-index: 100;
   font-size: 6rem;
@@ -47,7 +65,7 @@ h2 {
 }
 
 h3 {
-    font-size: 2.5rem;
+    font-size: 1.6rem;
 }
 
 h1, h2, h3, h4 {
@@ -56,14 +74,16 @@ h1, h2, h3, h4 {
 
 p {
     text-align: center;
-    height: 50px;
+    height: 3svh;
+		line-height: 3svh;
     font-size: 1.5rem;
+		background-color: #b3f;
 }
 
-
-header {
-	height: 15svh;
-	line-height: 15svh;
+.dealer-image-wrapper {
+	width: 100%;
+	height: 7svh;
+	background-color: #a8d;
 }
 
 .player-image-wrapper {
@@ -72,7 +92,12 @@ header {
   grid-template-columns: 1fr; 
   grid-template-rows: auto; 
   width: 100%; 
-  height: 300px; 
+  height: 20svh; 
+
+	img {
+		height: 20svh;
+		width: auto;
+	}
 }
 
 .player-image-wrapper > * {
@@ -98,6 +123,8 @@ header {
   z-index: 3; 
   transform: translateX(100%); 
 }
+
+
 /* 	Need to add more, currently only display 3 and covering the first in stack*/
 
 button {
