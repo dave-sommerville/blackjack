@@ -34,7 +34,10 @@ const playerImgDisplay = select('.player-image-wrapper');
 const startButton = select('.start-btn');
 const hitButton = select('.hit-btn');
 const holdButton = select('.hold-btn');
-const restartButton = select('.restart-btn');
+const restartButton = select('.restart-btn'); // CHANGE TO DEAL, COMBINE WITH START
+//		CHOOSE BET 
+//		PLACE BET / CHANGE BET
+//		DOUBLE DOWN 
 
 /*-------------------------------------------------------------->
   Card Declarations 
@@ -287,7 +290,7 @@ function finalResult() {
 	} else if (dealer.handValue < player.handValue) {
 			finalResultDisplay.textContent = 'YOU WIN!';
 	} else {
-			finalResultDisplay.textContent = 'TIE GAME';
+			finalResultDisplay.textContent = 'PUSH';
 	}
 
 	hitButton.classList.remove('visible');
@@ -295,7 +298,80 @@ function finalResult() {
 	restartButton.classList.remove('hidden');  
 }
 
+/*
+- Establish a player bank variable and pot with display 
+- Add logic to accept value from input and subtract/add apropriately
+- Needs to accept payout conditions from the winning conditions 
+
+
+*/
+let pot = 0;
+let playerBank = 1000;
+
+function placeBet(playerBet) {
+  if (playerBet > playerBank) {
+    alert("You don't have enough money for that bet.");
+    return; // Prevent the bet if the player doesn't have enough funds
+  }
+  
+  pot += playerBet; // Add the bet to the pot
+  playerBank -= playerBet; // Deduct the bet from the player's bank
+  
+  // Update the display of the player's bank and the pot
+  updateBankDisplay();
+  updatePotDisplay();
+}
+
+function updateBankDisplay() {
+  const bankDisplay = select('.player-bank'); // Assuming you have a div for the player's bank
+  bankDisplay.textContent = `Player Bank: $${playerBank}`;
+}
+
+function updatePotDisplay() {
+  const potDisplay = select('.pot'); // Assuming you have a div for the pot
+  potDisplay.textContent = `Pot: $${pot}`;
+}
+const betInput = select('#betInput');
+const placeBetButton = select('.place-bet-btn');
+
+listen('click', placeBetButton, () => {
+  const betAmount = parseInt(betInput.value);
+  if (isNaN(betAmount) || betAmount <= 0) {
+    alert("Please enter a valid bet amount.");
+  } else {
+    placeBet(betAmount);
+    betInput.value = ''; // Clear input field after placing bet
+    startBtn(); // Start the game after placing the bet
+  }
+});
+
+function payOut() {
+  if (dealer.handValue > 21) {
+    // Dealer busts, player wins
+    playerBank += pot; // Player wins the pot
+  } else if (dealer.handValue > player.handValue) {
+    // Dealer wins
+    // No change to playerBank (player loses the bet)
+  } else if (dealer.handValue < player.handValue) {
+    // Player wins
+    playerBank += pot; // Player wins the pot
+  } else {
+    // Push (tie)
+    playerBank += pot / 2; // Return half the pot to the player (optional)
+  }
+  
+  // Reset the pot
+  pot = 0;
+
+  // Update the displays after the payout
+  updateBankDisplay();
+  updatePotDisplay();
+}
+
+
+
 function resetGame() {
+  // Reset player and dealer hands as before
   player.hand = [];
   player.handValue = 0;
   player.aceCount = 0;
@@ -306,9 +382,14 @@ function resetGame() {
   dealer.handValue = 0;
   dealer.aceCount = 0;
   dealer.handDisplayImg = [];
-  dealer.handDisplayText = []; 
+  dealer.handDisplayText = [];
 
   shuffledDeck = shuffle([...cardObjects]);
+
+  // Reset pot and bank
+  pot = 0;
+  updateBankDisplay(); // Reset bank display
+  updatePotDisplay(); // Reset pot display
 
   finalResultDisplay.textContent = '';
   playerDisplay.textContent = '';
@@ -318,8 +399,7 @@ function resetGame() {
   startButton.classList.remove('hidden');
   hitButton.classList.remove('visible');
   holdButton.classList.remove('visible');
-  restartButton.classList.add('hidden'); 
-
+  restartButton.classList.add('hidden');
 }
 
 

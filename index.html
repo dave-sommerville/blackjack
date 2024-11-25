@@ -30,17 +30,24 @@
 	</header>
   <main class="player flex f-col">
 		<!-- <p class="result"></p> -->
-		<p class="player-display"></h3>
 		<div class="player-image-wrapper"></div>
-		<p class="player-value-display"></p>
+		<p>
+			<span class="player-value-display"></span>
+			<span class="player-display"></span>
+		</p>
+		<div class="pot"></div>
+		<p class="player-bank"></p>
 	</main>
   	<footer>
-			<h4>
-				<button type="button" class="start-btn">START</button>
-				<button type="button" class="hit-btn">HIT</button>
-				<button type="button" class="hold-btn">HOLD</button>
-        <button type="button" class="restart-btn hidden">RESTART</button>
-			</h4>
+			<p class="bet-display"></p>
+			<button type="button" class="start-btn">START</button> <!-- Change to deal, combine with restart-->
+			<button type="button" class="hit-btn">HIT</button>
+			<button type="button" class="hold-btn">HOLD</button>
+			<button type="button" class="restart-btn hidden">RESTART</button>
+<!-- HTML for placing a bet -->
+<input type="number" id="betInput" placeholder="Enter your bet" />
+<button class="place-bet-btn">Place Bet</button>
+
 		</footer>
 </body>
 </html>

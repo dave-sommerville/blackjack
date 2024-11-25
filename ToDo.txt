@@ -16,7 +16,6 @@ Game Logic: Math distribution
 --Opening--
 Bet placement 
 - Player bank set up
-- Buttons set for amount (function each)
 - Add value to a "pot"
 Deal (in place of start)
 - Subtract bet from player bank 
