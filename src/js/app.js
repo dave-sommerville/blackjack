@@ -27,7 +27,7 @@ function createImage(imageSrc) {
 
 const dealerDisplay = select('.dealer-value-display');
 const dealerValueDisplay = select('.value-display');
-const finalResultDisplay = select('h2');
+const finalResultDisplay = select('.final-result-display');
 const playerDisplay = select('.player-display');
 const playerValueDisplay = select('.player-value-display');
 const playerImgDisplay = select('.player-image-wrapper');
@@ -35,9 +35,9 @@ const startButton = select('.start-btn');
 const hitButton = select('.hit-btn');
 const holdButton = select('.hold-btn');
 const restartButton = select('.restart-btn'); // CHANGE TO DEAL, COMBINE WITH START
-//		CHOOSE BET 
+const placeBetButton = select('.place-bet-btn');
+//		CHOOSE BET - NEED TO COLLECT INPUT FROM 
 //		PLACE BET / CHANGE BET
-//		DOUBLE DOWN 
 
 /*-------------------------------------------------------------->
   Card Declarations 
@@ -305,8 +305,9 @@ function finalResult() {
 
 
 */
-let pot = 0;
+let pot = 0; // Don't forget to match with dealer's bet
 let playerBank = 1000;
+let playerBet = 50;
 
 function placeBet(playerBet) {
   if (playerBet > playerBank) {
@@ -331,47 +332,22 @@ function updatePotDisplay() {
   const potDisplay = select('.pot'); // Assuming you have a div for the pot
   potDisplay.textContent = `Pot: $${pot}`;
 }
-const betInput = select('#betInput');
-const placeBetButton = select('.place-bet-btn');
-
-listen('click', placeBetButton, () => {
-  const betAmount = parseInt(betInput.value);
-  if (isNaN(betAmount) || betAmount <= 0) {
-    alert("Please enter a valid bet amount.");
-  } else {
-    placeBet(betAmount);
-    betInput.value = ''; // Clear input field after placing bet
-    startBtn(); // Start the game after placing the bet
-  }
-});
-
-function payOut() {
-  if (dealer.handValue > 21) {
-    // Dealer busts, player wins
-    playerBank += pot; // Player wins the pot
-  } else if (dealer.handValue > player.handValue) {
-    // Dealer wins
-    // No change to playerBank (player loses the bet)
-  } else if (dealer.handValue < player.handValue) {
-    // Player wins
-    playerBank += pot; // Player wins the pot
-  } else {
-    // Push (tie)
-    playerBank += pot / 2; // Return half the pot to the player (optional)
-  }
-  
-  // Reset the pot
-  pot = 0;
-
-  // Update the displays after the payout
-  updateBankDisplay();
-  updatePotDisplay();
+/*
+function lossPayout() {
+	pot = 0;
+	return pot;		// If I'm not tracking, then no need for a function as
+	//	The pot should be reset outside of that
 }
 
+function pushPayout() {
+	playerBank = playerBank + pot;
+	pot = 0;
+	return playerBank;
+	return pot;
+}
 
-
+*/
 function resetGame() {
-  // Reset player and dealer hands as before
   player.hand = [];
   player.handValue = 0;
   player.aceCount = 0;
@@ -382,14 +358,10 @@ function resetGame() {
   dealer.handValue = 0;
   dealer.aceCount = 0;
   dealer.handDisplayImg = [];
-  dealer.handDisplayText = [];
+  dealer.handDisplayText = []; 
 
+	pot = 0;
   shuffledDeck = shuffle([...cardObjects]);
-
-  // Reset pot and bank
-  pot = 0;
-  updateBankDisplay(); // Reset bank display
-  updatePotDisplay(); // Reset pot display
 
   finalResultDisplay.textContent = '';
   playerDisplay.textContent = '';
@@ -398,8 +370,9 @@ function resetGame() {
 
   startButton.classList.remove('hidden');
   hitButton.classList.remove('visible');
-  holdButton.classList.remove('visible');
-  restartButton.classList.add('hidden');
+  holdButton.classList.remove('visible'); // Major need for readjustment
+  restartButton.classList.add('hidden'); 
+
 }
 
 
@@ -421,6 +394,9 @@ function holdBtn() {
 	finalResult();
 }
 
+updateBankDisplay();
+updatePotDisplay();
+
 listen('click', startButton, () => { 
 	startBtn();
 }); 
@@ -437,6 +413,10 @@ listen('click', restartButton, () => {
 	resetGame();
 	restartButton.classList.add('hidden');
 
+});
+
+listen('click', placeBetButton, () => {
+	placeBet(playerBet);
 });
 
 

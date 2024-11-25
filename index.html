@@ -17,34 +17,36 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 	<link rel="stylesheet" href="./src/css/reset.css" media="all">
   <link rel="stylesheet" href="./src/css/style.css" media="all">
-  <script src="./src/js/app.js" defer></script>
+  <!-- <script src="./src/js/app.js" defer></script> -->
 </head>
 <body class="container flex f-col">
 	<header>
     <h1>BLACKJACK</h1>
 		<div class="dealer-hand-info">
 			<div class="dealer-image-wrapper"></div>
-			<p class="dealer-display"></p>
-			<p class="dealer-value-display"></p>
+			<p class="dealer-display">
+				Ace of Clubs<span class="dealer-value-display">
+				</span></p>
+			<!-- <p class="dealer-value-display">21</p>  GOING TO -->
+			<div class="final-result-display">Dealer Wins!</div>
 		</div>
 	</header>
   <main class="player flex f-col">
-		<!-- <p class="result"></p> -->
-		<div class="player-image-wrapper"></div>
+		<div class="player-image-wrapper"><img src="./src/img/diamonds_2.svg"></div>
 		<p>
-			<span class="player-value-display"></span>
-			<span class="player-display"></span>
+			Dealer:
+			<span class="player-display">Ace of Clubs</span>
 		</p>
-		<div class="pot"></div>
-		<p class="player-bank"></p>
+		<div class="pot">$50</div>
+		<p>	
+			<span class="player-bank">$500</span>
+			<span class="player-value-display"></span>
+		</p>
 	</main>
   	<footer>
-			<p class="bet-display"></p>
 			<button type="button" class="start-btn">START</button> <!-- Change to deal, combine with restart-->
 			<button type="button" class="hit-btn">HIT</button>
 			<button type="button" class="hold-btn">HOLD</button>
-			<button type="button" class="restart-btn hidden">RESTART</button>
-<!-- HTML for placing a bet -->
 <input type="number" id="betInput" placeholder="Enter your bet" />
 <button class="place-bet-btn">Place Bet</button>
 
