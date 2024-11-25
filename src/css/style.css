@@ -4,11 +4,30 @@ html{
     font-family:"poppins", "inter", sans-serif;
 }
 
+body {
+	background-color: #275;
+	color: #fff;
+}
+
 
 header {
 	width: 100%;
-	height: 40svh;
-	background-color: rgb(34 119 85 / 0.1);
+	height: 30svh;
+	h1 {
+		height: 5svh;
+	}
+	p {
+    text-align: center;
+    height: 5svh;
+		line-height: 5svh;
+    font-size: 1.5rem;
+		background-color: #b3f;
+}
+	.dealer-image-wrapper {
+		width: 100%;
+		height: 10svh;
+		background-color: #a8d;
+	}
 }
 
 main {
@@ -16,12 +35,21 @@ main {
 	height: 50svh;
 	background-color: rgb(34 119 85 / 0.1);
 	justify-content: center;
+	align-items: center;
+
+	p {
+    text-align: center;
+    height: 5svh;
+		line-height: 5svh;
+    font-size: 1.5rem;
+		background-color: #23a;
+	}
 }
 
 footer {
 	width: 100%;
 	height: 10svh;
-	background-color: rgb(34 119 85 / 0.1);
+	background-color: rgb(188 119 85 / 0.4);
 }
 
 .container {
@@ -38,61 +66,15 @@ footer {
 }
 
 
-body {
-    background-color: #275;
-    color: #fff;
-}
-
-main {
-  width: 100%;
-	height: 100%;
-	justify-content: center;
-	align-items: center;
-	position: relative;
-}
-
-
-h1 {
-    font-size: 2rem;
-}
-/*	This says the result, but probably needs to be rethought	*/
-h2 {
-	font-size: 1.6rem;
-	position: absolute;
-	z-index: 100;
-  font-size: 6rem;
-	margin: auto;
-}
-
-h3 {
-    font-size: 1.6rem;
-}
-
-h1, h2, h3, h4 {
-    text-align: center;
-}
-
-p {
-    text-align: center;
-    height: 3svh;
-		line-height: 3svh;
-    font-size: 1.5rem;
-		background-color: #b3f;
-}
-
-.dealer-image-wrapper {
-	width: 100%;
-	height: 7svh;
-	background-color: #a8d;
-}
 
 .player-image-wrapper {
   display: grid;
   position: relative; 
   grid-template-columns: 1fr; 
   grid-template-rows: auto; 
-  width: 100%; 
-  height: 20svh; 
+  width: 30svw; 
+  height: 30svh; 
+	background-color: #f3f;
 
 	img {
 		height: 20svh;
@@ -124,6 +106,10 @@ p {
   transform: translateX(100%); 
 }
 
+.player-image-wrapper > *:nth-child(4) {
+  z-index: 4; 
+  transform: translateX(100%); 
+}
 
 /* 	Need to add more, currently only display 3 and covering the first in stack*/
 
