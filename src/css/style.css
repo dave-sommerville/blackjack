@@ -4,11 +4,14 @@ html{
     font-family:"poppins", "inter", sans-serif;
 }
 
+
+
 body {
 	background-color: #275;
 	color: #fff;
 	justify-content: center;
 	align-items: center;
+	position: relative;
 }
 
 .hit-btn, .hold-btn {
@@ -55,6 +58,35 @@ p {
 
 .flex {
 	display: flex;
+}
+
+aside {
+	border: solid 1px #012;
+	position: fixed;
+	left: 10px;
+
+	p {
+		height: 25px;
+		line-height: 25px;
+		background-color: rgb(64 64 64 / 0.2);
+	}
+}
+
+.dealer-image-wrapper {
+  display: grid;
+  position: relative; 
+  grid-template-columns: 1fr; 
+  grid-template-rows: auto; 
+  width: 15svw; 
+  height: 10svh; 
+	background-color: #def;
+	border: solid 2px #212;
+	border-radius: 25px;
+
+	img {
+		height: 9svh;
+		width: auto;
+	}
 }
 
 .player-image-wrapper {
@@ -110,7 +142,7 @@ p {
 }
 	/* --	I THINK	-- */
 
-button, input {
+button {
     width: 100px; 
 		height: 100px;
     font-size: 1.5rem;
@@ -120,3 +152,49 @@ button, input {
     border-radius: 50%;
 }
 
+.round-button {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid #007BFF; /* Button border color */
+}
+
+.half {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  cursor: pointer;
+}
+
+.half.up {
+  background-color: #007BFF; /* Top half color */
+  color: white;
+}
+
+.half.down {
+  background-color: #0056b3; /* Bottom half color */
+  color: white;
+}
+
+.half.up::before,
+.half.down::before {
+  font-size: 16px;
+}
+
+.half.up::before {
+  content: "▲"; /* Up arrow */
+}
+
+.half.down::before {
+  content: "▼"; /* Down arrow */
+}
+
+.half:hover {
+  filter: brightness(1.2); /* Highlight on hover */
+}

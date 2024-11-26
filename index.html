@@ -17,39 +17,65 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 	<link rel="stylesheet" href="./src/css/reset.css" media="all">
   <link rel="stylesheet" href="./src/css/style.css" media="all">
-  <!-- <script src="./src/js/app.js" defer></script> -->
+  <script src="./src/js/app.js" defer></script>
 </head>
 <body class="container flex f-col">
 	<header>
     <h1>BLACKJACK</h1>
-		<div class="dealer-hand-info">
-			<div class="dealer-image-wrapper"></div>
-			<p class="dealer-display">
-				Ace of Clubs<span class="dealer-value-display">
-				</span></p>
+			<div class="dealer-image-wrapper">
+				<img src="./src/img/clubs_7.svg">
+			</div>
+
 			<!-- <p class="dealer-value-display">21</p>  GOING TO -->
 			<div class="final-result-display">Dealer Wins!</div>
 		</div>
 	</header>
+	<aside class="flex f-col">
+			<div class="dealer-hand-info">
+			<p>
+				Dealer Cards: 
+				<span class="dealer-display">
+					Ace of Clubs
+				</span>
+			<p>
+				Dealer Total: 
+				<span class="dealer-value-display">Hidden
+				</span>
+			</p>
+			<p>
+				Player Cards: 
+				<span class="player-display">10 of Diamonds</span>
+			</p>
+			<p>
+				Player Bet: 
+				<span class="pot">$50</span>	
+			</p>
+			<p>
+				Player Bank:
+				<span class="player-bank">$500</span>
+			</p>
+			<p>
+				Total:
+				<span class="player-value-display"></span>
+			</p>
+	</aside>
   <main class="player flex f-col">
 		<div class="player-image-wrapper"><img src="./src/img/diamonds_2.svg"></div>
-		<p>
-			Dealer:
-			<span class="player-display">Ace of Clubs</span>
-		</p>
-		<div class="pot">$50</div>
-		<p>	
-			<span class="player-bank">$500</span>
-			<span class="player-value-display"></span>
-		</p>
 	</main>
   	<footer>
-			<button type="button" class="start-btn">START</button> <!-- Change to deal, combine with restart-->
-			<button type="button" class="hit-btn">HIT</button>
-			<button type="button" class="hold-btn">HOLD</button>
-<input type="number" id="betInput" placeholder="Enter your bet" />
-<button class="place-bet-btn">Place Bet</button>
-
+			<p>
+				<button type="button" class="start-btn">START</button> <!-- Change to deal, combine with restart-->
+				<button type="button" class="place-bet-btn">Place</button>
+			</p>
+				<div class="round-button">
+					<div class="half up"></div>
+					<div class="half down"></div>
+				</div>		
+			</div>
+			<div>
+				<button type="button" class="hit-btn">HIT</button>
+				<button type="button" class="hold-btn">HOLD</button>
+			</div>
 		</footer>
 </body>
 </html>
