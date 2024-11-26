@@ -1,15 +1,11 @@
 <html lang="en">
-    
 <head>
 	<meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="author" content="Dave Sommerville">
   <meta name="description" content=""> <!-- Consider SEO!!-->
   <meta name="theme-color" content="#ffffff">
-
-	
 		<!-- Needs Icon still  -->
-	<!-- Icon by <a class="link_pro" href="https://freeicons.io/basic-ui-elements-3/basic-cards-hearts-icon-14092">Anu Rocks</a> on <a href="https://freeicons.io">freeicons.io</a> -->
   <title>Blackjack</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,12 +18,9 @@
 <body class="container flex f-col">
 	<header>
     <h1>BLACKJACK</h1>
-			<div class="dealer-image-wrapper">
-				<img src="./src/img/clubs_7.svg">
-			</div>
-
-			<!-- <p class="dealer-value-display">21</p>  GOING TO -->
-			<div class="final-result-display">Dealer Wins!</div>
+		<div class="dealer-image-wrapper">
+			<img src="./src/img/clubs_7.svg">
+		</div>
 		</div>
 	</header>
 	<aside class="flex f-col">
@@ -35,7 +28,6 @@
 			<p>
 				Dealer Cards: 
 				<span class="dealer-display">
-					Ace of Clubs
 				</span>
 			<p>
 				Dealer Total: 
@@ -48,7 +40,7 @@
 			</p>
 			<p>
 				Player Bet: 
-				<span class="pot">$50</span>	
+				<span class="pot"></span>	
 			</p>
 			<p>
 				Player Bank:
@@ -58,14 +50,14 @@
 				Total:
 				<span class="player-value-display"></span>
 			</p>
+			<div class="final-result-display">Dealer Wins!</div>
 	</aside>
   <main class="player flex f-col">
-		<div class="player-image-wrapper"><img src="./src/img/diamonds_2.svg"></div>
+		<div class="player-image-wrapper"></div>
 	</main>
   	<footer>
 			<p>
 				<button type="button" class="start-btn">START</button> <!-- Change to deal, combine with restart-->
-				<button type="button" class="place-bet-btn">Place</button>
 			</p>
 				<div class="round-button">
 					<div class="half up"></div>
