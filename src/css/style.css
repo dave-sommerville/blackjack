@@ -1,5 +1,12 @@
 @charset "utf-8";
 
+/*
+- Ensure responsiveness 
+- Keep elemenets from moving 
+- Adjust colours and graphics to improve UI 
+
+*/
+
 html{
     font-family:"poppins", "inter", sans-serif;
 }
@@ -19,10 +26,6 @@ body {
     margin-inline: auto;
 }
 
-.hit-btn, .hold-btn {
-	display: none;
-	opacity: 0;
-}
 
 .hidden {
 	display: none; 

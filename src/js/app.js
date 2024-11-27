@@ -1,5 +1,14 @@
 'use strict';
 
+
+/*
+- Switch to modules
+- Ensure bet has to be placed 
+- Go over payout logic 
+- Visibility of the arrow buttons 
+- 
+*/
+
 const { log } = console;
 
 function select(selector, scope = document) {
@@ -34,15 +43,14 @@ const playerImgDisplay = select('.player-image-wrapper');
 const startButton = select('.start-btn');
 const hitButton = select('.hit-btn');
 const holdButton = select('.hold-btn');
-const placeBetButton = select('.place-bet-btn');
+//	doubleButton 
+//	May need reset button + deal button 
+
 const increaseBet = select('.up');
 const decreaseBet = select('.down');
 
 const bankDisplay = select('.player-bank');
 const totalPlayerBet = select('.pot');
-
-//		CHOOSE BET - NEED TO COLLECT INPUT FROM 
-//		PLACE BET / CHANGE BET
 
 /*-------------------------------------------------------------->
   Card Declarations 
@@ -275,12 +283,14 @@ function bustCheck(handObj) {
 	if (handObj.handValue > 21) {  
 			if (handObj === player) {
 					finalResultDisplay.textContent = 'YOU BUSTED! YOU LOSE!';
-					hitButton.classList.remove('visible');
-					holdButton.classList.remove('visible');
+					hitButton.classList.add('hidden');
+					holdButton.classList.add('hidden');
+					startButton.classList.remove('hidden');
 			} else if (handObj === dealer) {
 					finalResultDisplay.textContent = 'DEALER BUSTS! YOU WIN!';
-					hitButton.classList.remove('visible');
-					holdButton.classList.remove('visible');
+					hitButton.classList.addd('hidden');
+					holdButton.classList.add('hidden');
+					startButton.classList.remove('hidden');
 			}
 	}
 }
@@ -308,8 +318,9 @@ function finalResult() {
   // Hide buttons and reset pot
   pot = 0;
   updateBankDisplay();
-  hitButton.classList.remove('visible');
-  holdButton.classList.remove('visible');
+  hitButton.classList.add('hidden');
+  holdButton.classList.add('hidden');
+	startButton.classList.remove('hidden');
 }
 
 
@@ -346,8 +357,8 @@ function resetGame() {
   dealerDisplay.textContent = '';
 
   startButton.classList.remove('hidden');
-  hitButton.classList.remove('visible');
-  holdButton.classList.remove('visible'); // Major need for readjustment
+  hitButton.classList.add('hidden');
+  holdButton.classList.add('hidden'); // Major need for readjustment
   updateBankDisplay();
   updateTotalBet();
 }
@@ -357,8 +368,8 @@ function startBtn() {
   pot = playerBetTotal * 2; // Pot is double the player's bet
   startingDeal();
   startButton.classList.add('hidden');
-  hitButton.classList.add('visible');
-  holdButton.classList.add('visible');
+  hitButton.classList.remove('hidden');
+  holdButton.classList.remove('hidden');
   updateDisplay();
 }
 
@@ -372,6 +383,19 @@ function holdBtn() {
 	dealerTurn();
 	finalResult();
 }
+
+/* 
+
+Double button will look kinda like
+
+function doubleBtn() {
+	hit(player);
+	isDouble = true;
+	return isDouble;
+	holdBtn()
+}
+
+*/
 
 updateBankDisplay();
 
