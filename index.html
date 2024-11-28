@@ -15,59 +15,59 @@
   <link rel="stylesheet" href="./src/css/style.css" media="all">
   <script src="./src/js/app.js" defer></script>
 </head>
-<body class="container flex f-col">
-	<header>
+<body class="container">
+	<header class="flex f-col">
     <h1>BLACKJACK</h1>
 		<div class="dealer-image-wrapper">
 			<img src="./src/img/clubs_7.svg">
 		</div>
-		</div>
 	</header>
-	<aside class="flex f-col">
-			<div class="dealer-hand-info">
-			<p>
-				Dealer Cards: 
-				<span class="dealer-display">
-				</span>
-			<p>
-				Dealer Total: 
-				<span class="dealer-value-display">Hidden
-				</span>
-			</p>
-			<p>
-				Player Cards: 
-				<span class="player-display">10 of Diamonds</span>
-			</p>
-			<p>
-				Player Bet: 
-				<span class="pot"></span>	
-			</p>
-			<p>
-				Player Bank:
-				<span class="player-bank">$500</span>
-			</p>
-			<p>
-				Total:
-				<span class="player-value-display"></span>
-			</p>
-			<div class="final-result-display">Dealer Wins!</div>
-	</aside>
   <main class="player flex f-col">
+		<aside class="flex f-col">
+				<div class="dealer-hand-info">
+				<p>
+					Dealer Total: 
+					<span class="dealer-value-display">Hidden
+					</span>
+				</p>	
+				<p>
+					Dealer Cards: 
+					<span class="dealer-display">
+					</span>
+				<p>
+					Player Bet:  <!--		-->
+					<span class="pot"></span>	
+				</p>
+				<p>
+					Player Bank:
+					<span class="player-bank">$500</span>
+				</p>
+				<p>
+					Total:
+					<span class="player-value-display"></span>
+				</p>
+				<p>
+					Player Cards: 
+					<span class="player-display">10 of Diamonds</span>
+				</p>
+				<div class="final-result-display">Dealer Wins!</div>
+		</aside>
 		<div class="player-image-wrapper"></div>
 	</main>
-  	<footer>
-			<p>
+  	<footer class="container flex">
+			<section class="deal-bet flex">
 				<button type="button" class="start-btn">START</button> <!-- Change to deal, combine with restart-->
-			</p>
-				<div class="round-button">
-					<div class="half up"></div>
-					<div class="half down"></div>
-				</div>		
-			</div>
-			<div>
+				<div class="button flex">
+					<div class="round-button">
+						<div class="half up"></div>
+						<div class="half down"></div>
+					</div>
+				</div>
+			</section>
+			<section class="action-btns">
 				<button type="button" class="hit-btn hidden">HIT</button>
 				<button type="button" class="hold-btn hidden">HOLD</button>
-			</div>
+			</section>
 		</footer>
 </body>
 </html>

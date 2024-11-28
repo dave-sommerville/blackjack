@@ -13,15 +13,6 @@
 
 Game Logic: Math distribution
 
---Opening--
-Bet placement 
-- Player bank set up
-- Add value to a "pot"
-Deal (in place of start)
-- Subtract bet from player bank 
-- Beginning deal
-- Hide deal button and betting tokens
-- Reveal action buttons
 
 --Actions--
 Hit 

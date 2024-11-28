@@ -5,7 +5,9 @@
 - Switch to modules
 - Ensure bet has to be placed 
 - Go over payout logic 
-- Visibility of the arrow buttons 
+- Needs to clear image wrappers / list of items  
+- Add double button/logic
+- Hiding/showing btn containers 
 - 
 */
 
@@ -44,8 +46,7 @@ const startButton = select('.start-btn');
 const hitButton = select('.hit-btn');
 const holdButton = select('.hold-btn');
 //	doubleButton 
-//	May need reset button + deal button 
-
+const arrowButtons = select('.round-button')
 const increaseBet = select('.up');
 const decreaseBet = select('.down');
 
@@ -303,16 +304,15 @@ let pot = 0;
 function finalResult() {
   if (dealer.handValue > 21) {
     finalResultDisplay.textContent = 'DEALER BUSTS! YOU WIN!';
-    playerBank += pot; // Player wins the pot
+    playerBank += pot; 
   } else if (dealer.handValue > player.handValue) {
     finalResultDisplay.textContent = 'DEALER WINS!';
-    // Player loses the bet (pot already reduced from bank during betting)
   } else if (dealer.handValue < player.handValue) {
     finalResultDisplay.textContent = 'YOU WIN!';
-    playerBank += pot; // Player wins the pot
+    playerBank += pot; 
   } else {
     finalResultDisplay.textContent = 'PUSH';
-    playerBank += playerBetTotal; // Return player's original bet
+    playerBank += playerBetTotal; 
   }
 
   // Hide buttons and reset pot
@@ -362,6 +362,7 @@ function resetGame() {
   updateBankDisplay();
   updateTotalBet();
 }
+
 
 
 function startBtn() {

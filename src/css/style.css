@@ -1,17 +1,24 @@
 @charset "utf-8";
 
 /*
-- Ensure responsiveness 
-- Keep elemenets from moving 
 - Adjust colours and graphics to improve UI 
-
 */
 
 html{
     font-family:"poppins", "inter", sans-serif;
 }
 
+button {
+	text-decoration: none;
+	font-style: inherit;
+	border: 0;
+	outline: 0;
+	display: block;
+}
 
+:root {
+	--clr-primary: #396;
+}
 
 body {
 	background-color: #275;
@@ -27,18 +34,22 @@ body {
 }
 
 
+.f-col {
+	flex-direction: column;
+}
+
+.flex {
+display: flex;
+}
+
 .hidden {
 	display: none; 
 	opacity: 0;
 }
 
-.visible {
-	display: inline-block;
-	opacity: 1;
-}
 
 h1 {
-	font-size: 2.5rem;
+	font-size: 5rem;
 }
 
 p {
@@ -47,23 +58,29 @@ p {
 	margin: 15px 0;
 }
 
-
-
-.f-col {
-    flex-direction: column;
+header {
+	width: 100%;
+	justify-content: center;
+	align-items: center;
 }
 
-.flex {
-	display: flex;
+main {
+	position: relative;
+	width: 100%;
+	justify-content: center;
+	align-items: center;
 }
+
 
 aside {
+	width: 400px;
+	height: fit-content;
 	border: solid 1px #012;
 	position: fixed;
 	left: 10px;
+	top: 400px;
 
 	p {
-		height: 25px;
 		line-height: 25px;
 		background-color: rgb(64 64 64 / 0.2);
 	}
@@ -75,8 +92,9 @@ aside {
   grid-template-columns: 1fr; 
   grid-template-rows: auto; 
   width: 15svw; 
-  height: 10svh; 
-	background-color: #def;
+  height: 15svh; 
+	margin: 7svh 0;
+	padding: 30px;
 	border: solid 2px #212;
 	border-radius: 25px;
 
@@ -92,9 +110,9 @@ aside {
   grid-template-columns: 1fr; 
   grid-template-rows: auto; 
   width: 30svw; 
-  height: 25svh; 
+  height: 30svh; 
 	padding:30px; 
-	background-color: #f3f;
+	margin: 7svh 0;
 	border: solid 2px #212;
 	border-radius: 25px;
 
@@ -137,14 +155,24 @@ aside {
   z-index: 5; 
   transform: translateX(100%); 
 }
-	/* --	I THINK	-- */
 
-button {
+footer {
+	justify-content: center;
+}
+
+.deal-bet {
+	width: 15svw;
+	justify-content: space-between;
+}
+
+button, .button {
     width: 100px; 
 		height: 100px;
+		justify-content: center;
+		align-items: center;
     font-size: 1.5rem;
     font-weight: 400;
-    background-color: #8a9;
+    background-color: var(--clr-primary);
     color: #fff;
     border-radius: 50%;
 }
@@ -170,13 +198,13 @@ button {
 }
 
 .half.up {
-  background-color: #007BFF; /* Top half color */
-  color: white;
+  background-color: #007BFF; 
+  color: #fff;
 }
 
 .half.down {
-  background-color: #0056b3; /* Bottom half color */
-  color: white;
+  background-color: #0056b3;
+  color: #fff;
 }
 
 .half.up::before,
@@ -185,11 +213,12 @@ button {
 }
 
 .half.up::before {
-  content: "▲"; /* Up arrow */
+ /* Copy and pasted because Font Awesome is complicated for psuedo elements */
+  content: "▲";
 }
 
 .half.down::before {
-  content: "▼"; /* Down arrow */
+  content: "▼"; 
 }
 
 .half:hover {
