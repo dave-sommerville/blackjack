@@ -347,8 +347,8 @@ function resetGame() {
   dealer.handDisplayImg = [];
   dealer.handDisplayText = []; 
 
-  pot = 0; // Reset the pot
-  playerBetTotal = 0; // Reset the player's bet total for the next round
+  // pot = 0; 
+  // playerBetTotal = 0; 
   shuffledDeck = shuffle([...cardObjects]);
 
   finalResultDisplay.textContent = '';
@@ -364,11 +364,15 @@ function resetGame() {
 }
 
 
-
 function startBtn() {
+	resetGame();
   pot = playerBetTotal * 2; // Pot is double the player's bet
+	if (pot <= 0) {
+		console.log("You must place a bet");
+		return;
+	}
   startingDeal();
-  startButton.classList.add('hidden');
+  startButton.classList.add('hidden'); // These could be extracted into a new file 
   hitButton.classList.remove('hidden');
   holdButton.classList.remove('hidden');
   updateDisplay();
@@ -399,6 +403,7 @@ function doubleBtn() {
 */
 
 updateBankDisplay();
+
 
 listen('click', startButton, () => { 
 	startBtn();
