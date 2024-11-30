@@ -46,7 +46,7 @@ const actionButtons = select('.actions-btns');
 const startButton = select('.start-btn');
 const hitButton = select('.hit-btn');
 const holdButton = select('.hold-btn');
-//	doubleButton 
+const doubleButton = select('.double-btn');
 const arrowButtons = select('.button')
 const increaseBet = select('.up');
 const decreaseBet = select('.down');
@@ -287,12 +287,16 @@ function bustCheck(handObj) {
 					finalResultDisplay.textContent = 'YOU BUSTED! YOU LOSE!';
 					hitButton.classList.add('hidden');
 					holdButton.classList.add('hidden');
+					doubleButton.classList.add('hidden');
+
 					startButton.classList.remove('hidden');
 					arrowButtons.classList.remove('hidden');
 			} else if (handObj === dealer) {
 					finalResultDisplay.textContent = 'DEALER BUSTS! YOU WIN!';
 					hitButton.classList.add('hidden');
 					holdButton.classList.add('hidden');
+					doubleButton.classList.add('hidden');
+
 					startButton.classList.remove('hidden');
 					arrowButtons.classList.remove('hidden');
 			}
@@ -322,6 +326,8 @@ function finalResult() {
   updateBankDisplay();
   hitButton.classList.add('hidden');
   holdButton.classList.add('hidden');
+	doubleButton.classList.add('hidden');
+
 	startButton.classList.remove('hidden');
 	arrowButtons.classList.remove('hidden');
 }
@@ -370,9 +376,11 @@ function startBtn() {
 		return;
 	}
   startingDeal();
-  startButton.classList.add('hidden'); 
+	doubleButton.classList.remove('hidden');
   hitButton.classList.remove('hidden');
   holdButton.classList.remove('hidden');
+
+	startButton.classList.add('hidden'); 
 	arrowButtons.classList.add('hidden');
   updateDisplay();
 }
@@ -388,21 +396,14 @@ function holdBtn() {
 	finalResult();
 }
 
-/* 
-
-Double button will look kinda like
-
 function doubleBtn() {
 	hit(player);
-	isDouble = true;
-	return isDouble;
-	holdBtn()
+	// isDouble = true;
+	// return isDouble;
+	holdBtn();
 }
 
-*/
-
 updateBankDisplay();
-
 
 listen('click', startButton, () => { 
 	startBtn();
@@ -415,8 +416,6 @@ listen('click', hitButton, () => {
 listen('click', holdButton, () => {
 	holdBtn();
 });
-
-
 
 listen('click', increaseBet, () => {
   if (playerBank >= playerBet) { // Ensure player has enough funds
@@ -437,5 +436,3 @@ listen('click', decreaseBet, () => {
     updateTotalBet();
   }
 });
-
-
