@@ -3,12 +3,9 @@
 
 /*
 - Switch to modules
-- Ensure bet has to be placed 
-- Go over payout logic 
-- Needs to clear image wrappers / list of items  
-- Add double button/logic
 - Hiding/showing btn containers 
-- 
+- Show dealer cards
+- Double button/functions 
 */
 
 const { log } = console;
@@ -37,7 +34,8 @@ function createImage(imageSrc) {
 <--------------------------------------------------------------*/
 
 const dealerDisplay = select('.dealer-display');
-const dealerValueDisplay = select('.value-display');
+const dealerValueDisplay = select('.dealer-value-display');
+const dealerImgDisplay = select('.dealer-image-wrapper');
 const finalResultDisplay = select('.final-result-display');
 const playerDisplay = select('.player-display');
 const playerValueDisplay = select('.player-value-display');
@@ -243,20 +241,21 @@ const dealer = new Player();
 function updateDisplay() {
 	playerDisplay.textContent = player.handDisplayText.join(', ');
 	playerValueDisplay.textContent = `${player.handValue}`;
-	
-	playerDisplayImages(player.handDisplayImg);
+	updateDisplayImages(player.handDisplayImg, playerImgDisplay);
 
 	dealerDisplay.textContent = dealer.handDisplayText[0];
+	updateDisplayImages(dealer.handDisplayImg.slice(0, 1), dealerImgDisplay);
 }
 
-function playerDisplayImages(images) {
-	playerImgDisplay.innerHTML = '';  
+function updateDisplayImages(images, imageWrapper) {
+	imageWrapper.innerHTML = '';  
 
 	images.forEach(imageSrc => {
 		let imgElement = createImage(imageSrc);
-		playerImgDisplay.appendChild(imgElement);
+		imageWrapper.appendChild(imgElement);
 	});
 }
+
 
 function startingDeal() {
 	player.addCard(shuffledDeck[0], shuffledDeck);
@@ -347,8 +346,6 @@ function resetGame() {
   dealer.handDisplayImg = [];
   dealer.handDisplayText = []; 
 
-  // pot = 0; 
-  // playerBetTotal = 0; 
   shuffledDeck = shuffle([...cardObjects]);
 
   finalResultDisplay.textContent = '';
@@ -358,7 +355,7 @@ function resetGame() {
 
   startButton.classList.remove('hidden');
   hitButton.classList.add('hidden');
-  holdButton.classList.add('hidden'); // Major need for readjustment
+  holdButton.classList.add('hidden'); 
   updateBankDisplay();
   updateTotalBet();
 }
