@@ -1,9 +1,5 @@
 @charset "utf-8";
 
-/*
-- Adjust colours and graphics to improve UI 
-*/
-
 html{
     font-family:"poppins", "inter", sans-serif;
 }
@@ -161,9 +157,10 @@ footer {
 }
 
 .deal-bet {
-	width: 15svw;
+	width: 30svw;
 	justify-content: space-between;
 }
+
 
 button, .button {
     width: 100px; 

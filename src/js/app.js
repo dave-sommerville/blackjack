@@ -4,7 +4,8 @@
 /*
 - Switch to modules
 - Hiding/showing btn containers 
-- Show dealer cards
+- Show all dealer cards at end
+- Adjust ending animations 
 - Double button/functions 
 */
 
@@ -40,11 +41,13 @@ const finalResultDisplay = select('.final-result-display');
 const playerDisplay = select('.player-display');
 const playerValueDisplay = select('.player-value-display');
 const playerImgDisplay = select('.player-image-wrapper');
+const dealBetButton = select('.deal-bet');
+const actionButtons = select('.actions-btns');
 const startButton = select('.start-btn');
 const hitButton = select('.hit-btn');
 const holdButton = select('.hold-btn');
 //	doubleButton 
-const arrowButtons = select('.round-button')
+const arrowButtons = select('.button')
 const increaseBet = select('.up');
 const decreaseBet = select('.down');
 
@@ -256,7 +259,6 @@ function updateDisplayImages(images, imageWrapper) {
 	});
 }
 
-
 function startingDeal() {
 	player.addCard(shuffledDeck[0], shuffledDeck);
 	dealer.addCard(shuffledDeck[0], shuffledDeck);
@@ -286,11 +288,13 @@ function bustCheck(handObj) {
 					hitButton.classList.add('hidden');
 					holdButton.classList.add('hidden');
 					startButton.classList.remove('hidden');
+					arrowButtons.classList.remove('hidden');
 			} else if (handObj === dealer) {
 					finalResultDisplay.textContent = 'DEALER BUSTS! YOU WIN!';
-					hitButton.classList.addd('hidden');
+					hitButton.classList.add('hidden');
 					holdButton.classList.add('hidden');
 					startButton.classList.remove('hidden');
+					arrowButtons.classList.remove('hidden');
 			}
 	}
 }
@@ -314,12 +318,12 @@ function finalResult() {
     playerBank += playerBetTotal; 
   }
 
-  // Hide buttons and reset pot
   pot = 0;
   updateBankDisplay();
   hitButton.classList.add('hidden');
   holdButton.classList.add('hidden');
 	startButton.classList.remove('hidden');
+	arrowButtons.classList.remove('hidden');
 }
 
 
@@ -353,9 +357,6 @@ function resetGame() {
   playerValueDisplay.textContent = '';
   dealerDisplay.textContent = '';
 
-  startButton.classList.remove('hidden');
-  hitButton.classList.add('hidden');
-  holdButton.classList.add('hidden'); 
   updateBankDisplay();
   updateTotalBet();
 }
@@ -369,9 +370,10 @@ function startBtn() {
 		return;
 	}
   startingDeal();
-  startButton.classList.add('hidden'); // These could be extracted into a new file 
+  startButton.classList.add('hidden'); 
   hitButton.classList.remove('hidden');
   holdButton.classList.remove('hidden');
+	arrowButtons.classList.add('hidden');
   updateDisplay();
 }
 
