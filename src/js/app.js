@@ -3,10 +3,9 @@
 
 /*
 - Switch to modules
-- Hiding/showing btn containers 
 - Show all dealer cards at end
-- Adjust ending animations 
-- Double button/functions 
+- Adjust ending animations / timeout 
+- Double payout adjustment 
 */
 
 const { log } = console;
@@ -250,6 +249,8 @@ function updateDisplay() {
 	updateDisplayImages(dealer.handDisplayImg.slice(0, 1), dealerImgDisplay);
 }
 
+let isDouble = false;
+
 function updateDisplayImages(images, imageWrapper) {
 	imageWrapper.innerHTML = '';  
 
@@ -301,6 +302,7 @@ function bustCheck(handObj) {
 					arrowButtons.classList.remove('hidden');
 			}
 	}
+	isDouble = false;
 }
 
 let playerBank = 1000;
@@ -311,9 +313,15 @@ let pot = 0;
 function finalResult() {
   if (dealer.handValue > 21) {
     finalResultDisplay.textContent = 'DEALER BUSTS! YOU WIN!';
+		if (isDouble === true) {
+			pot = pot * 2;
+		}
     playerBank += pot; 
   } else if (dealer.handValue > player.handValue) {
     finalResultDisplay.textContent = 'DEALER WINS!';
+		if (isDouble === true) {
+			pot = pot * 2;
+		}
   } else if (dealer.handValue < player.handValue) {
     finalResultDisplay.textContent = 'YOU WIN!';
     playerBank += pot; 
@@ -323,6 +331,7 @@ function finalResult() {
   }
 
   pot = 0;
+	isDouble = false;
   updateBankDisplay();
   hitButton.classList.add('hidden');
   holdButton.classList.add('hidden');
@@ -397,9 +406,9 @@ function holdBtn() {
 }
 
 function doubleBtn() {
+	isDouble = true;
+	console.log(isDouble);
 	hit(player);
-	// isDouble = true;
-	// return isDouble;
 	holdBtn();
 }
 
@@ -415,6 +424,10 @@ listen('click', hitButton, () => {
 
 listen('click', holdButton, () => {
 	holdBtn();
+});
+
+listen('click', doubleButton, () => {
+	doubleBtn();
 });
 
 listen('click', increaseBet, () => {
@@ -434,5 +447,6 @@ listen('click', decreaseBet, () => {
     playerBank += playerBet; 
     updateBankDisplay();
     updateTotalBet();
+		console.log(isDouble);
   }
 });
