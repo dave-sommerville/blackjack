@@ -249,7 +249,6 @@ function updateDisplay() {
 	updateDisplayImages(dealer.handDisplayImg.slice(0, 1), dealerImgDisplay);
 }
 
-let isDouble = false;
 
 function updateDisplayImages(images, imageWrapper) {
 	imageWrapper.innerHTML = '';  
@@ -302,7 +301,6 @@ function bustCheck(handObj) {
 					arrowButtons.classList.remove('hidden');
 			}
 	}
-	isDouble = false;
 }
 
 let playerBank = 1000;
@@ -313,15 +311,9 @@ let pot = 0;
 function finalResult() {
   if (dealer.handValue > 21) {
     finalResultDisplay.textContent = 'DEALER BUSTS! YOU WIN!';
-		if (isDouble === true) {
-			pot = pot * 2;
-		}
     playerBank += pot; 
   } else if (dealer.handValue > player.handValue) {
     finalResultDisplay.textContent = 'DEALER WINS!';
-		if (isDouble === true) {
-			pot = pot * 2;
-		}
   } else if (dealer.handValue < player.handValue) {
     finalResultDisplay.textContent = 'YOU WIN!';
     playerBank += pot; 
@@ -331,7 +323,6 @@ function finalResult() {
   }
 
   pot = 0;
-	isDouble = false;
   updateBankDisplay();
   hitButton.classList.add('hidden');
   holdButton.classList.add('hidden');
@@ -401,13 +392,14 @@ function hitBtn() {
 }
 
 function holdBtn() {
+
 	dealerTurn();
 	finalResult();
 }
 
 function doubleBtn() {
-	isDouble = true;
-	console.log(isDouble);
+	playerBank = playerBank - playerBetTotal;
+	pot = pot * 2;
 	hit(player);
 	holdBtn();
 }
@@ -447,6 +439,5 @@ listen('click', decreaseBet, () => {
     playerBank += playerBet; 
     updateBankDisplay();
     updateTotalBet();
-		console.log(isDouble);
   }
 });
