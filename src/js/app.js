@@ -41,7 +41,6 @@ const playerDisplay = select('.player-display');
 const playerValueDisplay = select('.player-value-display');
 const playerImgDisplay = select('.player-image-wrapper');
 const dealBetButton = select('.deal-bet');
-const actionButtons = select('.actions-btns');
 const startButton = select('.start-btn');
 const hitButton = select('.hit-btn');
 const holdButton = select('.hold-btn');
@@ -267,8 +266,23 @@ function startingDeal() {
 
 	updateDisplay();
 }
+function hideActionShowDeal() {
+	hitButton.classList.add('hidden');
+	holdButton.classList.add('hidden');
+	doubleButton.classList.add('hidden');
 
+	startButton.classList.remove('hidden');
+	arrowButtons.classList.remove('hidden');
+}
 
+function hideDealShowAction() {
+	hitButton.classList.remove('hidden');
+	holdButton.classList.remove('hidden');
+	doubleButton.classList.remove('hidden');
+
+	startButton.classList.add('hidden');
+	arrowButtons.classList.add('hidden');
+}
 
 function hit(handObj) {
 	handObj.addCard(shuffledDeck[0], shuffledDeck);
@@ -287,23 +301,13 @@ function bustCheck(handObj) {
 	if (handObj.handValue > 21) {  
 			if (handObj === player) {
 				finalResultDisplay.textContent = 'YOU BUSTED! YOU LOSE!';
-				hitButton.classList.add('hidden');
-				holdButton.classList.add('hidden');
-				doubleButton.classList.add('hidden');
-
-				startButton.classList.remove('hidden');
-				arrowButtons.classList.remove('hidden');
+				hideActionShowDeal();
 				pot = 0;
 				playerBetTotal = 0;
 
 			} else if (handObj === dealer) {
 					finalResultDisplay.textContent = 'DEALER BUSTS! YOU WIN!';
-					hitButton.classList.add('hidden');
-					holdButton.classList.add('hidden');
-					doubleButton.classList.add('hidden');
-
-					startButton.classList.remove('hidden');
-					arrowButtons.classList.remove('hidden');
+					hideActionShowDeal();
 					playerBank += pot; 
 					pot = 0;
 					playerBetTotal = 0;
@@ -334,12 +338,7 @@ function finalResult() {
   pot = 0;
 	playerBetTotal = 0;
   updateBankDisplay();
-  hitButton.classList.add('hidden');
-  holdButton.classList.add('hidden');
-	doubleButton.classList.add('hidden');
-
-	startButton.classList.remove('hidden');
-	arrowButtons.classList.remove('hidden');
+	hideActionShowDeal();
 }
 
 
@@ -386,12 +385,7 @@ function startBtn() {
 		return;
 	}
   startingDeal();
-	doubleButton.classList.remove('hidden');
-  hitButton.classList.remove('hidden');
-  holdButton.classList.remove('hidden');
-
-	startButton.classList.add('hidden'); 
-	arrowButtons.classList.add('hidden');
+	hideDealShowAction();
   updateDisplay();
 }
 
