@@ -268,6 +268,8 @@ function startingDeal() {
 	updateDisplay();
 }
 
+
+
 function hit(handObj) {
 	handObj.addCard(shuffledDeck[0], shuffledDeck);
 	bustCheck(handObj);
@@ -284,13 +286,16 @@ function dealerTurn() {
 function bustCheck(handObj) {
 	if (handObj.handValue > 21) {  
 			if (handObj === player) {
-					finalResultDisplay.textContent = 'YOU BUSTED! YOU LOSE!';
-					hitButton.classList.add('hidden');
-					holdButton.classList.add('hidden');
-					doubleButton.classList.add('hidden');
+				finalResultDisplay.textContent = 'YOU BUSTED! YOU LOSE!';
+				hitButton.classList.add('hidden');
+				holdButton.classList.add('hidden');
+				doubleButton.classList.add('hidden');
 
-					startButton.classList.remove('hidden');
-					arrowButtons.classList.remove('hidden');
+				startButton.classList.remove('hidden');
+				arrowButtons.classList.remove('hidden');
+				pot = 0;
+				playerBetTotal = 0;
+
 			} else if (handObj === dealer) {
 					finalResultDisplay.textContent = 'DEALER BUSTS! YOU WIN!';
 					hitButton.classList.add('hidden');
@@ -299,8 +304,12 @@ function bustCheck(handObj) {
 
 					startButton.classList.remove('hidden');
 					arrowButtons.classList.remove('hidden');
+					playerBank += pot; 
+					pot = 0;
+					playerBetTotal = 0;
 			}
 	}
+
 }
 
 let playerBank = 1000;
@@ -323,6 +332,7 @@ function finalResult() {
   }
 
   pot = 0;
+	playerBetTotal = 0;
   updateBankDisplay();
   hitButton.classList.add('hidden');
   holdButton.classList.add('hidden');
