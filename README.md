@@ -18,11 +18,7 @@ I first began creating a Blackjack game the same week that I started learning Ja
 ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
 ![JavaScript](https://shields.io/badge/JavaScript-F7DF1E?logo=JavaScript&logoColor=000&style=flat-square)
 ## Planned Features and Fixes  
-- General bebugging 
-	- Bet logic doesn't flow properly
-	- Functions can be further simplified
-	- Whole project needs organization and notation
 - Make game recognize a natural 21 
-- Add game animation / processing time 
+- Improve game animation / "processing" time 
 - Improved UI
 - Potentially add an insurance and/or split feature 

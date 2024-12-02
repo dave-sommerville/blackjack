@@ -1,13 +1,7 @@
 'use strict';
-
-
-/*
-- Switch to modules
-- Show all dealer cards at end
-- Adjust ending animations / timeout 
-- Double payout adjustment 
-*/
-
+/*-------------------------------------------------------------->
+Utility Functions 
+<--------------------------------------------------------------*/
 const { log } = console;
 
 function select(selector, scope = document) {
@@ -27,6 +21,15 @@ function createImage(imageSrc) {
   img.src = imageSrc;  
   img.alt = imageSrc; // Because the photo could be anything 
   return img;
+}
+
+function shuffle(deck) {
+	const shuffledDeck = [...deck]; 
+	for (let i = shuffledDeck.length - 1; i > 0; i--) {
+		const j = Math.floor(Math.random() * (i + 1));
+		[shuffledDeck[i], shuffledDeck[j]] = [shuffledDeck[j], shuffledDeck[i]]; 
+	}
+	return shuffledDeck;
 }
 
 /*-------------------------------------------------------------->
@@ -53,7 +56,7 @@ const bankDisplay = select('.player-bank');
 const totalPlayerBet = select('.pot');
 
 /*-------------------------------------------------------------->
-  Card Declarations 
+  Card Declarations - MOVE TO MODULES!!!!!
 <--------------------------------------------------------------*/
 
 const cardObjects = [
@@ -222,50 +225,21 @@ class Player {
 }
 
 /*-------------------------------------------------------------->
-	Shuffle Function (Creates a Copy of the Deck)
+	Display Functions 
 <--------------------------------------------------------------*/
-
-function shuffle(deck) {
-	const shuffledDeck = [...deck]; 
-	for (let i = shuffledDeck.length - 1; i > 0; i--) {
-		const j = Math.floor(Math.random() * (i + 1));
-		[shuffledDeck[i], shuffledDeck[j]] = [shuffledDeck[j], shuffledDeck[i]]; 
-	}
-	return shuffledDeck;
-}
-
 let shuffledDeck = shuffle([...cardObjects]);
 
 const player = new Player();
 const dealer = new Player();
 
-function updateDisplay() {
-	playerDisplay.textContent = player.handDisplayText.join(', ');
-	playerValueDisplay.textContent = `${player.handValue}`;
-	updateDisplayImages(player.handDisplayImg, playerImgDisplay);
+let playerBank = 1000;
+let playerBet = 10;
+let playerBetTotal = 0;
+let pot = 0;
 
-	dealerDisplay.textContent = dealer.handDisplayText[0];
-	updateDisplayImages(dealer.handDisplayImg.slice(0, 1), dealerImgDisplay);
-}
-
-
-function updateDisplayImages(images, imageWrapper) {
-	imageWrapper.innerHTML = '';  
-
-	images.forEach(imageSrc => {
-		let imgElement = createImage(imageSrc);
-		imageWrapper.appendChild(imgElement);
-	});
-}
-
-function startingDeal() {
-	player.addCard(shuffledDeck[0], shuffledDeck);
-	dealer.addCard(shuffledDeck[0], shuffledDeck);
-	player.addCard(shuffledDeck[0], shuffledDeck);
-	dealer.addCard(shuffledDeck[0], shuffledDeck);
-
-	updateDisplay();
-}
+/*-------------------------------------------------------------->
+	Display Functions 
+<--------------------------------------------------------------*/
 function hideActionShowDeal() {
 	hitButton.classList.add('hidden');
 	holdButton.classList.add('hidden');
@@ -283,6 +257,49 @@ function hideDealShowAction() {
 	startButton.classList.add('hidden');
 	arrowButtons.classList.add('hidden');
 }
+
+
+function updateDisplayImages(images, imageWrapper) {
+	imageWrapper.innerHTML = '';  
+
+	images.forEach(imageSrc => {
+		let imgElement = createImage(imageSrc);
+		imageWrapper.appendChild(imgElement);
+	});
+}
+
+
+function updateDisplay() {
+	playerDisplay.textContent = player.handDisplayText.join(', ');
+	playerValueDisplay.textContent = `${player.handValue}`;
+	updateDisplayImages(player.handDisplayImg, playerImgDisplay);
+
+	dealerDisplay.textContent = dealer.handDisplayText[0];
+	updateDisplayImages(dealer.handDisplayImg.slice(0, 1), dealerImgDisplay);
+}
+
+
+function updateBankDisplay() {
+  bankDisplay.textContent = `${playerBank}`;
+}
+
+function updateTotalBet() {
+  totalPlayerBet.textContent = `${playerBetTotal}`;
+}
+
+/*-------------------------------------------------------------->
+	Gameplay Functions 
+<--------------------------------------------------------------*/
+
+function startingDeal() {
+	player.addCard(shuffledDeck[0], shuffledDeck);
+	dealer.addCard(shuffledDeck[0], shuffledDeck);
+	player.addCard(shuffledDeck[0], shuffledDeck);
+	dealer.addCard(shuffledDeck[0], shuffledDeck);
+
+	updateDisplay();
+}
+
 
 function hit(handObj) {
 	handObj.addCard(shuffledDeck[0], shuffledDeck);
@@ -316,11 +333,6 @@ function bustCheck(handObj) {
 
 }
 
-let playerBank = 1000;
-let playerBet = 10;
-let playerBetTotal = 0;
-let pot = 0;
-
 function finalResult() {
   if (dealer.handValue > 21) {
     finalResultDisplay.textContent = 'DEALER BUSTS! YOU WIN!';
@@ -340,17 +352,6 @@ function finalResult() {
   updateBankDisplay();
 	hideActionShowDeal();
 }
-
-
-function updateBankDisplay() {
-  bankDisplay.textContent = `${playerBank}`;
-}
-
-
-function updateTotalBet() {
-  totalPlayerBet.textContent = `${playerBetTotal}`;
-}
-
 
 function resetGame() {
   player.hand = [];
@@ -376,6 +377,9 @@ function resetGame() {
   updateTotalBet();
 }
 
+/*-------------------------------------------------------------->
+	Button Functions 
+<--------------------------------------------------------------*/
 
 function startBtn() {
 	resetGame();
@@ -388,7 +392,6 @@ function startBtn() {
 	hideDealShowAction();
   updateDisplay();
 }
-
 
 function hitBtn() {
 	hit(player);
@@ -407,6 +410,10 @@ function doubleBtn() {
 	hit(player);
 	holdBtn();
 }
+
+/*-------------------------------------------------------------->
+	Page Load and Listeners
+<--------------------------------------------------------------*/
 
 updateBankDisplay();
 

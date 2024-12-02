@@ -1,34 +1,28 @@
 @charset "utf-8";
+/*-------------------------------------------->
+	Defaults 
+<---------------------------------------------*/
 
 html{
     font-family:"poppins", "inter", sans-serif;
 }
 
-button {
-	text-decoration: none;
-	font-style: inherit;
-	border: 0;
-	outline: 0;
-	display: block;
-}
+/*-------------------------------------------->
+	Roots
+<---------------------------------------------*/
 
 :root {
 	--clr-primary: #396;
 }
 
-body {
-	background-color: #275;
-	color: #fff;
-	justify-content: center;
-	align-items: center;
-	position: relative;
-}
+/*-------------------------------------------->
+	Utility Classes 
+<---------------------------------------------*/
 
 .container {
-    width: min(100% - 30px, 1200px);
-    margin-inline: auto;
+	width: min(100% - 30px, 1200px);
+	margin-inline: auto;
 }
-
 
 .f-col {
 	flex-direction: column;
@@ -43,6 +37,9 @@ display: flex;
 	opacity: 0;
 }
 
+/*-------------------------------------------->
+	Fonts
+<---------------------------------------------*/
 
 h1 {
 	font-size: 5rem;
@@ -52,6 +49,18 @@ p {
 	text-align: center;
 	font-size: 1.5rem;
 	margin: 15px 0;
+}
+
+/*-------------------------------------------->
+	Body Structure 
+<---------------------------------------------*/
+
+body {
+	background-color: #275;
+	color: #fff;
+	justify-content: center;
+	align-items: center;
+	position: relative;
 }
 
 header {
@@ -67,6 +76,13 @@ main {
 	align-items: center;
 }
 
+footer {
+	justify-content: center;
+}
+
+/*-------------------------------------------->
+	Display Info
+<---------------------------------------------*/
 
 aside {
 	width: 400px;
@@ -81,6 +97,10 @@ aside {
 		background-color: rgb(64 64 64 / 0.2);
 	}
 }
+
+/*-------------------------------------------->
+	Card Handling
+<---------------------------------------------*/
 
 .dealer-image-wrapper {
   display: grid;
@@ -97,6 +117,8 @@ aside {
 	img {
 		height: 9svh;
 		width: auto;
+		opacity: 0; 
+		animation: slideInStaggered 0.5s ease-in-out forwards; 
 	}
 }
 
@@ -107,60 +129,57 @@ aside {
   grid-template-rows: auto; 
   width: 30svw; 
   height: 30svh; 
-	padding:30px; 
-	margin: 7svh 0;
-	border: solid 2px #212;
-	border-radius: 25px;
-
-	img {
-		height: 20svh;
-		width: auto;
-	}
+  padding: 30px; 
+  margin: 7svh 0;
+  border: solid 2px #212;
+  border-radius: 25px;
 }
 
-.player-image-wrapper > * {
+.player-image-wrapper > img {
+  height: 20svh;
+  width: auto;
   position: absolute; 
-  top:15px; 
+  top: 15px; 
   left: 15px; 
-  right: 0;
-  bottom: 0;
   z-index: 1; 
-  transition: transform 0.3s ease-in-out; 
+  opacity: 0; 
+  animation: slideInStaggered 0.5s ease-in-out forwards; 
 }
 
-.player-image-wrapper > *:nth-child(1) {
+.player-image-wrapper > img:nth-child(1) {
   z-index: 1;
+  animation-delay: 0s;
+  transform: translateX(0); 
 }
-
-.player-image-wrapper > *:nth-child(2) {
-  z-index: 2; 
+.player-image-wrapper > img:nth-child(2) {
+  z-index: 2;
+  animation-delay: 0.2s;
   transform: translateX(25%); 
 }
-
-.player-image-wrapper > *:nth-child(3) {
-  z-index: 3; 
+.player-image-wrapper > img:nth-child(3) {
+  z-index: 3;
+  animation-delay: 0.4s;
   transform: translateX(50%); 
 }
-
-.player-image-wrapper > *:nth-child(4) {
-  z-index: 4; 
+.player-image-wrapper > img:nth-child(4) {
+  z-index: 4;
+  animation-delay: 0.6s;
   transform: translateX(75%); 
 }
-
-.player-image-wrapper > *:nth-child(4) {
-  z-index: 5; 
+.player-image-wrapper > img:nth-child(5) {
+  z-index: 5;
+  animation-delay: 0.8s;
   transform: translateX(100%); 
 }
 
-footer {
-	justify-content: center;
-}
+/*-------------------------------------------->
+	Button Styles 
+<---------------------------------------------*/
 
 .deal-bet {
 	width: 30svw;
 	justify-content: space-between;
 }
-
 
 button, .button {
     width: 100px; 
@@ -182,7 +201,7 @@ button, .button {
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  border: 2px solid #007BFF; /* Button border color */
+  border: 2px solid #007BFF; 
 }
 
 .half {
@@ -210,7 +229,6 @@ button, .button {
 }
 
 .half.up::before {
- /* Copy and pasted because Font Awesome is complicated for psuedo elements */
   content: "▲";
 }
 
@@ -219,5 +237,19 @@ button, .button {
 }
 
 .half:hover {
-  filter: brightness(1.2); /* Highlight on hover */
+  filter: brightness(1.2); 
+}
+
+/*-------------------------------------------->
+	Animations
+<---------------------------------------------*/
+
+@keyframes slideInStaggered {
+  0% {
+    transform: translateX(100%);
+    opacity: 0; 
+  }
+  100% {
+    opacity: 1; 
+  }
 }
