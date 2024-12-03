@@ -7,6 +7,12 @@ html{
     font-family:"poppins", "inter", sans-serif;
 }
 
+button {
+	outline: none;
+	text-decoration: none;
+	border: none;
+}
+
 /*-------------------------------------------->
 	Roots
 <---------------------------------------------*/
@@ -188,9 +194,43 @@ button, .button {
 		align-items: center;
     font-size: 1.5rem;
     font-weight: 400;
-    background-color: var(--clr-primary);
-    color: #fff;
+    color: #012;
+		font-weight: 500;
     border-radius: 50%;
+		box-shadow: 2px -2px 3px 2px rgba(0, 0, 0, 0.4); 
+		border-bottom: 3px solid #234;
+		border-left: 2px solid #234;
+		cursor: pointer;
+		transition: all 0.15s ease-in-out;
+
+		span {
+			transition: all 0.15s ease-in-out;
+			background-color: rgb(2555 255 255 / 1);
+			border-radius: 50%;
+			padding: 0 5px;
+		}
+	}
+	
+.button, button {
+	background: #234 url("../img/poker-chip.png") no-repeat center center;
+	background-size: cover;
+}
+
+.button:active, button:active {
+	box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
+	transform: translateY(2px); 
+	border: none;
+
+	span {
+		background-color: #ccc;
+	}
+}
+
+button:hover {
+
+	span {
+		background-color: #ccc;
+	}
 }
 
 .round-button {
@@ -201,7 +241,6 @@ button, .button {
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  border: 2px solid #007BFF; 
 }
 
 .half {
