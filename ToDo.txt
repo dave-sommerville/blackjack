@@ -1,13 +1,12 @@
-
+- Button responsiveness 
+- Heading responsiveness
+- Gradient background 
+- Where to display player bank/bets/pots 
+- 21 math payout 
+- Modules 
 
 
 --Tougher additions--
-Blackjack (nat 21, wtih no push) (pays 3:2)
-- Function watching for certain values 
-	- If Ace + (any value 10 card) then 
-- Clear the pot
-- Multiply value by 3/2
-- Return new value to player bank
 Split
 - Action: Play two hands with two separate bets
 Insurance
