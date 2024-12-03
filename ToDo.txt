@@ -1,12 +1,5 @@
-- BlackJack
-	- UI 
-	- Starting dealer reveal
-		- Copy css 
-		- Adjust logic
-	- Double Down (only one chance to beat the dealer)
-		- Deal one card to player
-		- Pass turn to dealer 
-		- Alter payout logic (either multiplies pot by 4 or the new value by 2)
+
+
 
 --Tougher additions--
 Blackjack (nat 21, wtih no push) (pays 3:2)

@@ -113,16 +113,16 @@ aside {
   position: relative; 
   grid-template-columns: 1fr; 
   grid-template-rows: auto; 
-  width: 15svw; 
-  height: 15svh; 
+  width: 160px; 
+  height: 120px; 
 	margin: 7svh 0;
-	padding: 30px;
+	padding: 10px 20px;
 	border: solid 2px #212;
 	border-radius: 25px;
 
 	img {
-		height: 9svh;
-		width: auto;
+		height: auto;
+		width: 60px;
 		opacity: 0; 
 		animation: slideInStaggered 0.5s ease-in-out forwards; 
 	}
@@ -133,17 +133,19 @@ aside {
   position: relative; 
   grid-template-columns: 1fr; 
   grid-template-rows: auto; 
-  width: 30svw; 
-  height: 30svh; 
+  width: 400px; 
+  height: calc(150px  + 5svw); 
+	min-width: 260px;
   padding: 30px; 
-  margin: 7svh 0;
+	margin: 50px 0;
   border: solid 2px #212;
   border-radius: 25px;
 }
 
 .player-image-wrapper > img {
-  height: 20svh;
-  width: auto;
+  height: auto;
+  width: 7svw;
+	min-width: 80px;
   position: absolute; 
   top: 15px; 
   left: 15px; 
