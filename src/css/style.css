@@ -1,5 +1,27 @@
 @charset "utf-8";
 /*-------------------------------------------->
+	- Bank Area
+		- Media Queries 
+			- 768: Nearly everything will have to size down
+			- 480: It instead becomes viewable by a button
+				at final result 
+	- Action buttons 
+		- Change appearance 
+		- Center deal button 
+	- Player card lists
+		- Convert them to <li>'s 
+		- Position absolute next to the play areas 
+	- Game end
+		- Dealer's 1 card disappears 
+		- Dealer has a full hand reveal
+		- Value shows
+		- Game result displays 
+		- Click returns to betting page 
+	- Misc
+		- Gradient background 
+		- 21 math payout 
+		- Modules 
+
 	Defaults 
 <---------------------------------------------*/
 
@@ -93,26 +115,42 @@ footer {
 aside {
 	width: 400px;
 	height: fit-content;
-	border: solid 1px #012;
+	border-radius: 25px;
+	border: solid 3px rgb(16 32 16 / 0.8);
 	position: fixed;
-	left: 10px;
-	top: 400px;
+	margin: auto 0;
+	left: 15px;
+	padding: 25px;
 
 	p {
-		line-height: 25px;
+		line-height: 40px;
 		background-color: rgb(64 64 64 / 0.2);
+		font-size: 2.2rem;
+		border-radius: 25px;
 	}
+
+}
+
+figure {
+	width: 100%;
+	justify-content: center;
+	align-items: center;
 
 	img {
 		width: auto;
 		height: 100px;
 	}
+
+	figcaption {
+		font-size: 1.6rem;
+	}
+
 }
 
 .round-button {
   position: relative;
-  width: 50px;
-  height: 50px;
+  width: 55px;
+  height: 55px;
   border-radius: 50%;
   overflow: hidden;
   display: flex;
@@ -129,18 +167,18 @@ aside {
 }
 
 .half.up {
-	background-color: rgb(240 240 240 / 0.2);
-  color: #fff;
+	background-color: rgb(240 240 240 / 0.4);
+  color: #012;
 }
 
 .half.down {
-	background-color: rgb(64 64 64 / 0.2);
-  color: #fff;
+	background-color: rgb(64 64 64 / 0.4);
+  color: #012;
 }
 
 .half.up::before,
 .half.down::before {
-  font-size: 16px;
+  font-size: 18px;
 }
 
 .half.up::before {
@@ -185,7 +223,7 @@ aside {
   width: 200px; 
   height: 150px; 
 	padding: 10px 20px;
-	border: solid 2px #212;
+	border: solid 3px rgb(16 32 16 / 0.8);
 	border-radius: 25px;
 
 	img {
@@ -212,7 +250,7 @@ aside {
   height: 280px; 
   padding: 30px; 
 	margin: 50px 0;
-  border: solid 2px #212;
+	border: solid 3px rgb(16 32 16 / 0.8);
   border-radius: 25px;
 }
 

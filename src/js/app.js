@@ -296,7 +296,9 @@ function startingDeal() {
 	dealer.addCard(shuffledDeck[0], shuffledDeck);
 	player.addCard(shuffledDeck[0], shuffledDeck);
 	dealer.addCard(shuffledDeck[0], shuffledDeck);
-
+	if (player.handValue === 21) {
+		console.log('blackjack'); //// Add blackjack function 
+	};
 	updateDisplay();
 }
 
@@ -382,10 +384,10 @@ function resetGame() {
 <--------------------------------------------------------------*/
 
 function startBtn() {
-	resetGame();
-  pot = playerBetTotal * 2; // Pot is double the player's bet
+	resetGame();	//	May want to adjust display 
+  pot = playerBetTotal * 2; 
 	if (pot <= 0) {
-		console.log("You must place a bet");
+		console.log("You must place a bet"); //	Move this to center text 
 		return;
 	}
   startingDeal();

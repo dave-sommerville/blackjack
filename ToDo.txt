@@ -7,7 +7,6 @@ Player
 - Player bet / pot display 
 - player bank display 
 - Best placement for betting buttons 
-- 
 
 Game end: 
 - Dealer's 1 card disappears 
