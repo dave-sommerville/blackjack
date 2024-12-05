@@ -102,6 +102,75 @@ aside {
 		line-height: 25px;
 		background-color: rgb(64 64 64 / 0.2);
 	}
+
+	img {
+		width: auto;
+		height: 100px;
+	}
+}
+
+.round-button {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.half {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  cursor: pointer;
+}
+
+.half.up {
+	background-color: rgb(240 240 240 / 0.2);
+  color: #fff;
+}
+
+.half.down {
+	background-color: rgb(64 64 64 / 0.2);
+  color: #fff;
+}
+
+.half.up::before,
+.half.down::before {
+  font-size: 16px;
+}
+
+.half.up::before {
+  content: "▲";
+}
+
+.half.down::before {
+  content: "▼"; 
+}
+
+.half:hover {
+  filter: brightness(1.2); 
+}
+
+.bet-area {
+	width: 100%;
+	justify-content: space-between;
+	padding: 0 50px;
+}
+.pot-display {
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	background-color: #396;
+}
+
+.pot {
+	text-align: center;
+	line-height: 100px;
+	font-size: 3rem;
 }
 
 /*-------------------------------------------->
@@ -113,18 +182,25 @@ aside {
   position: relative; 
   grid-template-columns: 1fr; 
   grid-template-rows: auto; 
-  width: 160px; 
-  height: 120px; 
+  width: 200px; 
+  height: 150px; 
 	padding: 10px 20px;
 	border: solid 2px #212;
 	border-radius: 25px;
 
 	img {
 		height: auto;
-		width: 60px;
+		width: 80px;
 		opacity: 0; 
 		animation: slideInStaggered 0.5s ease-in-out forwards; 
 	}
+}
+
+.dealer-value-display {
+	position: absolute;
+	bottom: 2px;
+	left: 15px;
+	z-index: 500;
 }
 
 .player-image-wrapper {
@@ -133,8 +209,7 @@ aside {
   grid-template-columns: 1fr; 
   grid-template-rows: auto; 
   width: 400px; 
-  height: calc(150px  + 5svw); 
-	min-width: 260px;
+  height: 280px; 
   padding: 30px; 
 	margin: 50px 0;
   border: solid 2px #212;
@@ -143,8 +218,7 @@ aside {
 
 .player-image-wrapper > img {
   height: auto;
-  width: 7svw;
-	min-width: 80px;
+  width: 140px;
   position: absolute; 
   top: 15px; 
   left: 15px; 
@@ -179,12 +253,18 @@ aside {
   transform: translateX(100%); 
 }
 
+.player-hand-value {
+	position: absolute;
+	bottom: 2px;
+	left: 15px;
+}
+
 /*-------------------------------------------->
 	Button Styles 
 <---------------------------------------------*/
 
 .deal-bet {
-	width: 30svw;
+	width: 400px;
 	justify-content: space-between;
 }
 
@@ -221,10 +301,6 @@ button, .button {
 	box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
 	transform: translateY(2px); 
 	border: none;
-
-	span {
-		background-color: #ccc;
-	}
 }
 
 button:hover {
@@ -234,50 +310,63 @@ button:hover {
 	}
 }
 
-.round-button {
-  position: relative;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
+
+/*-------------------------------------------->
+	Media Queries 
+<---------------------------------------------*/
+
+@media (max-width: 768px) {
+	h1 {
+		font-size: 3.5rem;
+	}
+	
+	.dealer-image-wrapper {
+		width: 160px; 
+		height: 120px; 
+		
+		img {
+			height: auto;
+			width: 60px;
+		}
+	}
+	
+	.player-image-wrapper {
+		width: 340px; 
+		height: 220px; 
+	
+		img {
+			width: 100px;
+		}
+	}
+
+	button, .button {
+		width: 80px;
+		height: 80px;
+		font-size: 1rem;
+	}
 }
 
-.half {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  cursor: pointer;
-}
-
-.half.up {
-  background-color: #007BFF; 
-  color: #fff;
-}
-
-.half.down {
-  background-color: #0056b3;
-  color: #fff;
-}
-
-.half.up::before,
-.half.down::before {
-  font-size: 16px;
-}
-
-.half.up::before {
-  content: "▲";
-}
-
-.half.down::before {
-  content: "▼"; 
-}
-
-.half:hover {
-  filter: brightness(1.2); 
+@media (max-width: 480px) {
+	h1 {
+		font-size: 2rem;
+	}
+	.dealer-image-wrapper {
+		width: 120px; 
+		height: 100px; 
+		
+		img {
+			width: 50px;
+		}
+	}
+	
+	.player-image-wrapper {
+		width: 300px; 
+		height: 180px; 
+	}
+	
+	.player-image-wrapper > img {
+		width: 80px;
+	}
 }
 
 /*-------------------------------------------->

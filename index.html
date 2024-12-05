@@ -19,37 +19,46 @@
 	<header class="flex f-col">
     <h1>BLACKJACK</h1>
 	</header>
-  <main class="player flex f-col">
-		<p>
-			Dealer Total: 
-			<span class="dealer-value-display">Hidden
-			</span>
-		</p>	
+  <main class="flex f-col">
 	<p>
 		Dealer Cards: 
 		<span class="dealer-display">
 		</span>
-		<div class="dealer-image-wrapper"></div>
+	</p>
+		<div class="dealer-image-wrapper">
+			<p class="dealer-value-display">hidden</p>	
+		</div>
 		<aside class="flex f-col">				
-			<p>
-				Player Bet:  <!--		-->
-				<span class="pot"></span>	
-			</p>
-			<p>
-				Player Bank:
-				<span class="player-bank">$500</span>
-			</p>
+			<figure>
+				<img src="./src/img/bank.png">
+				<figcaption class="player-bank">$500</span>
+			</figure>
 			<p>
 				Player Cards: 
 				<span class="player-display">10 of Diamonds</span>
 			</p>
+			<div class="bet-area flex">
+				<div class="button flex">
+					<div class="round-button">
+						<div class="half up"></div>
+						<div class="half down"></div>
+					</div>
+				</div>
+				<div class="pot-display">
+					<h3 class="pot"></h3>
+				</div>
+			</div>
+			<p>
+				BET
+			</p>
 		</aside>
-`		<div class="final-result-display">Dealer Wins!</div>
-		<div class="player-image-wrapper"></div>
-		<p>
-			Total:
-			<span class="player-value-display"></span>
-		</p>
+		<div class="final-result-display">Dealer Wins!</div>
+		<div class="player-image-wrapper">
+			<p class="player-hand-value">
+				Total:
+				<span class="player-value-display">21</span>
+			</p>
+		</div>
 	</main>
   	<footer class="container flex">
 			<section class="deal-bet flex">
@@ -58,12 +67,6 @@
 						DEAL
 					</span>
 				</button>
-				<div class="button flex">
-					<div class="round-button">
-						<div class="half up"></div>
-						<div class="half down"></div>
-					</div>
-				</div>
 				<button type="button" class="hit-btn hidden">
 					<span>
 						HIT
