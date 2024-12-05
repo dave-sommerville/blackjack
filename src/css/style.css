@@ -219,6 +219,7 @@ figure {
 	justify-content: space-between;
 	padding: 0 50px;
 }
+
 .pot-display {
 	width: 100px;
 	height: 100px;
@@ -390,12 +391,51 @@ figure {
 			width: 100px;
 		}
 	}
+  
+  aside {
+    width: 320px;
+    left: 15px;
 
-	button, .button {
-		width: 80px;
-		height: 80px;
-		font-size: 1rem;
-	}
+    p {
+      line-height: 40px;
+      font-size: 2.2rem;
+    }
+  }
+
+  figure img {
+      width: auto;
+      height: 60px;
+    }
+
+  figcaption {
+    font-size: 2rem;
+  }
+
+  .button {
+    width: 70px; 
+    height: 70px;
+    font-size: 1.2rem;
+  }
+
+  .round-button {
+    width: 61px;
+    height: 61px;
+  }
+
+  .bet-area {
+    padding: 0 50px;
+  }
+
+  .pot-display {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .pot {
+    line-height: 70px;
+    font-size: 2.4rem;
+  }
+
 }
 
 @media (max-width: 480px) {
