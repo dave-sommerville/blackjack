@@ -296,12 +296,24 @@ function startingDeal() {
   dealer.addCard(shuffledDeck[0], shuffledDeck);
   player.addCard(shuffledDeck[0], shuffledDeck);
   dealer.addCard(shuffledDeck[0], shuffledDeck);
-  if (player.handValue === 21) {
-    console.log('blackjack'); //// Add blackjack function 
-  };
   updateDisplay();
 }
 
+function isBlackJack() {
+  if (player.handValue === 21) {
+    return true;
+  } else {
+    return false;
+  }
+}
+function blackJackPayout() {
+  pot = pot * 1.5;
+  playerBank = playerBank + pot;
+  pot = 0;
+  playerBetTotal = 0;
+  updateBankDisplay();
+  hideActionShowDeal();
+}
 
 function hit(handObj) {
   handObj.addCard(shuffledDeck[0], shuffledDeck);
@@ -391,8 +403,12 @@ function startBtn() {
     return;
   }
   startingDeal();
-  hideDealShowAction();
   updateDisplay();
+  if (isBlackJack()) {
+    blackJackPayout();
+  } else {
+    hideDealShowAction();
+  }
 }
 
 function hitBtn() {
