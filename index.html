@@ -1,91 +1,91 @@
 <html lang="en">
 <head>
-	<meta charset="utf-8">
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="author" content="Dave Sommerville">
   <meta name="description" content=""> <!-- Consider SEO!!-->
   <meta name="theme-color" content="#ffffff">
-		<!-- Needs Icon still  -->
+    <!-- Needs Icon still  -->
   <title>Blackjack</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-	<link rel="stylesheet" href="./src/css/reset.css" media="all">
+  <link rel="stylesheet" href="./src/css/reset.css" media="all">
   <link rel="stylesheet" href="./src/css/style.css" media="all">
   <script src="./src/js/app.js" defer></script>
 </head>
 <body class="container">
-	<header class="flex f-col">
+  <header class="flex f-col">
     <h1>BLACKJACK</h1>
-	</header>
+  </header>
   <main class="flex f-col">
-	<p>
-		Dealer Cards: 
-		<span class="dealer-display">
-		</span>
-	</p>
-		<div class="dealer-image-wrapper">
-			<p class="dealer-value-display">hidden</p>	
-		</div>
-		<aside class="flex f-col">
-			<p>
-				BANK
-			</p>	
-			<figure class="flex f-col">
-				<img src="./src/img/bank.png">
-				<figcaption class="player-bank">$500</span>
-			</figure>
-			<p>
-				BET
-			</p>
-			<div class="bet-area flex">
-				<div class="button flex">
-					<div class="round-button">
-						<div class="half up"></div>
-						<div class="half down"></div>
-					</div>
-				</div>
-				<div class="pot-display">
-					<h3 class="pot"></h3>
-				</div>
-			</div>
-		</aside>
-		<div class="final-result-display">Dealer Wins!</div>
-		<div class="player-image-wrapper">
-			<p class="player-hand-value">
-				Total:
-				<span class="player-value-display">21</span>
-			</p>
-		</div>
-		<p>
-			Player Cards: 
-			<span class="player-display">10 of Diamonds</span>
-		</p>
-	</main>
-  	<footer class="container flex">
-			<section class="deal-bet flex">
-				<button type="button" class="start-btn">
-					<span>
-						DEAL
-					</span>
-				</button>
-				<button type="button" class="hit-btn hidden">
-					<span>
-						HIT
-					</span>
-				</button>
-				<button type="button" class="double-btn hidden">
-					<span>
-						DOUBLE
-					</span>
-				</button>
-				<button type="button" class="hold-btn hidden">
-					<span>
-						HOLD
-					</span>
-				</button>
-			</section>
-		</footer>
+  <p>
+    Dealer Cards: 
+    <span class="dealer-display">
+    </span>
+  </p>
+    <div class="dealer-image-wrapper">
+      <p class="dealer-value-display">hidden</p>	
+    </div>
+    <aside class="flex f-col">
+      <p>
+        BANK
+      </p>	
+      <figure class="flex f-col">
+        <img src="./src/img/bank.png">
+        <figcaption class="player-bank">$500</span>
+      </figure>
+      <p>
+        BET
+      </p>
+      <div class="bet-area flex">
+        <div class="button flex">
+          <div class="round-button">
+            <div class="half up"></div>
+            <div class="half down"></div>
+          </div>
+        </div>
+        <div class="pot-display">
+          <h3 class="pot"></h3>
+        </div>
+      </div>
+    </aside>
+    <div class="final-result-display">Dealer Wins!</div>
+    <div class="player-image-wrapper">
+      <p class="player-hand-value">
+        Total:
+        <span class="player-value-display">21</span>
+      </p>
+    </div>
+    <p>
+      Player Cards: 
+      <span class="player-display">10 of Diamonds</span>
+    </p>
+  </main>
+    <footer class="container flex">
+      <section class="deal-bet flex">
+        <button type="button" class="start-btn">
+          <span>
+            DEAL
+          </span>
+        </button>
+        <button type="button" class="hit-btn hidden">
+          <span>
+            HIT
+          </span>
+        </button>
+        <button type="button" class="double-btn hidden">
+          <span>
+            DOUBLE
+          </span>
+        </button>
+        <button type="button" class="hold-btn hidden">
+          <span>
+            HOLD
+          </span>
+        </button>
+      </section>
+    </footer>
 </body>
 </html>

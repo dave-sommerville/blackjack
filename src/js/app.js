@@ -5,11 +5,11 @@ Utility Functions
 const { log } = console;
 
 function select(selector, scope = document) {
-	return scope.querySelector(selector);
+  return scope.querySelector(selector);
 }
 
 function listen(event, element, callback) {
-	return element.addEventListener(event, callback);
+  return element.addEventListener(event, callback);
 }
 
 function isImageFile(file) {
@@ -24,16 +24,16 @@ function createImage(imageSrc) {
 }
 
 function shuffle(deck) {
-	const shuffledDeck = [...deck]; 
-	for (let i = shuffledDeck.length - 1; i > 0; i--) {
-		const j = Math.floor(Math.random() * (i + 1));
-		[shuffledDeck[i], shuffledDeck[j]] = [shuffledDeck[j], shuffledDeck[i]]; 
-	}
-	return shuffledDeck;
+  const shuffledDeck = [...deck]; 
+  for (let i = shuffledDeck.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffledDeck[i], shuffledDeck[j]] = [shuffledDeck[j], shuffledDeck[i]]; 
+  }
+  return shuffledDeck;
 }
 
 /*-------------------------------------------------------------->
-	Initial Declarations 
+  Initial Declarations 
 <--------------------------------------------------------------*/
 
 const dealerDisplay = select('.dealer-display');
@@ -119,113 +119,113 @@ const cardObjects = [
 
 
 /*-------------------------------------------------------------->
-	Player Class
+  Player Class
 <--------------------------------------------------------------*/
 
 class Player {
-	#hand = []; 
-	#handDisplayText = []; 
-	#handDisplayImg = [];  
-	#handValue = 0; 
-	#aceCount = 0;
+  #hand = []; 
+  #handDisplayText = []; 
+  #handDisplayImg = [];  
+  #handValue = 0; 
+  #aceCount = 0;
 
-	constructor(
-		hand = [], 
-		handDisplayText = [], 
-		handDisplayImg = [], 
-		handValue = 0, 
-		aceCount = 0
-	) {
-		this.#hand = hand;
-		this.#handDisplayText = handDisplayText || [];
-		this.#handDisplayImg = handDisplayImg || [];
-		this.#handValue = handValue;
-		this.#aceCount = aceCount;
+  constructor(
+    hand = [], 
+    handDisplayText = [], 
+    handDisplayImg = [], 
+    handValue = 0, 
+    aceCount = 0
+  ) {
+    this.#hand = hand;
+    this.#handDisplayText = handDisplayText || [];
+    this.#handDisplayImg = handDisplayImg || [];
+    this.#handValue = handValue;
+    this.#aceCount = aceCount;
 
-		this.updateHandValue(); 
-	}
+    this.updateHandValue(); 
+  }
 
-	set hand(hand) {
-		this.#hand = hand;
-		this.updateHandValue();
-	}
-	set handDisplayText(handDisplayText) {
-		this.#handDisplayText = handDisplayText;
-	}
-	set handDisplayImg(handDisplayImg) {
-		this.#handDisplayImg = handDisplayImg;
-	}
-	set handValue(handValue) {
-		this.#handValue = handValue;
-	}
-	set aceCount(aceCount) {
-		this.#aceCount = aceCount;
-	}
+  set hand(hand) {
+    this.#hand = hand;
+    this.updateHandValue();
+  }
+  set handDisplayText(handDisplayText) {
+    this.#handDisplayText = handDisplayText;
+  }
+  set handDisplayImg(handDisplayImg) {
+    this.#handDisplayImg = handDisplayImg;
+  }
+  set handValue(handValue) {
+    this.#handValue = handValue;
+  }
+  set aceCount(aceCount) {
+    this.#aceCount = aceCount;
+  }
 
-	get hand() {
-		return this.#hand;
-	}
-	get handDisplayText() {
-		return this.#handDisplayText;
-	}
-	get handDisplayImg() {
-		return this.#handDisplayImg;
-	}
-	get handValue() {
-		return this.#handValue;
-	}
-	get aceCount() {
-		return this.#aceCount;
-	}
+  get hand() {
+    return this.#hand;
+  }
+  get handDisplayText() {
+    return this.#handDisplayText;
+  }
+  get handDisplayImg() {
+    return this.#handDisplayImg;
+  }
+  get handValue() {
+    return this.#handValue;
+  }
+  get aceCount() {
+    return this.#aceCount;
+  }
 
-	addCard(card, shuffledDeck) {
-		if (!Array.isArray(this.#handDisplayText)) {
-			this.#handDisplayText = [];
-		}
-		if (!Array.isArray(this.#handDisplayImg)) {
-			this.#handDisplayImg = [];
-		}
+  addCard(card, shuffledDeck) {
+    if (!Array.isArray(this.#handDisplayText)) {
+      this.#handDisplayText = [];
+    }
+    if (!Array.isArray(this.#handDisplayImg)) {
+      this.#handDisplayImg = [];
+    }
 /*			--  */
-		this.#hand.push(card); 
-		this.#handDisplayText.push(card.carddisplay);  
-		this.#handDisplayImg.push(card.imgsrc); 
+    this.#hand.push(card); 
+    this.#handDisplayText.push(card.carddisplay);  
+    this.#handDisplayImg.push(card.imgsrc); 
 
-		const index = shuffledDeck.indexOf(card); 
-		if (index !== -1) {
-			shuffledDeck.splice(index, 1); 
-		}
+    const index = shuffledDeck.indexOf(card); 
+    if (index !== -1) {
+      shuffledDeck.splice(index, 1); 
+    }
 
-		this.updateHandValue();  
-		this.updateAceCount(card); 
-	}
+    this.updateHandValue();  
+    this.updateAceCount(card); 
+  }
 
-	updateHandValue() {
-		let value = 0;
-		this.#aceCount = 0;
+  updateHandValue() {
+    let value = 0;
+    this.#aceCount = 0;
 
-		this.#hand.forEach(card => {
-			value += card.cardvalue; 
-			if (card.carddisplay.includes('Ace')) {
-				this.#aceCount++;  // Count aces
-			}
-		});
+    this.#hand.forEach(card => {
+      value += card.cardvalue; 
+      if (card.carddisplay.includes('Ace')) {
+        this.#aceCount++;  // Count aces
+      }
+    });
 
-		this.#handValue = value;
-		while (this.#handValue > 21 && this.#aceCount > 0) {
-			this.#handValue -= 10;
-			this.#aceCount--; 
-		}
-	}
+    this.#handValue = value;
+    while (this.#handValue > 21 && this.#aceCount > 0) {
+      this.#handValue -= 10;
+      this.#aceCount--; 
+    }
+  }
 
-	updateAceCount(card) {
-		if (card.carddisplay.includes('Ace')) {
-			this.#aceCount++;
-		}
-	}
+  updateAceCount(card) {
+    if (card.carddisplay.includes('Ace')) {
+      this.#aceCount++;
+    }
+  }
 }
 
 /*-------------------------------------------------------------->
-	Display Functions 
+  Display Functions 
 <--------------------------------------------------------------*/
 let shuffledDeck = shuffle([...cardObjects]);
 
@@ -238,44 +238,44 @@ let playerBetTotal = 0;
 let pot = 0;
 
 /*-------------------------------------------------------------->
-	Display Functions 
+  Display Functions 
 <--------------------------------------------------------------*/
 function hideActionShowDeal() {
-	hitButton.classList.add('hidden');
-	holdButton.classList.add('hidden');
-	doubleButton.classList.add('hidden');
+  hitButton.classList.add('hidden');
+  holdButton.classList.add('hidden');
+  doubleButton.classList.add('hidden');
 
-	startButton.classList.remove('hidden');
-	arrowButtons.classList.remove('hidden');
+  startButton.classList.remove('hidden');
+  arrowButtons.classList.remove('hidden');
 }
 
 function hideDealShowAction() {
-	hitButton.classList.remove('hidden');
-	holdButton.classList.remove('hidden');
-	doubleButton.classList.remove('hidden');
+  hitButton.classList.remove('hidden');
+  holdButton.classList.remove('hidden');
+  doubleButton.classList.remove('hidden');
 
-	startButton.classList.add('hidden');
-	arrowButtons.classList.add('hidden');
+  startButton.classList.add('hidden');
+  arrowButtons.classList.add('hidden');
 }
 
 
 function updateDisplayImages(images, imageWrapper) {
-	imageWrapper.innerHTML = '';  
+  imageWrapper.innerHTML = '';  
 
-	images.forEach(imageSrc => {
-		let imgElement = createImage(imageSrc);
-		imageWrapper.appendChild(imgElement);
-	});
+  images.forEach(imageSrc => {
+    let imgElement = createImage(imageSrc);
+    imageWrapper.appendChild(imgElement);
+  });
 }
 
 
 function updateDisplay() {
-	playerDisplay.textContent = player.handDisplayText.join(', ');
-	playerValueDisplay.textContent = `${player.handValue}`;
-	updateDisplayImages(player.handDisplayImg, playerImgDisplay);
+  playerDisplay.textContent = player.handDisplayText.join(', ');
+  playerValueDisplay.textContent = `${player.handValue}`;
+  updateDisplayImages(player.handDisplayImg, playerImgDisplay);
 
-	dealerDisplay.textContent = dealer.handDisplayText[0];
-	updateDisplayImages(dealer.handDisplayImg.slice(0, 1), dealerImgDisplay);
+  dealerDisplay.textContent = dealer.handDisplayText[0];
+  updateDisplayImages(dealer.handDisplayImg.slice(0, 1), dealerImgDisplay);
 }
 
 
@@ -288,50 +288,50 @@ function updateTotalBet() {
 }
 
 /*-------------------------------------------------------------->
-	Gameplay Functions 
+  Gameplay Functions 
 <--------------------------------------------------------------*/
 
 function startingDeal() {
-	player.addCard(shuffledDeck[0], shuffledDeck);
-	dealer.addCard(shuffledDeck[0], shuffledDeck);
-	player.addCard(shuffledDeck[0], shuffledDeck);
-	dealer.addCard(shuffledDeck[0], shuffledDeck);
-	if (player.handValue === 21) {
-		console.log('blackjack'); //// Add blackjack function 
-	};
-	updateDisplay();
+  player.addCard(shuffledDeck[0], shuffledDeck);
+  dealer.addCard(shuffledDeck[0], shuffledDeck);
+  player.addCard(shuffledDeck[0], shuffledDeck);
+  dealer.addCard(shuffledDeck[0], shuffledDeck);
+  if (player.handValue === 21) {
+    console.log('blackjack'); //// Add blackjack function 
+  };
+  updateDisplay();
 }
 
 
 function hit(handObj) {
-	handObj.addCard(shuffledDeck[0], shuffledDeck);
-	bustCheck(handObj);
-	updateDisplay();
+  handObj.addCard(shuffledDeck[0], shuffledDeck);
+  bustCheck(handObj);
+  updateDisplay();
 }
 
 function dealerTurn() {
-	while (dealer.handValue < 17) {
-		hit(dealer);
-	}
-	updateDisplay(); 
+  while (dealer.handValue < 17) {
+    hit(dealer);
+  }
+  updateDisplay(); 
 }
 
 function bustCheck(handObj) {
-	if (handObj.handValue > 21) {  
-			if (handObj === player) {
-				finalResultDisplay.textContent = 'YOU BUSTED! YOU LOSE!';
-				hideActionShowDeal();
-				pot = 0;
-				playerBetTotal = 0;
+  if (handObj.handValue > 21) {  
+      if (handObj === player) {
+        finalResultDisplay.textContent = 'YOU BUSTED! YOU LOSE!';
+        hideActionShowDeal();
+        pot = 0;
+        playerBetTotal = 0;
 
-			} else if (handObj === dealer) {
-					finalResultDisplay.textContent = 'DEALER BUSTS! YOU WIN!';
-					hideActionShowDeal();
-					playerBank += pot; 
-					pot = 0;
-					playerBetTotal = 0;
-			}
-	}
+      } else if (handObj === dealer) {
+          finalResultDisplay.textContent = 'DEALER BUSTS! YOU WIN!';
+          hideActionShowDeal();
+          playerBank += pot; 
+          pot = 0;
+          playerBetTotal = 0;
+      }
+  }
 
 }
 
@@ -350,9 +350,9 @@ function finalResult() {
   }
 
   pot = 0;
-	playerBetTotal = 0;
+  playerBetTotal = 0;
   updateBankDisplay();
-	hideActionShowDeal();
+  hideActionShowDeal();
 }
 
 function resetGame() {
@@ -380,59 +380,59 @@ function resetGame() {
 }
 
 /*-------------------------------------------------------------->
-	Button Functions 
+  Button Functions 
 <--------------------------------------------------------------*/
 
 function startBtn() {
-	resetGame();	//	May want to adjust display 
+  resetGame();	//	May want to adjust display 
   pot = playerBetTotal * 2; 
-	if (pot <= 0) {
-		console.log("You must place a bet"); //	Move this to center text 
-		return;
-	}
+  if (pot <= 0) {
+    console.log("You must place a bet"); //	Move this to center text 
+    return;
+  }
   startingDeal();
-	hideDealShowAction();
+  hideDealShowAction();
   updateDisplay();
 }
 
 function hitBtn() {
-	hit(player);
-	updateDisplay();
+  hit(player);
+  updateDisplay();
 }
 
 function holdBtn() {
 
-	dealerTurn();
-	finalResult();
+  dealerTurn();
+  finalResult();
 }
 
 function doubleBtn() {
-	playerBank = playerBank - playerBetTotal;
-	pot = pot * 2;
-	hit(player);
-	holdBtn();
+  playerBank = playerBank - playerBetTotal;
+  pot = pot * 2;
+  hit(player);
+  holdBtn();
 }
 
 /*-------------------------------------------------------------->
-	Page Load and Listeners
+  Page Load and Listeners
 <--------------------------------------------------------------*/
 
 updateBankDisplay();
 
 listen('click', startButton, () => { 
-	startBtn();
+  startBtn();
 }); 
 
 listen('click', hitButton, () => {
-	hitBtn();
+  hitBtn();
 });
 
 listen('click', holdButton, () => {
-	holdBtn();
+  holdBtn();
 });
 
 listen('click', doubleButton, () => {
-	doubleBtn();
+  doubleBtn();
 });
 
 listen('click', increaseBet, () => {
