@@ -9,11 +9,14 @@
     - Hit button must disable double btn 
     - Bet display should show on game screeen
 
-    - Watch for weird amounts in bet area
-    - Full Responsiveness 
-		- Gradient background  
-		- Modules 
-    - Adding bank ot localStorage 
+
+JavaScript 
+  - Watch for weird amounts in bet area
+  - Modules 
+  - Adding bank ot localStorage 
+CSS
+  - Full Responsiveness 
+  - Gradient background  
 
 <---------------------------------------------*/
 
@@ -254,6 +257,10 @@ dialog {
 	Card Handling
 <---------------------------------------------*/
 
+.value-image-wrapper {
+  position: relative;
+}
+
 .dealer-image-wrapper {
   display: grid;
   position: relative; 
@@ -305,8 +312,8 @@ dialog {
 
 .dealer-value-display {
 	position: absolute;
-	bottom: 2px;
-	left: 15px;
+  inset: 0;
+  margin: 50px auto;
 	z-index: 500;
 }
 

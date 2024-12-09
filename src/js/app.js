@@ -284,7 +284,6 @@ function updateDisplay(player, targetUL, targetImgDis) {
     li.textContent = text; 
     targetUL.appendChild(li); 
   });
- //  playerValueDisplay.textContent = `${player.handValue}`;
   updateDisplayImages(player.handDisplayImg, targetImgDis);
 }
 
@@ -359,7 +358,7 @@ function bustCheck(handObj) {
 
 }
 
-function finalResult() {
+function dealerCheck() {
   if (dealer.handValue > 21) {
     finalResultDisplay.textContent = 'DEALER BUSTS! YOU WIN!';
     playerBank += pot; 
@@ -372,12 +371,17 @@ function finalResult() {
     finalResultDisplay.textContent = 'PUSH';
     playerBank += playerBetTotal; 
   }
+}
+
+function finalResult() {
+  updateDisplay(dealer, dealerDisplay, dealerImgDisplay);
+  hideActionShowDeal();
+  setTimeout(() => {
+    dealerCheck();
+  }, 1000);
   pot = 0;
   playerBetTotal = 0;
   totalPlayerBet.textContent = '';
-  updateBankDisplay(dealer, dealerDisplay, dealerImgDisplay);
-  updateDisplay(dealer, dealerDisplay, dealerImgDisplay);
-  hideActionShowDeal();
 }
 
 function resetGame() {

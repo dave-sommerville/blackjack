@@ -20,17 +20,19 @@
     <h1>BLACKJACK</h1>
   </header>
   <main class="flex f-col">
-    <div class="dealer-image-wrapper">
-      <p class="dealer-value-display">hidden</p>	
-    </div>
+    <div class="value-image-wrapper flex f-col">
+      <div class="dealer-image-wrapper"></div>
+      <p class="dealer-value-display">hidden</p>
+    </div>	
     <div class="final-result-display">Dealer Wins!</div>
-    <div class="player-image-wrapper">
+    <div class="value-image-wrapper flex f-col">
+      <div class="player-image-wrapper">
+      </div>
       <p class="player-hand-value">
         Total:
         <span class="player-value-display">21</span>
       </p>
     </div>
-
     <section class="deal-bet flex">
       <button type="button" class="btn start-btn pointer">
           DEAL
