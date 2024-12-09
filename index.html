@@ -20,15 +20,43 @@
     <h1>BLACKJACK</h1>
   </header>
   <main class="flex f-col">
-  <p>
-    Dealer Cards: 
-    <span class="dealer-display">
-    </span>
-  </p>
     <div class="dealer-image-wrapper">
       <p class="dealer-value-display">hidden</p>	
     </div>
-    <dialog class="flex f-col">
+    <div class="final-result-display">Dealer Wins!</div>
+    <div class="player-image-wrapper">
+      <p class="player-hand-value">
+        Total:
+        <span class="player-value-display">21</span>
+      </p>
+    </div>
+
+    <section class="deal-bet flex">
+      <button type="button" class="btn start-btn pointer">
+          DEAL
+      </button>
+      <button type="button" class="btn hit-btn hidden pointer">
+          HIT
+      </button>
+      <button type="button" class="btn double-btn pointer hidden">
+          DOUBLE
+      </button>
+      <button type="button" class="btn hold-btn pointer hidden">
+          HOLD
+      </button>
+    </section>
+    <aside>
+      <p>
+        Dealer Cards: 
+        <span class="dealer-display">
+        </span>
+      </p>
+      <p>
+        Player Cards: 
+        <span class="player-display">10 of Diamonds</span>
+      </p>
+    </aside>
+    <dialog class="">
       <div class="bank-area flex f-col">
         <p>
           BANK: <span class="player-bank"></span>
@@ -64,33 +92,6 @@
       </div>
       <button class="btn place-bet">PLACE BET</button>
     </dialog>
-    <div class="final-result-display">Dealer Wins!</div>
-    <div class="player-image-wrapper">
-      <p class="player-hand-value">
-        Total:
-        <span class="player-value-display">21</span>
-      </p>
-    </div>
-    <p>
-      Player Cards: 
-      <span class="player-display">10 of Diamonds</span>
-    </p>
   </main>
-    <footer class="container flex">
-      <section class="deal-bet flex">
-        <button type="button" class="btn start-btn pointer">
-            DEAL
-        </button>
-        <button type="button" class="btn hit-btn hidden pointer">
-            HIT
-        </button>
-        <button type="button" class="btn double-btn pointer hidden">
-            DOUBLE
-        </button>
-        <button type="button" class="btn hold-btn pointer hidden">
-            HOLD
-        </button>
-      </section>
-    </footer>
 </body>
 </html>

@@ -55,7 +55,8 @@ const increaseBetHundred = select('.bet100');
 const decreaseBetTen = select('.down10');
 const decreaseBetFifty = select('.down50');
 const decreaseBetHundred = select('.down100');
-
+const placeBet = select('.place-bet');
+const betScreen = select('dialog');
 const bankDisplay = select('.player-bank');
 const totalPlayerBet = select('.pot');
 
@@ -415,14 +416,14 @@ function resetGame() {
 /*-------------------------------------------------------------->
   Button Functions 
 <--------------------------------------------------------------*/
-listen('click', decreaseBetTen, () => {
-  if (playerBetTotal >= playerBet) { 
-    playerBetTotal -= playerBet; 
-    playerBank += playerBet; 
+function potDecrease(value) {
+  if (playerBetTotal >= value) { 
+    playerBetTotal -= value; 
+    playerBank += value; 
     updateBankDisplay();
     updateTotalBet();
   }
-});
+}
 
 function potIncrease(value) {
   if (playerBank >= value) { 
@@ -455,6 +456,23 @@ listen('click', increaseBetHundred, () => {
   potIncrease(100);
 });
 
+listen('click', decreaseBetTen, () => {
+  potDecrease(10);
+});
+
+listen('click', decreaseBetFifty, () => {
+  potDecrease(50);
+});
+
+listen('click', decreaseBetHundred, () => {
+  potDecrease(100);
+});
+
+listen('click', placeBet, () => {
+  setBet();
+  betScreen.close();
+});
+
 function startBtn() {
   resetGame()
   startingDeal();
@@ -472,7 +490,6 @@ function hitBtn() {
 }
 
 function holdBtn() {
-
   dealerTurn();
   finalResult();
 }
