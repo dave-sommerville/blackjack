@@ -1,11 +1,6 @@
 @charset "utf-8";
 /*-------------------------------------------->
-	- Misc
     - Delays on functions and animations 
-      - Place bet 
-        - Modal disappears
-        - Text displays (shuffling) 
-        - Deal button works 
       - Final Result 
         - Let the dealer's final deal show 
         - Settimeout
@@ -15,7 +10,6 @@
     - Bet display should show on game screeen
 
     - Watch for weird amounts in bet area
-    - Previous pot has to be clear 
     - Full Responsiveness 
 		- Gradient background  
 		- Modules 

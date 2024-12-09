@@ -438,7 +438,11 @@ function setBet() {
 
 function startBtn() {
   resetGame()
-  startingDeal();
+  finalResultDisplay.textContent = 'Shuffling';
+  setTimeout(() => {
+    finalResultDisplay.textContent = '';
+    startingDeal();
+  }, 1000);
   if (isBlackJack()) {
     blackJackPayout();
   } else {
