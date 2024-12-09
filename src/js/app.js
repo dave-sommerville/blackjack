@@ -229,7 +229,7 @@ class Player {
 }
 
 /*-------------------------------------------------------------->
-  Display Functions 
+
 <--------------------------------------------------------------*/
 let shuffledDeck = shuffle([...cardObjects]);
 
@@ -269,21 +269,24 @@ function updateDisplayImages(images, imageWrapper) {
   });
 }
 
-
-function updateDisplay() {
-  playerDisplay.innerHTML = ''; 
-  player.handDisplayText.forEach((text) => {
-    const li = document.createElement('li'); 
-    li.textContent = text; 
-    playerDisplay.appendChild(li); 
-  });
-  playerValueDisplay.textContent = `${player.handValue}`;
-  updateDisplayImages(player.handDisplayImg, playerImgDisplay);
-
-  dealerDisplay.textContent = dealer.handDisplayText[0];
+function dealerFirstDisplay () {
+  const li = document.createElement('li'); 
+  li.textContent = dealer.handDisplayText[0];; 
+  dealerDisplay.appendChild(li); 
   updateDisplayImages(dealer.handDisplayImg.slice(0, 1), dealerImgDisplay);
 }
 
+
+function updateDisplay(player, targetUL, targetImgDis) {
+  targetUL.innerHTML = ''; 
+  player.handDisplayText.forEach((text) => {
+    const li = document.createElement('li'); 
+    li.textContent = text; 
+    targetUL.appendChild(li); 
+  });
+ //  playerValueDisplay.textContent = `${player.handValue}`;
+  updateDisplayImages(player.handDisplayImg, targetImgDis);
+}
 
 function updateBankDisplay() {
   bankDisplay.textContent = `${playerBank}`;
@@ -302,7 +305,9 @@ function startingDeal() {
   dealer.addCard(shuffledDeck[0], shuffledDeck);
   player.addCard(shuffledDeck[0], shuffledDeck);
   dealer.addCard(shuffledDeck[0], shuffledDeck);
-  updateDisplay();
+  updateDisplay(player, playerDisplay, playerImgDisplay);
+  dealerFirstDisplay();
+
 }
 
 function isBlackJack() {
@@ -312,6 +317,7 @@ function isBlackJack() {
     return false;
   }
 }
+
 function blackJackPayout() {
   pot = pot * 1.5;
   playerBank = playerBank + pot;
@@ -324,14 +330,13 @@ function blackJackPayout() {
 function hit(handObj) {
   handObj.addCard(shuffledDeck[0], shuffledDeck);
   bustCheck(handObj);
-  updateDisplay();
 }
 
 function dealerTurn() {
   while (dealer.handValue < 17) {
     hit(dealer);
   }
-  updateDisplay(); 
+  updateDisplay(player, playerDisplay, playerImgDisplay); 
 }
 
 function bustCheck(handObj) {
@@ -366,33 +371,12 @@ function finalResult() {
     finalResultDisplay.textContent = 'PUSH';
     playerBank += playerBetTotal; 
   }
-
   pot = 0;
   playerBetTotal = 0;
-  updateBankDisplay();
+  updateBankDisplay(dealer, dealerDisplay, dealerImgDisplay);
+  updateDisplay(dealer, dealerDisplay, dealerImgDisplay);
   hideActionShowDeal();
 }
-
-/*  This will trigger the full final animation (yet to be added)
-    and display the betting modal 
-
-    Dealer reveal 
-updateDisplayImages(dealer.handDisplayImg, dealerImgDisplay);
-  Final result could have winner result extracted to determine portions of
-  final result 
-
-  Regardless of winner
-  - Dealer animations (above function)
-  - Value displays 
-  - 
-  - Winner announced 
-  - Payouts made / resets 
-  - Deal button placed in background (but clicks disabled)
-  - Modal appears 
-  - Bet must be placed in order to remove the 
-
-*/ 
-
 
 function resetGame() {
   player.hand = [];
@@ -447,7 +431,64 @@ function setBet() {
     totalPlayerBet.textContent = 'You must place a bet';  
     return;
   }
+  betScreen.close();
 }
+
+function startBtn() {
+  resetGame()
+  startingDeal();
+  if (isBlackJack()) {
+    blackJackPayout();
+  } else {
+    hideDealShowAction();
+  }
+}
+
+function hitBtn() {
+  hit(player);
+  updateDisplay(player, playerDisplay, playerImgDisplay);
+}
+
+function holdBtn() {
+  dealerTurn();
+  finalResult();
+}
+
+function doubleBtn() {
+  playerBank = playerBank - playerBetTotal;
+  pot = pot * 2;
+  hit(player);
+  holdBtn();
+}
+
+/*-------------------------------------------------------------->
+  Page Load and Listeners
+<--------------------------------------------------------------*/
+
+listen('load', window, () => {
+  updateBankDisplay(player, playerDisplay, playerImgDisplay);
+  updateBankDisplay(dealer, dealerDisplay, dealerImgDisplay);
+});
+
+listen('click', startButton, () => { 
+  startBtn();
+}); 
+
+listen('click', hitButton, () => {
+  hitBtn();
+});
+
+listen('click', holdButton, () => {
+  holdBtn();
+});
+
+listen('click', doubleButton, () => {
+  doubleBtn();
+});
+
+listen('load', window, () => {
+  betScreen.showModal();
+});
 
 listen('click', increaseBetTen, () => {
   potIncrease(10);
@@ -475,57 +516,4 @@ listen('click', decreaseBetHundred, () => {
 
 listen('click', placeBet, () => {
   setBet();
-  betScreen.close();
 });
-
-function startBtn() {
-  resetGame()
-  startingDeal();
-  updateDisplay();
-  if (isBlackJack()) {
-    blackJackPayout();
-  } else {
-    hideDealShowAction();
-  }
-}
-
-function hitBtn() {
-  hit(player);
-  updateDisplay();
-}
-
-function holdBtn() {
-  dealerTurn();
-  finalResult();
-}
-
-function doubleBtn() {
-  playerBank = playerBank - playerBetTotal;
-  pot = pot * 2;
-  hit(player);
-  holdBtn();
-}
-
-/*-------------------------------------------------------------->
-  Page Load and Listeners
-<--------------------------------------------------------------*/
-
-updateBankDisplay();
-
-listen('click', startButton, () => { 
-  startBtn();
-}); 
-
-listen('click', hitButton, () => {
-  hitBtn();
-});
-
-listen('click', holdButton, () => {
-  holdBtn();
-});
-
-listen('click', doubleButton, () => {
-  doubleBtn();
-});
-
-

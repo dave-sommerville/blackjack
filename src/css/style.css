@@ -1,25 +1,26 @@
 @charset "utf-8";
 /*-------------------------------------------->
-	- Bank Area
-    - Appears for deal screen and forces player to set the bet
-    - Two more bet buttons added (value added to the display) 
-    - Arrows underneath of button to decrease bet 
-    - Bank and bet display values in their titles 
-    - Either add deal button here or give it a set bet button
-	- Player card lists
-		- Convert them to <li>'s (can get from script scavengers)
-		- Add to a fixed aside 
-	- Game end
-		- Dealer has a full hand reveal
-		- Value shows
-		- Game result displays 
-    - Dialog modal with deal button appears 
-		- Click returns to betting page 
 	- Misc
-		- Gradient background 
-		- Modules 
+    - Delays on functions and animations 
+      - Place bet 
+        - Modal disappears
+        - Text displays (shuffling) 
+        - Deal button works 
+      - Final Result 
+        - Let the dealer's final deal show 
+        - Settimeout
+        - Post value / Display results 
+        - Play Again button appears 
+    - Hit button must disable double btn 
+    - Bet display should show on game screeen
 
-	Defaults 
+    - Watch for weird amounts in bet area
+    - Previous pot has to be clear 
+    - Full Responsiveness 
+		- Gradient background  
+		- Modules 
+    - Adding bank ot localStorage 
+
 <---------------------------------------------*/
 
 html{
@@ -269,13 +270,43 @@ dialog {
 	padding: 10px 20px;
 	border: solid 3px rgb(16 32 16 / 0.8);
 	border-radius: 25px;
+}
 
-	img {
-		height: auto;
-		width: 80px;
-		opacity: 0; 
-		animation: slideInStaggered 0.5s ease-in-out forwards; 
-	}
+.dealer-image-wrapper > img {
+  height: auto;
+  width: 80px;
+  position: absolute; 
+  top: 15px; 
+  left: 15px; 
+  z-index: 1; 
+  opacity: 0; 
+  animation: slideInStaggered 0.5s ease-in-out forwards; 
+}
+
+.dealer-image-wrapper > img:nth-child(1) {
+  z-index: 1;
+  animation-delay: 0s;
+  transform: translateX(0); 
+}
+.dealer-image-wrapper > img:nth-child(2) {
+  z-index: 2;
+  animation-delay: 0.2s;
+  transform: translateX(25%); 
+}
+.dealer-image-wrapper > img:nth-child(3) {
+  z-index: 3;
+  animation-delay: 0.4s;
+  transform: translateX(50%); 
+}
+.dealer-image-wrapper > img:nth-child(4) {
+  z-index: 4;
+  animation-delay: 0.6s;
+  transform: translateX(75%); 
+}
+.dealer-image-wrapper > img:nth-child(5) {
+  z-index: 5;
+  animation-delay: 0.8s;
+  transform: translateX(100%); 
 }
 
 .dealer-value-display {
