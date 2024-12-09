@@ -346,13 +346,14 @@ function bustCheck(handObj) {
         hideActionShowDeal();
         pot = 0;
         playerBetTotal = 0;
-
+        totalPlayerBet.textContent = '';
       } else if (handObj === dealer) {
           finalResultDisplay.textContent = 'DEALER BUSTS! YOU WIN!';
           hideActionShowDeal();
           playerBank += pot; 
           pot = 0;
           playerBetTotal = 0;
+          totalPlayerBet.textContent = '';
       }
   }
 
@@ -373,6 +374,7 @@ function finalResult() {
   }
   pot = 0;
   playerBetTotal = 0;
+  totalPlayerBet.textContent = '';
   updateBankDisplay(dealer, dealerDisplay, dealerImgDisplay);
   updateDisplay(dealer, dealerDisplay, dealerImgDisplay);
   hideActionShowDeal();
