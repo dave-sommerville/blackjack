@@ -32,6 +32,13 @@ function shuffle(deck) {
   return shuffledDeck;
 }
 
+// Use for animations 
+function sleep(duration) {
+  return new Promise(resolve => {
+    setTimeout(resolve, duration);
+  });
+}
+
 /*-------------------------------------------------------------->
   Initial Declarations 
 <--------------------------------------------------------------*/
@@ -243,11 +250,12 @@ let pot = 0;
 /*-------------------------------------------------------------->
   Display Functions 
 <--------------------------------------------------------------*/
+
 function hideActionShowDeal() {
   hitButton.classList.add('hidden');
   holdButton.classList.add('hidden');
-  doubleButton.classList.add('hidden');
-
+  if (!doubleButton.classList.contains('hidden'))
+    doubleButton.classList.add('hidden');
   startButton.classList.remove('hidden');
 }
 
@@ -456,6 +464,7 @@ function startBtn() {
 
 function hitBtn() {
   hit(player);
+  doubleButton.classList.add('hidden');
   updateDisplay(player, playerDisplay, playerImgDisplay);
 }
 

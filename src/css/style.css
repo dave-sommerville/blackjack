@@ -4,9 +4,11 @@
       - Final Result 
         - Let the dealer's final deal show 
         - Settimeout
+
+
         - Post value / Display results 
-        - Play Again button appears 
-    - Hit button must disable double btn 
+        - Play Again button appears
+
     - Bet display should show on game screeen
 
 
@@ -113,9 +115,17 @@ footer {
 <---------------------------------------------*/
 
 aside {
-  position: fixed;
+  height: 100%;
+  width: 400px;
+  inset: 0;
   margin: auto 0;
-  left: 0;
+  position: fixed;
+  justify-content: center;
+  align-items: center;
+
+  ul {
+    height: 300px;
+  }
 }
 
 dialog {
@@ -346,21 +356,25 @@ dialog {
   animation-delay: 0s;
   transform: translateX(0); 
 }
+
 .player-image-wrapper > img:nth-child(2) {
   z-index: 2;
   animation-delay: 0.2s;
   transform: translateX(25%); 
 }
+
 .player-image-wrapper > img:nth-child(3) {
   z-index: 3;
   animation-delay: 0.4s;
   transform: translateX(50%); 
 }
+
 .player-image-wrapper > img:nth-child(4) {
   z-index: 4;
   animation-delay: 0.6s;
   transform: translateX(75%); 
 }
+
 .player-image-wrapper > img:nth-child(5) {
   z-index: 5;
   animation-delay: 0.8s;
@@ -371,6 +385,12 @@ dialog {
 	position: absolute;
 	bottom: 2px;
 	left: 15px;
+}
+
+.final-result-display {
+  font-size: 3rem;
+  text-align: center;
+  height: 100px;
 }
 
 /*-------------------------------------------->
