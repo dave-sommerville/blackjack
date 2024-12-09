@@ -48,9 +48,13 @@ const startButton = select('.start-btn');
 const hitButton = select('.hit-btn');
 const holdButton = select('.hold-btn');
 const doubleButton = select('.double-btn');
-const arrowButtons = select('.button')
-const increaseBet = select('.up');
-const decreaseBet = select('.down');
+const increaseBetTen = select('.bet10');
+const increaseBetFifty = select('.bet50');
+const increaseBetHundred = select('.bet100');
+
+const decreaseBetTen = select('.down10');
+const decreaseBetFifty = select('.down50');
+const decreaseBetHundred = select('.down100');
 
 const bankDisplay = select('.player-bank');
 const totalPlayerBet = select('.pot');
@@ -232,7 +236,6 @@ const player = new Player();
 const dealer = new Player();
 
 let playerBank = 1000;
-let playerBet = 10;
 let playerBetTotal = 0;
 let pot = 0;
 
@@ -245,7 +248,6 @@ function hideActionShowDeal() {
   doubleButton.classList.add('hidden');
 
   startButton.classList.remove('hidden');
-  arrowButtons.classList.remove('hidden');
 }
 
 function hideDealShowAction() {
@@ -254,7 +256,6 @@ function hideDealShowAction() {
   doubleButton.classList.remove('hidden');
 
   startButton.classList.add('hidden');
-  arrowButtons.classList.add('hidden');
 }
 
 
@@ -414,14 +415,48 @@ function resetGame() {
 /*-------------------------------------------------------------->
   Button Functions 
 <--------------------------------------------------------------*/
+listen('click', decreaseBetTen, () => {
+  if (playerBetTotal >= playerBet) { 
+    playerBetTotal -= playerBet; 
+    playerBank += playerBet; 
+    updateBankDisplay();
+    updateTotalBet();
+  }
+});
+
+function potIncrease(value) {
+  if (playerBank >= value) { 
+    playerBetTotal += value; 
+    playerBank -= value; 
+    updateBankDisplay();
+    updateTotalBet();
+  } else {
+    finalResultDisplay.textContent = 'Not enough funds to increase bet!';
+  }
+}
+
+function setBet() {
+  pot = playerBetTotal * 2; 
+  if (pot <= 0) {
+    totalPlayerBet.textContent = 'You must place a bet';  
+    return;
+  }
+}
+
+listen('click', increaseBetTen, () => {
+  potIncrease(10);
+});
+
+listen('click', increaseBetFifty, () => {
+  potIncrease(50);
+});
+
+listen('click', increaseBetHundred, () => {
+  potIncrease(100);
+});
 
 function startBtn() {
   resetGame()
-  pot = playerBetTotal * 2; 
-  if (pot <= 0) {
-    console.log("You must place a bet"); //	Move this to center text 
-    return;
-  }
   startingDeal();
   updateDisplay();
   if (isBlackJack()) {
@@ -472,23 +507,3 @@ listen('click', doubleButton, () => {
 });
 
 
-/* These functions will have to swtich buttons (and variables) */
-listen('click', increaseBet, () => {
-  if (playerBank >= playerBet) { // Ensure player has enough funds
-    playerBetTotal += playerBet; 
-    playerBank -= playerBet; 
-    updateBankDisplay();
-    updateTotalBet();
-  } else {
-    finalResultDisplay.textContent = 'Not enough funds to increase bet!';
-  }
-});
-
-listen('click', decreaseBet, () => {
-  if (playerBetTotal >= playerBet) { // Ensure the bet total doesn't go below zero
-    playerBetTotal -= playerBet; 
-    playerBank += playerBet; 
-    updateBankDisplay();
-    updateTotalBet();
-  }
-});

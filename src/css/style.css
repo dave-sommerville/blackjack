@@ -1,7 +1,6 @@
 @charset "utf-8";
 /*-------------------------------------------->
 	- Bank Area
-    - Create as dialog element 
     - Appears for deal screen and forces player to set the bet
     - Two more bet buttons added (value added to the display) 
     - Arrows underneath of button to decrease bet 
@@ -125,13 +124,23 @@ dialog {
   margin: auto;
 	padding: 25px;
   z-index: 1000;
+  justify-content: center;
+  align-items: center;
+}
+
+.bank-area {
+  width: 100%;
 
 	p {
+    width: 100%;
 		line-height: 50px;
 		background-color: rgb(64 64 64 / 0.2);
 		font-size: 2.6rem;
 		border-radius: 25px;
+    text-align: left;
+    padding-left: 20px;
 	}
+
 }
 
 .money-sack {
@@ -222,9 +231,23 @@ dialog {
 .bet-area {
 	width: 100%;
 	justify-content: space-between;
-	padding: 0 50px;
+  margin: 5px 0;
 }
 
+.decrease-bet-area {
+  width: 100%;
+  justify-content: space-between;
+  margin-bottom: 25px;
+}
+
+.decrease {
+  width: 80px;
+  height: 40px;
+  text-align: center;
+  font-size: 3rem;
+  color: #d33;
+  cursor: pointer;
+}
 
 /*-------------------------------------------->
 	Card Handling
@@ -352,6 +375,11 @@ dialog {
 
 .double-btn {
   font-size: 1.3rem;
+}
+
+.place-bet {
+  width: fit-content;
+  padding: 0 5px;
 }
 
 

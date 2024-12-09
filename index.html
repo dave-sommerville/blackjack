@@ -5,7 +5,6 @@
   <meta name="author" content="Dave Sommerville">
   <meta name="description" content=""> <!-- Consider SEO!!-->
   <meta name="theme-color" content="#ffffff">
-    <!-- Needs Icon still  -->
   <title>Blackjack</title>
   <link rel="icon" href="./src/img/favicon.png" type="image/x-icon">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,25 +29,40 @@
       <p class="dealer-value-display">hidden</p>	
     </div>
     <dialog class="flex f-col">
-      <p>
-        BANK: <span class="player-bank"></span>
-      </p>	
-      <div class="money-sack flex f-col">
-        <img src="./src/img/bank.png">
+      <div class="bank-area flex f-col">
+        <p>
+          BANK: <span class="player-bank"></span>
+        </p>	
+        <div class="money-sack flex f-col">
+          <img src="./src/img/bank.png">
+        </div>
+        <p>
+          BET: <span class="pot"></span>
+        </p>
       </div>
-      <p>
-        BET: <span class="pot"></span>
-      </p>
       <div class="bet-area flex">
         <div class="button bet10 flex">
-          <div class="round-button">
-            <div class="half up"></div>
-            <div class="half down"></div>
-          </div>
+          <p>10</p>
         </div>
-        <div class="button bet50 flex"></div>
-        <div class="button bet100 flex"></div>
+        <div class="button bet50 flex">
+          <p>50</p>
+        </div>
+        <div class="button bet100 flex">
+          <p>100</p>
+        </div>
       </div>
+      <div class="decrease-bet-area flex">
+        <div class="decrease down10">
+          <i class="fa-solid fa-angle-down"></i>
+        </div>
+        <div class="decrease down50">
+          <i class="fa-solid fa-angle-down"></i>
+        </div>
+        <div class="decrease down100">
+          <i class="fa-solid fa-angle-down"></i>
+        </div>
+      </div>
+      <button class="btn place-bet">PLACE BET</button>
     </dialog>
     <div class="final-result-display">Dealer Wins!</div>
     <div class="player-image-wrapper">
