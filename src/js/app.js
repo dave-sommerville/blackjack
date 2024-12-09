@@ -271,7 +271,12 @@ function updateDisplayImages(images, imageWrapper) {
 
 
 function updateDisplay() {
-  playerDisplay.textContent = player.handDisplayText.join(', ');
+  playerDisplay.innerHTML = ''; 
+  player.handDisplayText.forEach((text) => {
+    const li = document.createElement('li'); 
+    li.textContent = text; 
+    playerDisplay.appendChild(li); 
+  });
   playerValueDisplay.textContent = `${player.handValue}`;
   updateDisplayImages(player.handDisplayImg, playerImgDisplay);
 

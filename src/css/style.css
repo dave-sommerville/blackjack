@@ -114,6 +114,12 @@ footer {
 	Display Info
 <---------------------------------------------*/
 
+aside {
+  position: fixed;
+  margin: auto 0;
+  left: 0;
+}
+
 dialog {
 	width: 400px;
 	height: fit-content;
