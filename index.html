@@ -29,29 +29,27 @@
     <div class="dealer-image-wrapper">
       <p class="dealer-value-display">hidden</p>	
     </div>
-    <aside class="flex f-col">
+    <dialog class="flex f-col">
       <p>
-        BANK
+        BANK: <span class="player-bank"></span>
       </p>	
-      <figure class="flex f-col">
+      <div class="money-sack flex f-col">
         <img src="./src/img/bank.png">
-        <figcaption class="player-bank">$500</span>
-      </figure>
+      </div>
       <p>
-        BET
+        BET: <span class="pot"></span>
       </p>
       <div class="bet-area flex">
-        <div class="button flex">
+        <div class="button bet10 flex">
           <div class="round-button">
             <div class="half up"></div>
             <div class="half down"></div>
           </div>
         </div>
-        <div class="pot-display">
-          <h3 class="pot"></h3>
-        </div>
+        <div class="button bet50 flex"></div>
+        <div class="button bet100 flex"></div>
       </div>
-    </aside>
+    </dialog>
     <div class="final-result-display">Dealer Wins!</div>
     <div class="player-image-wrapper">
       <p class="player-hand-value">

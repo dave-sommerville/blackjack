@@ -1,25 +1,23 @@
 @charset "utf-8";
 /*-------------------------------------------->
 	- Bank Area
-		- Media Queries 
-			- 768: Nearly everything will have to size down
-			- 480: It instead becomes viewable by a button
-				at final result 
-	- Action buttons 
-		- Change appearance 
-		- Center deal button 
+    - Create as dialog element 
+    - Appears for deal screen and forces player to set the bet
+    - Two more bet buttons added (value added to the display) 
+    - Arrows underneath of button to decrease bet 
+    - Bank and bet display values in their titles 
+    - Either add deal button here or give it a set bet button
 	- Player card lists
-		- Convert them to <li>'s 
-		- Position absolute next to the play areas 
+		- Convert them to <li>'s (can get from script scavengers)
+		- Add to a fixed aside 
 	- Game end
-		- Dealer's 1 card disappears 
 		- Dealer has a full hand reveal
 		- Value shows
 		- Game result displays 
+    - Dialog modal with deal button appears 
 		- Click returns to betting page 
 	- Misc
 		- Gradient background 
-		- 21 math payout 
 		- Modules 
 
 	Defaults 
@@ -117,15 +115,16 @@ footer {
 	Display Info
 <---------------------------------------------*/
 
-aside {
+dialog {
 	width: 400px;
 	height: fit-content;
 	border-radius: 25px;
 	border: solid 3px rgb(16 32 16 / 0.8);
-	position: fixed;
-	margin: auto 0;
-	left: 15px;
+  position: absolute;
+  inset: 0;
+  margin: auto;
 	padding: 25px;
+  z-index: 1000;
 
 	p {
 		line-height: 50px;
@@ -135,7 +134,7 @@ aside {
 	}
 }
 
-figure {
+.money-sack {
 	width: 100%;
 	justify-content: center;
 	align-items: center;
@@ -144,26 +143,32 @@ figure {
 		width: auto;
 		height: 100px;
 	}
-
-	figcaption {
-		font-size: 2.4rem;
-	}
-
 }
 
 .button {
-  width: 100px; 
-  height: 100px;
+  width: 80px; 
+  height: 80px;
   justify-content: center;
   align-items: center;
   font-size: 1.5rem;
   color: #012;
   font-weight: 500;
-  border-radius: 50%;
-  box-shadow: 1px -2px 3px rgba(0, 0, 0, 0.3); 
   cursor: pointer;
   transition: all 0.15s ease-in-out;
-	background: #234 url("../img/poker-chip.png") no-repeat center center;
+}
+
+.bet10 {
+  background: url("../img/bet10.png") no-repeat center center;
+	background-size: contain;
+}
+
+.bet50 {
+  background: url("../img/bet50.png") no-repeat center center;
+	background-size: cover;
+}
+
+.bet100 {
+  background: url("../img/bet100.png") no-repeat center center;
 	background-size: cover;
 }
 
@@ -220,20 +225,6 @@ figure {
 	padding: 0 50px;
 }
 
-.pot-display {
-	width: 100px;
-	height: 100px;
-	border-radius: 50%;
-	background-color: #396;
-  border: solid 0.5px rgb(64 64 64 / 0.4);
-  box-shadow: inset -2px 2px 3px rgb(64 64 64 / 0.4);
-}
-
-.pot {
-	text-align: center;
-	line-height: 100px;
-	font-size: 3rem;
-}
 
 /*-------------------------------------------->
 	Card Handling

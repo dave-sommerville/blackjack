@@ -185,7 +185,6 @@ class Player {
     if (!Array.isArray(this.#handDisplayImg)) {
       this.#handDisplayImg = [];
     }
-/*			--  */
     this.#hand.push(card); 
     this.#handDisplayText.push(card.carddisplay);  
     this.#handDisplayImg.push(card.imgsrc); 
@@ -367,6 +366,27 @@ function finalResult() {
   hideActionShowDeal();
 }
 
+/*  This will trigger the full final animation (yet to be added)
+    and display the betting modal 
+
+    Dealer reveal 
+updateDisplayImages(dealer.handDisplayImg, dealerImgDisplay);
+  Final result could have winner result extracted to determine portions of
+  final result 
+
+  Regardless of winner
+  - Dealer animations (above function)
+  - Value displays 
+  - 
+  - Winner announced 
+  - Payouts made / resets 
+  - Deal button placed in background (but clicks disabled)
+  - Modal appears 
+  - Bet must be placed in order to remove the 
+
+*/ 
+
+
 function resetGame() {
   player.hand = [];
   player.handValue = 0;
@@ -396,7 +416,7 @@ function resetGame() {
 <--------------------------------------------------------------*/
 
 function startBtn() {
-  resetGame();	//	May want to adjust display 
+  resetGame()
   pot = playerBetTotal * 2; 
   if (pot <= 0) {
     console.log("You must place a bet"); //	Move this to center text 
@@ -451,6 +471,8 @@ listen('click', doubleButton, () => {
   doubleBtn();
 });
 
+
+/* These functions will have to swtich buttons (and variables) */
 listen('click', increaseBet, () => {
   if (playerBank >= playerBet) { // Ensure player has enough funds
     playerBetTotal += playerBet; 

@@ -3,6 +3,7 @@ Dealer:
 - Dealer total moved entirely into js
 	- Absolutely centered
 		- Dealer's hand display
+
 Player
 - Player bet / pot display 
 - player bank display 
@@ -19,7 +20,6 @@ Misc:
 - Gradient background 
 - 21 math payout 
 - Modules 
-
 
 --Tougher additions--
 Split

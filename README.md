@@ -22,3 +22,8 @@ I first began creating a Blackjack game the same week that I started learning Ja
 - Improve game animation / "processing" time 
 - Improved UI
 - Potentially add an insurance and/or split feature 
+
+Image by <a href="https://pixabay.com/users/teacherbingo-18391860/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=7155166">Harald Eicher</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=7155166">Pixabay</a>
+
+<a href="https://www.freepik.com/icon/heart-card_10798411#fromView=resource_detail&position=15">Icon by riajulislam</a><a href="https://www.freepik.com/icon/poker-chip_11155392#fromView=search&page=1&position=92&uuid=14b66ee6-480a-40ff-bd42-72963f81f7af">Icon by Iconsea</a>
+<a href="https://www.freepik.com/icon/capital_4333393#fromView=search&page=1&position=34&uuid=3fb99b42-66fc-436a-b895-4f81d711196f">Icon by juicy_fish</a>
