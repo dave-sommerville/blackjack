@@ -5,12 +5,11 @@
   - Betting area 
   - Aside
 
+- Correct player hand value 
+- Dealer value display 
 - Aside styles 
 - Info buttons
-- Dialog background 
-- Double ignores minimum 
 - Bank needs to display any amount? 
-- Restart should clear final result and all cards 
 - Eliminate highlighting / right click events 
 
 Later JavaScript 
@@ -40,6 +39,13 @@ button {
 /*-------------------------------------------->
 	Utility Classes 
 <---------------------------------------------*/
+
+.no-select {
+  user-select: none; /* Standard property */
+  -webkit-user-select: none; /* For Safari */
+  -moz-user-select: none;    /* For older Firefox */
+  -ms-user-select: none;     /* For older IE/Edge */
+}
 
 .container {
 	width: min(100% - 30px, 1200px);

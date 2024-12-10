@@ -253,10 +253,6 @@ let pot = 0;
 /*-------------------------------------------------------------->
   Display Functions 
 <--------------------------------------------------------------*/
-
-
-
-///*************************///
 function hideActionButtons() {
   hitButton.classList.add('hidden');
   holdButton.classList.add('hidden');
@@ -271,9 +267,6 @@ function hideDealShowAction() {
 
   startButton.classList.add('hidden');
 }
-///*************************///
-
-
 
 function updateDisplayImages(images, imageWrapper) {
   imageWrapper.innerHTML = '';  
@@ -290,7 +283,6 @@ function dealerFirstDisplay () {
   dealerDisplay.appendChild(li); 
   updateDisplayImages(dealer.handDisplayImg.slice(0, 1), dealerImgDisplay);
 }
-
 
 function updateDisplay(player, targetUL, targetImgDis) {
   targetUL.innerHTML = ''; 
@@ -395,8 +387,6 @@ function dealerCheck() {
     playerBank += playerBetTotal; 
   }
 }
-
-
 
 function finalResult() {
   updateDisplay(dealer, dealerDisplay, dealerImgDisplay);
