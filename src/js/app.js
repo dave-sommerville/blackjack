@@ -366,6 +366,7 @@ function bustCheck(handObj) {
         pot = 0;
         playerBetTotal = 0;
         totalPlayerBet.textContent = '';
+        sidePlayerBet.textContent = '';
       } else if (handObj === dealer) {
           finalResultDisplay.textContent = 'DEALER BUSTS! YOU WIN!';
           hideActionButtons();
@@ -374,6 +375,7 @@ function bustCheck(handObj) {
           pot = 0;
           playerBetTotal = 0;
           totalPlayerBet.textContent = '';
+          sidePlayerBet.textContent = '';
       }
   }
 
@@ -398,15 +400,14 @@ function dealerCheck() {
 
 function finalResult() {
   updateDisplay(dealer, dealerDisplay, dealerImgDisplay);
-  //  Actually just needs to hide action buttons 
+  updateBankDisplay();
   hideActionButtons();
-  setTimeout(() => {
-    dealerCheck();
-  }, 1000);
+  dealerCheck();
   restartButton.classList.remove('hidden');
   pot = 0;
   playerBetTotal = 0;
   totalPlayerBet.textContent = '';
+  sidePlayerBet.textContent = '';
 }
 
 function resetGame() {

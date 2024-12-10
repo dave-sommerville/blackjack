@@ -6,14 +6,11 @@
   - Aside
 
 - Aside styles 
-- Bet/bank display 
-- Info button 
-- Fix button sizing, decoration, effects 
-- Fix backgrounds / colours 
-- Poker chip decorations/effects 
-  - Possibly do an eraser effect on them
-- Bet error text sizing 
-- Results display 
+
+- Info buttons
+- Dialog background 
+
+
 
 Later JavaScript 
   - Modules 
@@ -156,7 +153,6 @@ dialog {
 	border-radius: 15px;
 	border: solid 3px rgb(16 32 16 / 0.8);
   position: absolute;
-  inset: 0;
   margin: auto;
 	padding: 25px;
   z-index: 1000;
@@ -164,6 +160,10 @@ dialog {
   align-items: center;
 }
 
+dialog::backdrop {
+  background-color: rgb(64 64 64 / 0.2);
+  z-index: 900;
+}
 .bank-area {
   width: 100%;
 
@@ -200,6 +200,10 @@ dialog {
   font-weight: 500;
   cursor: pointer;
   transition: all 0.15s ease-in-out;
+}
+
+.button:hover {
+  filter: brightness(1.2);
 }
 
 .bet10 {
@@ -427,16 +431,15 @@ dialog {
 .btn {
   width: 100px;
   height: 50px;
-  border-radius: 5px;
   background-color: #d33;
   font-weight: 500;
-  border-radius: 15px;
-  box-shadow: 1px -2px 2px rgba(0, 0, 0, 0.4); 
+  border-radius: 6px;
+  /* box-shadow: 1px -2px 2px rgba(0, 0, 0, 0.4);  */
   border-bottom: 2px solid #234;
   border-left: 1px solid #234;
   font-size: 2rem;
   color: #fefefe;
-  transition: all 0.15s ease-in-out;
+  transition: all 0.25s ease-in-out;
 }
 
 .btn:hover {
@@ -444,7 +447,6 @@ dialog {
 }
 
 .btn:active {
-	box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
 	transform: translateY(2px); 
 	border: none;
 }
@@ -457,9 +459,9 @@ dialog {
   font-size: 1.3rem;
 }
 
-.place-bet {
+.place-bet, .restart-btn {
   width: fit-content;
-  padding: 0 5px;
+  padding: 0 20px;
 }
 
 /*----  Money display ------*/
