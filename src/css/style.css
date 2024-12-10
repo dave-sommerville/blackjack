@@ -1,24 +1,59 @@
 @charset "utf-8";
 /*-------------------------------------------->
-    - Delays on functions and animations 
-      - Final Result 
-        - Let the dealer's final deal show 
-        - Settimeout
+- Open on bet modal
+- Must place bet
+- Should "shuffle" here 
+- Deal button 
+- Deal Animation
+* In theory, I should make further adjustments 
+- Options 
+  - Hit
+    - Hides double button 
+    - Could bust 
+      - One ending sequence 
+    - Deals in cards until palyer holds 
+  - Double 
+    - Effectively a hit followed by a hold
+      with a payout adjustment 
+  - Hold
+    - Pass to Dealer
+
+- Right now
+  - Does the payout 
+  - Doesn't show the bet screen
+  - Deal button remains active 
+  - Game plays without a bet 
+
+- Should be 
+  - Final result screen
+  - New game button (in the code, but hidden)
+  - Clicking repoens the dialog
+  - Placing the bet continues normally 
 
 
-        - Post value / Display results 
-        - Play Again button appears
+- Full Responsiveness 
+  - Betting area 
+  - Aside
 
-    - Bet display should show on game screeen
 
+- Aside styles 
+- Bet/bank display 
+- info button 
+- Fix button sizing, decoration, effects 
+- Fix backgrounds / colours 
+- Poker chip decorations/effects 
+  - Possibly do an eraser effect on them
+- Bet error text sizing 
+- Results display 
 
 JavaScript 
   - Watch for weird amounts in bet area
+
+  
   - Modules 
-  - Adding bank ot localStorage 
-CSS
-  - Full Responsiveness 
-  - Gradient background  
+  - Adding bank ot localStorage
+
+
 
 <---------------------------------------------*/
 

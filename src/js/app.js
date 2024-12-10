@@ -55,6 +55,7 @@ const startButton = select('.start-btn');
 const hitButton = select('.hit-btn');
 const holdButton = select('.hold-btn');
 const doubleButton = select('.double-btn');
+const restartButton = select('.restart-btn');
 const increaseBetTen = select('.bet10');
 const increaseBetFifty = select('.bet50');
 const increaseBetHundred = select('.bet100');
@@ -251,12 +252,14 @@ let pot = 0;
   Display Functions 
 <--------------------------------------------------------------*/
 
-function hideActionShowDeal() {
+
+
+///*************************///
+function hideActionButtons() {
   hitButton.classList.add('hidden');
   holdButton.classList.add('hidden');
   if (!doubleButton.classList.contains('hidden'))
     doubleButton.classList.add('hidden');
-  startButton.classList.remove('hidden');
 }
 
 function hideDealShowAction() {
@@ -266,6 +269,8 @@ function hideDealShowAction() {
 
   startButton.classList.add('hidden');
 }
+///*************************///
+
 
 
 function updateDisplayImages(images, imageWrapper) {
@@ -325,13 +330,15 @@ function isBlackJack() {
   }
 }
 
+
+///*****************************///
 function blackJackPayout() {
   pot = pot * 1.5;
   playerBank = playerBank + pot;
   pot = 0;
   playerBetTotal = 0;
   updateBankDisplay();
-  hideActionShowDeal();
+  hideActionButtons();
 }
 
 function hit(handObj) {
@@ -350,13 +357,15 @@ function bustCheck(handObj) {
   if (handObj.handValue > 21) {  
       if (handObj === player) {
         finalResultDisplay.textContent = 'YOU BUSTED! YOU LOSE!';
-        hideActionShowDeal();
+        hideActionButtons();
+        restartButton.classList.remove('hidden');
         pot = 0;
         playerBetTotal = 0;
         totalPlayerBet.textContent = '';
       } else if (handObj === dealer) {
           finalResultDisplay.textContent = 'DEALER BUSTS! YOU WIN!';
-          hideActionShowDeal();
+          hideActionButtons();
+          restartButton.classList.remove('hidden');
           playerBank += pot; 
           pot = 0;
           playerBetTotal = 0;
@@ -381,12 +390,16 @@ function dealerCheck() {
   }
 }
 
+
+
 function finalResult() {
   updateDisplay(dealer, dealerDisplay, dealerImgDisplay);
-  hideActionShowDeal();
+  //  Actually just needs to hide action buttons 
+  hideActionButtons();
   setTimeout(() => {
     dealerCheck();
   }, 1000);
+  restartButton.classList.remove('hidden');
   pot = 0;
   playerBetTotal = 0;
   totalPlayerBet.textContent = '';
@@ -535,4 +548,10 @@ listen('click', decreaseBetHundred, () => {
 
 listen('click', placeBet, () => {
   setBet();
+  startButton.classList.remove('hidden');
+});
+
+listen('click', restartButton, () => {
+  betScreen.showModal();
+  restartButton.classList.add('hidden');
 });
