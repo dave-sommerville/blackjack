@@ -458,6 +458,7 @@ function setBet() {
     totalPlayerBet.textContent = 'required';  
     return;
   }
+  startButton.classList.remove('hidden');
   betScreen.close();
 }
 
@@ -548,7 +549,6 @@ listen('click', decreaseBetHundred, () => {
 
 listen('click', placeBet, () => {
   setBet();
-  startButton.classList.remove('hidden');
 });
 
 listen('click', restartButton, () => {
