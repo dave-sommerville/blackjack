@@ -455,7 +455,7 @@ function potIncrease(value) {
 function setBet() {
   pot = playerBetTotal * 2; 
   if (pot <= 0) {
-    totalPlayerBet.textContent = 'You must place a bet';  
+    totalPlayerBet.textContent = 'required';  
     return;
   }
   betScreen.close();

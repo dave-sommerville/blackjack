@@ -1,5 +1,25 @@
 @charset "utf-8";
 /*-------------------------------------------->
+
+- Full Responsiveness 
+  - Betting area 
+  - Aside
+
+- Aside styles 
+- Bet/bank display 
+- Info button 
+- Fix button sizing, decoration, effects 
+- Fix backgrounds / colours 
+- Poker chip decorations/effects 
+  - Possibly do an eraser effect on them
+- Bet error text sizing 
+- Results display 
+
+Later JavaScript 
+  - Modules 
+  - Adding bank ot localStorage
+  - Sleep functions 
+
 - Open on bet modal
 - Must place bet
 - Should "shuffle" here 
@@ -17,44 +37,10 @@
       with a payout adjustment 
   - Hold
     - Pass to Dealer
-
-- Right now
-  - Does the payout 
-  - Doesn't show the bet screen
-  - Deal button remains active 
-  - Game plays without a bet 
-
-- Should be 
   - Final result screen
-  - New game button (in the code, but hidden)
+  - New game button
   - Clicking repoens the dialog
   - Placing the bet continues normally 
-
-
-- Full Responsiveness 
-  - Betting area 
-  - Aside
-
-
-- Aside styles 
-- Bet/bank display 
-- info button 
-- Fix button sizing, decoration, effects 
-- Fix backgrounds / colours 
-- Poker chip decorations/effects 
-  - Possibly do an eraser effect on them
-- Bet error text sizing 
-- Results display 
-
-JavaScript 
-  - Watch for weird amounts in bet area
-
-  
-  - Modules 
-  - Adding bank ot localStorage
-
-
-
 <---------------------------------------------*/
 
 html{
@@ -166,7 +152,8 @@ aside {
 dialog {
 	width: 400px;
 	height: fit-content;
-	border-radius: 25px;
+  background-color: #275;
+	border-radius: 15px;
 	border: solid 3px rgb(16 32 16 / 0.8);
   position: absolute;
   inset: 0;
@@ -182,10 +169,10 @@ dialog {
 
 	p {
     width: 100%;
-		line-height: 50px;
+		line-height: 60px;
 		background-color: rgb(64 64 64 / 0.2);
 		font-size: 2.6rem;
-		border-radius: 25px;
+		border-radius: 6px;
     text-align: left;
     padding-left: 20px;
 	}
@@ -315,7 +302,7 @@ dialog {
   height: 150px; 
 	padding: 10px 20px;
 	border: solid 3px rgb(16 32 16 / 0.8);
-	border-radius: 25px;
+	border-radius: 15px;
 }
 
 .dealer-image-wrapper > img {
@@ -372,7 +359,7 @@ dialog {
   padding: 30px; 
 	margin: 50px 0;
 	border: solid 3px rgb(16 32 16 / 0.8);
-  border-radius: 25px;
+  border-radius: 15px;
 }
 
 .player-image-wrapper > img {
