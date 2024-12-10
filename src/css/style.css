@@ -462,6 +462,31 @@ dialog {
   padding: 0 5px;
 }
 
+/*----  Money display ------*/
+
+.money-display {
+  width: 100px;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  left: 20px;
+  margin: auto 0;
+
+  p {
+    height: 80px;
+    width: 100%;
+    line-height: 50px;
+    background-color: rgb(64 64 64 / 0.2);
+    border-radius: 6px;
+    font-size: 2.6rem;
+  }
+
+  img {
+    width: 100px;
+    height: auto;
+  }
+}
+
 
 /*-------------------------------------------->
 	Media Queries 

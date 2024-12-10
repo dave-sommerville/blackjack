@@ -66,7 +66,9 @@ const decreaseBetHundred = select('.down100');
 const placeBet = select('.place-bet');
 const betScreen = select('dialog');
 const bankDisplay = select('.player-bank');
+const sideBankDisplay = select('.side-bank-display');
 const totalPlayerBet = select('.pot');
+const sidePlayerBet = select('.side-pot');
 
 /*-------------------------------------------------------------->
   Card Declarations - MOVE TO MODULES!!!!!
@@ -302,10 +304,12 @@ function updateDisplay(player, targetUL, targetImgDis) {
 
 function updateBankDisplay() {
   bankDisplay.textContent = `${playerBank}`;
+  sideBankDisplay.textContent = `${playerBank}`;
 }
 
 function updateTotalBet() {
   totalPlayerBet.textContent = `${playerBetTotal}`;
+  sidePlayerBet.textContent = `${playerBetTotal}`;
 }
 
 /*-------------------------------------------------------------->
