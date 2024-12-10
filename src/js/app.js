@@ -503,6 +503,14 @@ function doubleBtn() {
   }
 }
 
+function restartBtn() {
+  betScreen.showModal();
+  restartButton.classList.add('hidden');
+  finalResultDisplay.textContent = '';
+  playerImgDisplay.innerHTML = '';
+  dealerImgDisplay.innerHTML = '';
+}
+
 /*-------------------------------------------------------------->
   Page Load and Listeners
 <--------------------------------------------------------------*/
@@ -518,7 +526,7 @@ listen('click', startButton, () => {
 
 listen('click', hitButton, () => {
   hitBtn();
-  finalResultDisplay.textContent = '';
+  
 });
 
 listen('click', holdButton, () => {
@@ -562,6 +570,5 @@ listen('click', placeBet, () => {
 });
 
 listen('click', restartButton, () => {
-  betScreen.showModal();
-  restartButton.classList.add('hidden');
+  restartBtn();
 });
