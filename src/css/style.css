@@ -6,38 +6,17 @@
   - Aside
 
 - Aside styles 
-
 - Info buttons
 - Dialog background 
-
-
+- Double ignores minimum 
+- Bank needs to display any amount? 
+- Restart should clear final result and all cards 
+- Eliminate highlighting / right click events 
 
 Later JavaScript 
   - Modules 
   - Adding bank ot localStorage
   - Sleep functions 
-
-- Open on bet modal
-- Must place bet
-- Should "shuffle" here 
-- Deal button 
-- Deal Animation
-* In theory, I should make further adjustments 
-- Options 
-  - Hit
-    - Hides double button 
-    - Could bust 
-      - One ending sequence 
-    - Deals in cards until palyer holds 
-  - Double 
-    - Effectively a hit followed by a hold
-      with a payout adjustment 
-  - Hold
-    - Pass to Dealer
-  - Final result screen
-  - New game button
-  - Clicking repoens the dialog
-  - Placing the bet continues normally 
 <---------------------------------------------*/
 
 html{

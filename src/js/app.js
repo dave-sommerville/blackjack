@@ -493,10 +493,14 @@ function holdBtn() {
 }
 
 function doubleBtn() {
-  playerBank = playerBank - playerBetTotal;
-  pot = pot * 2;
-  hit(player);
-  holdBtn();
+  if (playerBank >= playerBetTotal) {
+    playerBank = playerBank - playerBetTotal;
+    pot = pot * 2;
+    hit(player);
+    holdBtn();
+  } else {
+    finalResultDisplay.textContent = 'Not enough funds';
+  }
 }
 
 /*-------------------------------------------------------------->
@@ -514,6 +518,7 @@ listen('click', startButton, () => {
 
 listen('click', hitButton, () => {
   hitBtn();
+  finalResultDisplay.textContent = '';
 });
 
 listen('click', holdButton, () => {
