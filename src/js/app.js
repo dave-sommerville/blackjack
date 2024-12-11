@@ -304,17 +304,17 @@ let convert = (n) => {
       return +(n / 1e9).toFixed(1) + "B";
   if (n >= 1e12) return +(n / 1e12).toFixed(1) + "T";
 };
+console.log(typeof playerBetTotal);
 
-
-let convertedBank = convert(playerBank);
-let convertedBet = convert(playerBetTotal);
 
 function updateBankDisplay() {
+  let convertedBank = convert(playerBank);
   bankDisplay.textContent = `${convertedBank}`;
   sideBankDisplay.textContent = `${convertedBank}`;
 }
 
 function updateTotalBet() {
+  let convertedBet = convert(playerBetTotal);
   totalPlayerBet.textContent = `${convertedBet}`;
   sidePlayerBet.textContent = `${convertedBet}`;
 }
