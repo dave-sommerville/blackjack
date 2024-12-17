@@ -19,7 +19,7 @@
   <header class="flex f-col">
     <h1>BLACKJACK</h1>
   </header>
-  <main class="flex f-col container no-select">
+  <main class="flex f-col no-select">
     <div class="value-image-wrapper flex f-col">
       <div class="dealer-image-wrapper"></div>
       <p class="dealer-value-display"></p>
@@ -50,11 +50,9 @@
           HOLD
       </button>
     </section>
-    <section class="money-display flex f-col">
-      <img src="./src/img/bank.png">
-      <p class="side-bank-display"></p>
-      <img src="./src/img/bet50.png">
-      <p class="side-pot"></p>
+    <section class="bank-wrapper flex f-col">
+      <div class="side-bank-display money-display"></div>
+      <div class="side-pot bet-display"></div>
     </section>
     <aside class="flex hidden f-col">
       <p>
@@ -69,11 +67,7 @@
     </aside>
     <dialog class="no-select">
       <div class="bank-area flex f-col">
-        <p>
-          BANK: <span class="player-bank"></span>
-        </p>	
-        <div class="money-sack flex f-col">
-          <img src="./src/img/bank.png">
+        <div class="money-sack player-bank flex f-col">
         </div>
         <p>
           BET: 

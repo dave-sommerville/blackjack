@@ -15,15 +15,12 @@
   - Sleep functions 
 
 
-- Full Responsiveness 
-  - Betting area 
-  - Aside
 
-  - 
 - Correct player hand value 
 - Dealer value display 
 - Aside styles 
-- Info buttons
+  - Info buttons
+  
 
 Later JavaScript 
   - Modules 
@@ -150,17 +147,21 @@ aside {
 dialog {
 	width: 500px;
 	height: fit-content;
-  background: linear-gradient(to bottom right, #396, #56ab2f);	border-radius: 15px;
+  background: linear-gradient(to bottom right, #396, #56ab2f);	
+  border-radius: 15px;
   position: absolute;
   margin: 100px auto;
 	padding: 50px 100px;
   z-index: 1000;
   border: 0;
+  color: #fff;
 }
 
 
 .bank-area {
   width: 100%;
+  justify-content: center;
+  align-items: center;
 
 	p {
     width: 100%;
@@ -178,11 +179,15 @@ dialog {
 	width: 100%;
 	justify-content: center;
 	align-items: center;
-
-	img {
-		width: auto;
-		height: 100px;
-	}
+    width: 200px;
+    justify-content: center;
+    align-items: center;
+    background: url('../img/piggy.png') no-repeat center center;
+    background-size: contain;
+    height: 180px;
+    padding-top: 53px;
+    text-align: center;
+    font-size: 2.6rem;
 }
 
 .button {
@@ -267,6 +272,10 @@ dialog {
 	width: 100%;
 	justify-content: space-between;
   margin: 5px 0;
+
+  p {
+    color: #fff;
+  }
 }
 
 .decrease-bet-area {
@@ -460,29 +469,48 @@ dialog {
 }
 
 /*----  Money display ------*/
+.bank-wrapper {
+position: absolute;
+left: 20px;
+margin: auto 0;
+}
 
 .money-display {
-  width: 100px;
+  width: 120px;
   justify-content: center;
   align-items: center;
-  position: fixed;
-  left: 20px;
-  margin: auto 0;
+  background: url('../img/piggy.png') no-repeat center center;
+  background-size: contain;
+  height: 100px;
+  padding-top: 43px;
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 40px;
+}
 
-  p {
-    height: 80px;
-    width: 100%;
+.bet-display {
+  width: 120px;
+  justify-content: center;
+  align-items: center;
+  background: url('../img/bet100.png') no-repeat center center;
+  background-size: contain;
+  height: 100px;
+  line-height: 100px;
+  text-align: center;
+  font-size: 2rem;
+}
+
+  /* p {
     line-height: 50px;
     background-color: rgb(64 64 64 / 0.2);
     border-radius: 6px;
-    font-size: 2.6rem;
   }
 
   img {
     width: 100px;
     height: auto;
   }
-}
+} */
 
 
 /*-------------------------------------------->
