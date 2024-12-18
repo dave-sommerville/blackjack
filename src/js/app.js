@@ -76,7 +76,7 @@ const decreaseBetTen = select('.down10');
 const decreaseBetFifty = select('.down50');
 const decreaseBetHundred = select('.down100');
 const placeBet = select('.place-bet');
-const betScreen = select('dialog');
+const betScreen = select('.bet-banking-area');
 const bankDisplay = select('.player-bank');
 const sideBankDisplay = select('.side-bank-display');
 const bankWrapper = select('.bank-wrapper');
@@ -471,7 +471,8 @@ function setBet() {
     return;
   }
   startButton.classList.remove('hidden');
-  betScreen.close();
+
+  betScreen.classList.remove('visible');
   bankWrapper.classList.add('visible');
 }
 
@@ -512,7 +513,7 @@ function doubleBtn() {
 }
 
 function restartBtn() {
-  betScreen.showModal();
+  betScreen.classList.add('visible');
   bankWrapper.classList.remove('visible');
   restartButton.classList.add('hidden');
   finalResultDisplay.textContent = '';
@@ -547,7 +548,7 @@ listen('click', doubleButton, () => {
 });
 
 listen('load', window, () => {
-  betScreen.showModal();
+  betScreen.classList.add('visible');
 });
 
 listen('click', increaseBetTen, () => {

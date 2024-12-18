@@ -144,7 +144,7 @@ aside {
   }
 }
 
-dialog {
+.bet-banking-area {
 	width: 500px;
 	height: fit-content;
   background: linear-gradient(to bottom right, #396, #56ab2f);	
@@ -155,8 +155,14 @@ dialog {
   z-index: 1000;
   border: 0;
   color: #fff;
+  transform: translateX(-120px);
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
 }
-
+.bet-banking-area.visible {
+  transform: translateX(0);
+  opacity: 1;
+}
 
 .bank-area {
   width: 100%;
