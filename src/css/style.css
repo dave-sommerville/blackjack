@@ -433,26 +433,25 @@ dialog {
 }
 
 .btn {
-  width: 100px;
-  height: 50px;
-  background-color: #d33;
+  width: 120px;
+  height: 60px;
+  background-color: rgb(146, 3, 98);
   font-weight: 500;
-  border-radius: 6px;
-  /* box-shadow: 1px -2px 2px rgba(0, 0, 0, 0.4);  */
-  border-bottom: 2px solid #234;
-  border-left: 1px solid #234;
+  border-radius: 50%;
+  box-shadow: inset 2px 3px 3px rgb(255 255 255 / 0.4), 
+    inset -2px -3px 3px rgb(0 0 0 / 0.4); 
   font-size: 2rem;
   color: #fefefe;
+  filter: blur(0.35px) brightness(0.9);
   transition: all 0.25s ease-in-out;
 }
 
 .btn:hover {
-  filter: brightness(1.2);
+  filter: blur(0) brightness(1.2);
 }
 
 .btn:active {
-	transform: translateY(2px); 
-	border: none;
+  box-shadow: none;
 }
 
 .start-btn {
@@ -461,11 +460,6 @@ dialog {
 
 .double-btn {
   font-size: 1.3rem;
-}
-
-.place-bet, .restart-btn {
-  width: fit-content;
-  padding: 0 20px;
 }
 
 /*----  Money display ------*/
