@@ -102,7 +102,8 @@ p {
 <---------------------------------------------*/
 
 body {
-  background: linear-gradient(to bottom right, #396, #56ab2f);	border-radius: 15px;
+  background: linear-gradient(to bottom right, rgb(44, 111, 78), #32631b);	border-radius: 15px;
+  /* background: linear-gradient(to bottom right, #396, #56ab2f);	border-radius: 15px; */
 	color: #fff;
 	justify-content: center;
 	align-items: center;
@@ -111,6 +112,8 @@ body {
 
 header {
 	width: 100%;
+  height: 15svh;
+  line-height: 15svh;
 	justify-content: center;
 	align-items: center;
 }
@@ -118,12 +121,8 @@ header {
 main {
 	position: relative;
 	width: 100%;
-	justify-content: center;
+  height: 85svh;
 	align-items: center;
-}
-
-footer {
-	justify-content: center;
 }
 
 /*-------------------------------------------->
@@ -146,11 +145,10 @@ aside {
 
 .bet-banking-area {
 	width: 500px;
-	height: fit-content;
+	height: 600px;
   background: linear-gradient(to bottom right, #396, #56ab2f);	
   border-radius: 15px;
   position: absolute;
-  margin: 100px auto;
 	padding: 50px 100px;
   z-index: 1000;
   border: 0;
