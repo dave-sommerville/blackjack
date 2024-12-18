@@ -79,6 +79,7 @@ const placeBet = select('.place-bet');
 const betScreen = select('dialog');
 const bankDisplay = select('.player-bank');
 const sideBankDisplay = select('.side-bank-display');
+const bankWrapper = select('.bank-wrapper');
 const totalPlayerBet = select('.pot');
 const sidePlayerBet = select('.side-pot');
 
@@ -471,6 +472,7 @@ function setBet() {
   }
   startButton.classList.remove('hidden');
   betScreen.close();
+  bankWrapper.classList.add('visible');
 }
 
 function startBtn() {
@@ -511,6 +513,7 @@ function doubleBtn() {
 
 function restartBtn() {
   betScreen.showModal();
+  bankWrapper.classList.remove('visible');
   restartButton.classList.add('hidden');
   finalResultDisplay.textContent = '';
   playerImgDisplay.innerHTML = '';
