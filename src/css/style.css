@@ -367,7 +367,7 @@ aside {
   grid-template-columns: 1fr; 
   grid-template-rows: auto; 
   width: 400px; 
-  height: 280px; 
+  height: 240px; 
   padding: 30px; 
 	margin-bottom: 50px;
 	border: solid 3px rgb(16 32 16 / 0.8);
@@ -472,7 +472,6 @@ position: absolute;
 left: 20px;
 transform: translateX(-120px);
 opacity: 0;
-margin: auto 0;
 transition: all 0.5s ease-in-out;
 }
 
@@ -506,19 +505,6 @@ transition: all 0.5s ease-in-out;
   font-size: 2rem;
 }
 
-  /* p {
-    line-height: 50px;
-    background-color: rgb(64 64 64 / 0.2);
-    border-radius: 6px;
-  }
-
-  img {
-    width: 100px;
-    height: auto;
-  }
-} */
-
-
 /*-------------------------------------------->
 	Media Queries 
 <---------------------------------------------*/
@@ -529,41 +515,28 @@ transition: all 0.5s ease-in-out;
 	}
 	
 	.dealer-image-wrapper {
-		width: 160px; 
-		height: 120px; 
+		width: 130px; 
+		height: 110px; 
 		
 		img {
 			height: auto;
-			width: 60px;
+			width: 55px;
 		}
 	}
 	
 	.player-image-wrapper {
-		width: 340px; 
-		height: 220px; 
-	
+		width: 320px; 
+		height: 185px; 
+    padding: 25px;
+
 		img {
 			width: 100px;
 		}
 	}
   
-  aside {
-    width: 320px;
-    left: 15px;
-
-    p {
-      line-height: 40px;
-      font-size: 2.2rem;
-    }
-  }
-
-  figure img {
-      width: auto;
-      height: 60px;
-    }
-
-  figcaption {
-    font-size: 2rem;
+  .money-display, .bet-display {
+    width: 80px;
+    font-size: 1.6rem;
   }
 
   .button {
@@ -598,22 +571,31 @@ transition: all 0.5s ease-in-out;
 		font-size: 2rem;
 	}
 	.dealer-image-wrapper {
-		width: 120px; 
+		width: 100px; 
 		height: 100px; 
 		
 		img {
+      height: auto;
 			width: 50px;
 		}
 	}
 	
 	.player-image-wrapper {
 		width: 300px; 
-		height: 180px; 
+		height: 150px;
+    padding: 15px;
 	}
 	
 	.player-image-wrapper > img {
 		width: 80px;
 	}
+
+  .bank-wrapper {
+    width: 100%;
+    bottom: 20px;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
 }
 
 /*-------------------------------------------->

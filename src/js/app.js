@@ -307,8 +307,6 @@ function updateDisplay(player, targetUL, targetImgDis) {
   updateDisplayImages(player.handDisplayImg, targetImgDis);  
 }
 
-
-
 function updateBankDisplay() {
   let convertedBank = convert(playerBank);
   bankDisplay.textContent = `${convertedBank}`;
@@ -332,7 +330,6 @@ function startingDeal() {
   dealer.addCard(shuffledDeck[0], shuffledDeck);
   updateDisplay(player, playerDisplay, playerImgDisplay);
   dealerFirstDisplay();
-
 }
 
 function isBlackJack() {
