@@ -500,16 +500,30 @@ function holdBtn() {
   finalResult();
 }
 
-function doubleBtn() {
+
+listen('click', doubleButton, () => {
   if (playerBank >= playerBetTotal) {
-    playerBank = playerBank - playerBetTotal;
-    pot = pot * 2;
-    hit(player);
-    holdBtn();
+    playerBank -= playerBetTotal;
+    pot += playerBetTotal;
+    playerBetTotal *= 2;
+    updateBankDisplay();
+    updateTotalBet();
+
+    player.addCard(shuffledDeck[0], shuffledDeck);
+    updateDisplay(player, playerDisplay, playerImgDisplay);
+    playerValueDisplay.textContent = player.handValue;
+
+    bustCheck(player); 
+    hideActionButtons(); 
+    if (player.handValue <= 21) {
+      dealerTurn();
+      finalResult();
+    }
   } else {
-    finalResultDisplay.textContent = 'Not enough funds';
+    finalResultDisplay.textContent = "Not enough bank to double!";
   }
-}
+
+});
 
 function restartBtn() {
   betScreen.classList.add('visible');
@@ -540,10 +554,6 @@ listen('click', hitButton, () => {
 
 listen('click', holdButton, () => {
   holdBtn();
-});
-
-listen('click', doubleButton, () => {
-  doubleBtn();
 });
 
 listen('load', window, () => {
