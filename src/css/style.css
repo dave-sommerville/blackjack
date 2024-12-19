@@ -1,15 +1,9 @@
 @charset "utf-8";
 /*-------------------------------------------->
+- Info buttons / deal value (responsive)
 - Code/CSS needs reorganization and labelling 
-- Info modals added 
-- Bet/Bank modal currently running interferance 
 - 21 payout
-
-- Cards deal every time (might be a tough fix)
-- Final cards 
-  - Full dealer reveal (as is) 
-    - Info aside view 
-  - Sleep(Value display, Final Results)
+- Double bust check 
 
 Later JavaScript 
   - Modules 
@@ -45,10 +39,10 @@ button {
 <---------------------------------------------*/
 
 .no-select {
-  user-select: none; /* Standard property */
-  -webkit-user-select: none; /* For Safari */
-  -moz-user-select: none;    /* For older Firefox */
-  -ms-user-select: none;     /* For older IE/Edge */
+  user-select: none; 
+  -webkit-user-select: none; 
+  -moz-user-select: none;   
+  -ms-user-select: none;     
 }
 
 .container {
@@ -98,7 +92,6 @@ p {
 
 body {
   background: linear-gradient(to bottom right, rgb(44, 111, 78), #32631b);	border-radius: 15px;
-  /* background: linear-gradient(to bottom right, #396, #56ab2f);	border-radius: 15px; */
 	color: #fff;
 	justify-content: center;
 	align-items: center;
@@ -138,8 +131,6 @@ aside {
   }
 }
 
-
-
 .bet-banking-area {
 	width: 500px;
 	height: 600px;
@@ -147,7 +138,7 @@ aside {
   border-radius: 15px;
   position: absolute;
 	padding: 50px 100px;
-  z-index: 1000;
+  z-index: -1000;
   border: 0;
   color: #fff;
   transform: translateX(-120px);
@@ -157,6 +148,7 @@ aside {
 .bet-banking-area.visible {
   transform: translateX(0);
   opacity: 1;
+  z-index: 1000;
 }
 
 .bank-area {
@@ -253,6 +245,30 @@ aside {
 
 .value-image-wrapper {
   position: relative;
+}
+
+.info {
+  height: 20px;
+  width: 20px;
+  background-color: #396;
+  position: absolute;
+  right: -400px;
+  overflow: hidden;
+  transition: all 0.5s ease-in-out;
+}
+
+.info.growth {
+  height: 200px;
+  width: 100px;
+}
+
+
+.info-list {
+  height: 20px;
+  width: 20px;
+  background-color: #396;
+  position: absolute;
+  right: -20px;
 }
 
 .dealer-image-wrapper {

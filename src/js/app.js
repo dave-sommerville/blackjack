@@ -32,13 +32,11 @@ function shuffle(deck) {
   return shuffledDeck;
 }
 
-// Use for animations 
 function sleep(duration) {
   return new Promise(resolve => {
     setTimeout(resolve, duration);
   });
 }
-
 
 let convert = (n) => {
   if (n < 1e3) return n;
@@ -58,6 +56,8 @@ let convert = (n) => {
 const dealerDisplay = select('.dealer-display');
 const dealerValueDisplay = select('.dealer-value-display');
 const dealerImgDisplay = select('.dealer-image-wrapper');
+const dealerInfoButton = select('.info');
+const dealerInfoModal = select('.info-list');
 const finalResultDisplay = select('.final-result-display');
 const playerDisplay = select('.player-display');
 const playerValueDisplay = select('.player-value-display');
@@ -84,7 +84,7 @@ const totalPlayerBet = select('.pot');
 const sidePlayerBet = select('.side-pot');
 
 /*-------------------------------------------------------------->
-  Card Declarations - MOVE TO MODULES!!!!!
+  Card Declarations 
 <--------------------------------------------------------------*/
 
 const cardObjects = [
@@ -520,19 +520,6 @@ function restartBtn() {
   dealerImgDisplay.innerHTML = '';
 }
 
-/*
-listen('click', viewScores, () => {
-  scoresWrapper.showModal();
-});
-
-listen('click', scoresWrapper, function(ev) {
-  const rect = this.getBoundingClientRect();
-  if (ev.clientY < rect.top || ev.clientY > rect.bottom || 
-    ev.clientX < rect.left || ev.clientX > rect.right) {
-      scoresWrapper.close();
-  }
-});
-*/
 /*-------------------------------------------------------------->
   Page Load and Listeners
 <--------------------------------------------------------------*/
@@ -593,4 +580,10 @@ listen('click', placeBet, () => {
 
 listen('click', restartButton, () => {
   restartBtn();
+});
+
+//    DPOUBLE UP AND RENAME FOR PLAYERS LIS (CLEAN UP FUNCTIONS)
+
+listen('click', dealerInfoButton, () => {
+  dealerInfoButton.classList.toggle('growth');
 });
