@@ -329,6 +329,7 @@ function startingDeal() {
   player.addCard(shuffledDeck[0], shuffledDeck);
   dealer.addCard(shuffledDeck[0], shuffledDeck);
   updateDisplay(player, playerDisplay, playerImgDisplay);
+  playerValueDisplay.textContent = player.handValue;
   dealerFirstDisplay();
 }
 
@@ -361,6 +362,7 @@ function dealerTurn() {
     hit(dealer);
   }
   updateDisplay(player, playerDisplay, playerImgDisplay); 
+  playerValueDisplay.textContent = player.handValue;
 }
 
 function bustCheck(handObj) {
@@ -491,6 +493,7 @@ function hitBtn() {
   hit(player);
   doubleButton.classList.add('hidden');
   updateDisplay(player, playerDisplay, playerImgDisplay);
+  playerValueDisplay.textContent = player.handValue;
 }
 
 function holdBtn() {
@@ -517,6 +520,7 @@ function restartBtn() {
   playerImgDisplay.innerHTML = '';
   dealerImgDisplay.innerHTML = '';
 }
+
 /*
 listen('click', viewScores, () => {
   scoresWrapper.showModal();

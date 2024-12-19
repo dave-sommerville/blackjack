@@ -1,32 +1,29 @@
 @charset "utf-8";
 /*-------------------------------------------->
-- 
+- Player hand value isn't displaying 
+- Unsure if straight to deal button is best, or just 
+  stright to deal 
+- "Shuffling" doesn't make sense right now 
+- Code/CSS needs reorganization and labelling 
+- Info modals added 
+- Bet/Bank modal currently running interferance 
+- 21 payout
 
-- First Screen - Title / 'play'
-- Bet selector 
-  - Fade in right
-  - Bank/bet Display 
-  - Button design 
-- Deal
-  - Shuffling timing 
-  - Card deal in
-  * Would be great if I could halt the
-    redeal every time 
-- Side bank/bet display 
-- Ending sequence 
-  - Sleep functions 
-
-
-
-- Correct player hand value 
-- Dealer value display 
-- Aside styles 
-  - Info buttons
-  
+- Cards deal every time (might be a tough fix)
+- Final cards 
+  - Full dealer reveal (as is) 
+    - Info aside view 
+  - Sleep(Value display, Final Results)
 
 Later JavaScript 
   - Modules 
+  - Utils, class, deck object 
   - Adding bank ot localStorage
+Additional Options 
+- Split
+- Dealer 21's 
+- Insurance 
+
   <---------------------------------------------*/
 
 html{
