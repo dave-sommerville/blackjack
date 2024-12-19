@@ -3,7 +3,6 @@
 - Info buttons / deal value (responsive)
 - Code/CSS needs reorganization and labelling 
 - 21 payout
-- Double bust check 
 
 Later JavaScript 
   - Modules 
@@ -24,14 +23,6 @@ button {
 	outline: none;
 	text-decoration: none;
 	border: none;
-}
-
-/*-------------------------------------------->
-	Roots
-<---------------------------------------------*/
-
-:root {
-	--clr-primary: #396;
 }
 
 /*-------------------------------------------->
@@ -66,7 +57,6 @@ display: flex;
 .pointer {
   cursor: pointer;
 }
-
 
 /*-------------------------------------------->
 	Fonts
@@ -212,8 +202,6 @@ aside {
 	background-size: cover;
 }
 
-
-
 .bet-area {
 	width: 100%;
   justify-content: space-between;
@@ -247,7 +235,7 @@ aside {
   position: relative;
 }
 
-.info {
+.dealer-info {
   height: 20px;
   width: 20px;
   background-color: #396;
@@ -257,18 +245,24 @@ aside {
   transition: all 0.5s ease-in-out;
 }
 
-.info.growth {
+.dealer-info.growth {
   height: 200px;
   width: 100px;
 }
 
-
-.info-list {
+.player-info {
   height: 20px;
   width: 20px;
   background-color: #396;
   position: absolute;
   right: -20px;
+  overflow: hidden;
+  transition: all 0.5s ease-in-out;
+}
+
+.player-info.growth {
+  height: 200px;
+  width: 100px;
 }
 
 .dealer-image-wrapper {

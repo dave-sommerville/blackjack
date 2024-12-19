@@ -56,8 +56,8 @@ let convert = (n) => {
 const dealerDisplay = select('.dealer-display');
 const dealerValueDisplay = select('.dealer-value-display');
 const dealerImgDisplay = select('.dealer-image-wrapper');
-const dealerInfoButton = select('.info');
-const dealerInfoModal = select('.info-list');
+const dealerInfoButton = select('.dealer-info');
+const playerInfoButton = select('.player-info');
 const finalResultDisplay = select('.final-result-display');
 const playerDisplay = select('.player-display');
 const playerValueDisplay = select('.player-value-display');
@@ -596,4 +596,8 @@ listen('click', restartButton, () => {
 
 listen('click', dealerInfoButton, () => {
   dealerInfoButton.classList.toggle('growth');
+});
+
+listen('click', playerInfoButton, () => {
+  playerInfoButton.classList.toggle('growth');
 });
