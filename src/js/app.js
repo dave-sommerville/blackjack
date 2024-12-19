@@ -469,15 +469,14 @@ function setBet() {
     totalPlayerBet.textContent = 'required';  
     return;
   }
-  startButton.classList.remove('hidden');
-
   betScreen.classList.remove('visible');
   bankWrapper.classList.add('visible');
+  startBtn();
 }
 
 function startBtn() {
   resetGame()
-  finalResultDisplay.textContent = 'Shuffling';
+  finalResultDisplay.textContent = 'DEALING...';
   setTimeout(() => {
     finalResultDisplay.textContent = '';
     startingDeal();
