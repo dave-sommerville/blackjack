@@ -1,5 +1,7 @@
 @charset "utf-8";
 /*-------------------------------------------->
+- 
+
 - First Screen - Title / 'play'
 - Bet selector 
   - Fade in right
@@ -379,7 +381,8 @@ aside {
 .final-result-display {
   font-size: 3rem;
   text-align: center;
-  height: 100px;
+  height: 80px;
+  line-height: 80px;
 }
 
 /*-------------------------------------------->
@@ -478,7 +481,12 @@ transition: all 0.5s ease-in-out;
 			width: 55px;
 		}
 	}
-	
+	.final-result-display {
+    font-size: 2rem;
+    height: 70px;
+    line-height: 70px;
+  }
+
 	.player-image-wrapper {
 		width: 320px; 
 		height: 185px; 
@@ -550,7 +558,13 @@ transition: all 0.5s ease-in-out;
 			width: 50px;
 		}
 	}
-	
+
+  .final-result-display {
+    font-size: 1.6rem;
+    height: 50px;
+    line-height: 50px;
+  }
+
 	.player-image-wrapper {
 		width: 260px; 
 		height: 150px;

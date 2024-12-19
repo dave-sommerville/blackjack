@@ -517,7 +517,19 @@ function restartBtn() {
   playerImgDisplay.innerHTML = '';
   dealerImgDisplay.innerHTML = '';
 }
+/*
+listen('click', viewScores, () => {
+  scoresWrapper.showModal();
+});
 
+listen('click', scoresWrapper, function(ev) {
+  const rect = this.getBoundingClientRect();
+  if (ev.clientY < rect.top || ev.clientY > rect.bottom || 
+    ev.clientX < rect.left || ev.clientX > rect.right) {
+      scoresWrapper.close();
+  }
+});
+*/
 /*-------------------------------------------------------------->
   Page Load and Listeners
 <--------------------------------------------------------------*/
