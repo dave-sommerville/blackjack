@@ -328,6 +328,11 @@ function startingDeal() {
   dealer.addCard(shuffledDeck[0], shuffledDeck);
   player.addCard(shuffledDeck[0], shuffledDeck);
   dealer.addCard(shuffledDeck[0], shuffledDeck);
+  if (isBlackJack()) {
+    blackJackPayout();
+  } else {
+    hideDealShowAction();
+  }
   updateDisplay(player, playerDisplay, playerImgDisplay);
   playerValueDisplay.textContent = player.handValue;
   dealerFirstDisplay();
@@ -341,8 +346,6 @@ function isBlackJack() {
   }
 }
 
-
-///*****************************///
 function blackJackPayout() {
   pot = pot * 1.5;
   playerBank = playerBank + pot;
@@ -386,7 +389,6 @@ function bustCheck(handObj) {
           sidePlayerBet.textContent = '';
       }
   }
-
 }
 
 function dealerCheck() {
@@ -481,11 +483,6 @@ function startBtn() {
     finalResultDisplay.textContent = '';
     startingDeal();
   }, 1000);
-  if (isBlackJack()) {
-    blackJackPayout();
-  } else {
-    hideDealShowAction();
-  }
 }
 
 function hitBtn() {
@@ -500,8 +497,7 @@ function holdBtn() {
   finalResult();
 }
 
-
-listen('click', doubleButton, () => {
+function doubleBtn() {
   if (playerBank >= playerBetTotal) {
     playerBank -= playerBetTotal;
     pot += playerBetTotal;
@@ -522,8 +518,7 @@ listen('click', doubleButton, () => {
   } else {
     finalResultDisplay.textContent = "Not enough bank to double!";
   }
-
-});
+}
 
 function restartBtn() {
   betScreen.classList.add('visible');
@@ -550,6 +545,10 @@ listen('click', startButton, () => {
 listen('click', hitButton, () => {
   hitBtn();
   
+});
+
+listen('click', doubleButton, () => {
+  doubleBtn();
 });
 
 listen('click', holdButton, () => {
@@ -591,8 +590,6 @@ listen('click', placeBet, () => {
 listen('click', restartButton, () => {
   restartBtn();
 });
-
-//    DPOUBLE UP AND RENAME FOR PLAYERS LIS (CLEAN UP FUNCTIONS)
 
 listen('click', dealerInfoButton, () => {
   dealerInfoButton.classList.toggle('growth');
