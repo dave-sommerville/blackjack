@@ -143,6 +143,8 @@ aside {
   }
 }
 
+
+
 .bet-banking-area {
 	width: 500px;
 	height: 600px;
@@ -180,18 +182,16 @@ aside {
 }
 
 .money-sack {
-	width: 100%;
 	justify-content: center;
 	align-items: center;
-    width: 200px;
-    justify-content: center;
-    align-items: center;
-    background: url('../img/piggy.png') no-repeat center center;
-    background-size: contain;
-    height: 180px;
-    padding-top: 53px;
-    text-align: center;
-    font-size: 2.6rem;
+  width: 200px;
+  justify-content: center;
+  align-items: center;
+  background: url('../img/piggy.png') no-repeat center center;
+  background-size: contain;
+  padding-top: 53px;
+  text-align: center;
+  font-size: 2.6rem;
 }
 
 .button {
@@ -225,56 +225,11 @@ aside {
 	background-size: cover;
 }
 
-.round-button {
-  position: relative;
-  width: 92px;
-  height: 92px;
-  border-radius: 50%;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-}
 
-.half {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  cursor: pointer;
-}
-
-.half.up {
-	background-color: rgb(240 240 240 / 0.4);
-  color: #012;
-}
-
-.half.down {
-	background-color: rgb(64 64 64 / 0.4);
-  color: #012;
-}
-
-.half.up::before,
-.half.down::before {
-  font-size: 18px;
-}
-
-.half.up::before {
-  content: "▲";
-}
-
-.half.down::before {
-  content: "▼"; 
-}
-
-.half:hover {
-  filter: brightness(1.2); 
-  color: #119;
-}
 
 .bet-area {
 	width: 100%;
-	justify-content: space-between;
+  justify-content: space-between;
   margin: 5px 0;
 
   p {
@@ -463,13 +418,13 @@ aside {
 }
 
 .double-btn {
-  font-size: 1.3rem;
+  width: 60px;
 }
 
 /*----  Money display ------*/
 .bank-wrapper {
 position: absolute;
-left: 20px;
+left: 0;
 transform: translateX(-120px);
 opacity: 0;
 transition: all 0.5s ease-in-out;
@@ -488,9 +443,9 @@ transition: all 0.5s ease-in-out;
   background-size: contain;
   height: 100px;
   padding-top: 43px;
+  margin-bottom: 25px;
   text-align: center;
   font-size: 2rem;
-  margin-bottom: 40px;
 }
 
 .bet-display {
@@ -539,26 +494,41 @@ transition: all 0.5s ease-in-out;
     font-size: 1.6rem;
   }
 
+  .bet-banking-area {
+    width: 400px;
+    height: 500px;
+    padding: 25px 50px;
+  }
+
   .button {
     width: 70px; 
     height: 70px;
     font-size: 1.2rem;
   }
 
-  .round-button {
-    width: 61px;
-    height: 61px;
+  .money-sack {
+    width: 150px;
   }
 
-  .bet-area {
-    padding: 0 50px;
+  .deal-bet {
+    width: 320px;
+  }
+
+  .btn {
+    width: 90px;
+    height: 50px;
+    font-size: 1.6rem;
+  }
+
+  .double-btn {
+    width: 50px;
   }
 
   .pot-display {
     width: 70px;
     height: 70px;
   }
-  
+
   .pot {
     line-height: 70px;
     font-size: 2.4rem;
@@ -571,8 +541,9 @@ transition: all 0.5s ease-in-out;
 		font-size: 2rem;
 	}
 	.dealer-image-wrapper {
-		width: 100px; 
+		width: 120px; 
 		height: 100px; 
+    padding: 5px 20px;
 		
 		img {
       height: auto;
@@ -581,7 +552,7 @@ transition: all 0.5s ease-in-out;
 	}
 	
 	.player-image-wrapper {
-		width: 300px; 
+		width: 260px; 
 		height: 150px;
     padding: 15px;
 	}
@@ -590,12 +561,48 @@ transition: all 0.5s ease-in-out;
 		width: 80px;
 	}
 
+  .bet-banking-area {
+    width: 100%;
+    height: 100%;
+  }
+
+
+
+  .button {
+    width: 60px;
+    height: 60px;
+  }
+
+  .decrease {
+    width: 60px;
+  }
+
+  .money-display, .bet-display {
+    width: 50px;
+    font-size: 1.2rem;
+  }
+
   .bank-wrapper {
     width: 100%;
-    bottom: 20px;
+    bottom: 0;
     flex-direction: row;
     justify-content: space-evenly;
   }
+
+  .deal-bet {
+    width: 260px;
+  }
+
+  .btn {
+    width: 75px;
+    height: 50px;
+    font-size: 1.2rem;
+  }
+
+  .double-btn {
+    width: 50px;
+  }
+
 }
 
 /*-------------------------------------------->
