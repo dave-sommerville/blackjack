@@ -1,41 +1,6 @@
 'use strict';
 import { cardObjects } from "./deck.js";
-/*-------------------------------------------------------------->
-Utility Functions 
-<--------------------------------------------------------------*/
-function select(selector, scope = document) {
-  return scope.querySelector(selector);
-}
-
-function listen(event, element, callback) {
-  return element.addEventListener(event, callback);
-}
-
-function isImageFile(file) {
-  return file && file.type.startsWith('image');
-}
-
-function createImage(imageSrc) {
-  const img = document.createElement('img');
-  img.src = imageSrc;  
-  img.alt = imageSrc; // Because the photo could be anything 
-  return img;
-}
-
-function shuffle(deck) {
-  const shuffledDeck = [...deck]; 
-  for (let i = shuffledDeck.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [shuffledDeck[i], shuffledDeck[j]] = [shuffledDeck[j], shuffledDeck[i]]; 
-  }
-  return shuffledDeck;
-}
-
-function sleep(duration) {
-  return new Promise(resolve => {
-    setTimeout(resolve, duration);
-  });
-}
+import { select, listen, isImageFile, createImage, shuffle } from "./utils.js";
 
 let convert = (n) => {
   if (n < 1e3) return n;
