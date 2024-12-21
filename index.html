@@ -16,11 +16,11 @@
   <script src="./src/js/app.js" type="module"></script>
 </head>
 <body class="container">
-  <header class="flex f-col">
+  <header class="f-col">
     <h1>BLACKJACK</h1>
   </header>
-  <main class="flex f-col no-select">
-    <div class="value-image-wrapper flex f-col">
+  <main class="f-col no-select">
+    <div class="value-image-wrapper f-col">
       <div class="dealer-info">
         <ul class="dealer-display">
         </ul>
@@ -29,7 +29,7 @@
       <p class="dealer-value-display"></p>
     </div>
     <p class="final-result-display"></p>
-    <div class="value-image-wrapper flex f-col">
+    <div class="value-image-wrapper f-col">
       <div class="player-info">
         <ul class="player-display">
         </ul>
@@ -42,29 +42,29 @@
       </p>
     </div>
     <section class="deal-bet flex">
-      <button type="button" class="btn hidden start-btn pointer">
+      <button type="button" class="btn hidden start-btn">
           DEAL
       </button>
-      <button type="button" class="btn restart-btn hidden pointer">
+      <button type="button" class="btn restart-btn hidden">
         RESET
       </button>
-      <button type="button" class="btn hit-btn hidden pointer">
+      <button type="button" class="btn hit-btn hidden">
           HIT
       </button>
-      <button type="button" class="btn double-btn pointer hidden">
+      <button type="button" class="btn double-btn hidden">
           x2
       </button>
-      <button type="button" class="btn hold-btn pointer hidden">
+      <button type="button" class="btn hold-btn hidden">
           HOLD
       </button>
     </section>
-    <section class="bank-wrapper flex f-col">
+    <section class="bank-wrapper f-col">
       <div class="side-bank-display money-display"></div>
       <div class="side-pot bet-display"></div>
     </section>
     <section class="no-select bet-banking-area">
-      <div class="bank-area flex f-col">
-        <div class="money-sack player-bank flex f-col">
+      <div class="bank-area f-col">
+        <div class="money-sack player-bank f-col">
         </div>
         <p>
           BET: 
@@ -93,7 +93,7 @@
           <i class="fa-solid fa-angle-down"></i>
         </div>
       </div>
-      <button class="btn place-bet pointer">DEAL</button>
+      <button class="btn place-bet">DEAL</button>
     </section>
   </main>
 </body>

@@ -1,19 +1,4 @@
 @charset "utf-8";
-/*-------------------------------------------->
-- Info buttons / deal value (responsive)
-- Code/CSS needs reorganization and labelling 
-- 21 payout
-
-Later JavaScript 
-  - Modules 
-  - Utils, class, deck object 
-  - Adding bank ot localStorage
-Additional Options 
-- Split
-- Dealer 21's 
-- Insurance 
-
-  <---------------------------------------------*/
 
 html{
     font-family:"poppins", "inter", sans-serif;
@@ -29,6 +14,11 @@ button {
 	Utility Classes 
 <---------------------------------------------*/
 
+.container {
+	width: min(100% - 30px, 1200px);
+	margin-inline: auto;
+}
+
 .no-select {
   user-select: none; 
   -webkit-user-select: none; 
@@ -36,12 +26,8 @@ button {
   -ms-user-select: none;     
 }
 
-.container {
-	width: min(100% - 30px, 1200px);
-	margin-inline: auto;
-}
-
 .f-col {
+  display: flex;
 	flex-direction: column;
 }
 
@@ -52,10 +38,6 @@ display: flex;
 .hidden {
 	display: none; 
 	opacity: 0;
-}
-
-.pointer {
-  cursor: pointer;
 }
 
 /*-------------------------------------------->
@@ -106,21 +88,6 @@ main {
 /*-------------------------------------------->
 	Display Info
 <---------------------------------------------*/
-
-aside {
-  height: 100%;
-  width: 400px;
-  inset: 0;
-  margin: auto 0;
-  position: fixed;
-  justify-content: center;
-  align-items: center;
-
-  ul {
-    height: 300px;
-  }
-}
-
 .bet-banking-area {
 	width: 500px;
 	height: 600px;
@@ -135,6 +102,7 @@ aside {
   opacity: 0;
   transition: all 0.5s ease-in-out;
 }
+
 .bet-banking-area.visible {
   transform: translateX(0);
   opacity: 1;
@@ -407,6 +375,7 @@ aside {
     inset -2px -3px 3px rgb(0 0 0 / 0.4); 
   font-size: 2rem;
   color: #fefefe;
+  cursor: pointer;
   filter: blur(0.35px) brightness(0.9);
   transition: all 0.25s ease-in-out;
 }
@@ -427,7 +396,10 @@ aside {
   width: 60px;
 }
 
-/*----  Money display ------*/
+
+/*-------------------------------------------->
+	Side Info Display
+<---------------------------------------------*/
 .bank-wrapper {
 position: absolute;
 left: 0;
