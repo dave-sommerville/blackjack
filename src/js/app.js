@@ -38,9 +38,8 @@ const totalPlayerBet = select('.pot');
 const sidePlayerBet = select('.side-pot');
 
 
-
 /*-------------------------------------------------------------->
-
+Specialty Functions
 <--------------------------------------------------------------*/
 let shuffledDeck = shuffle([...cardObjects]);
 
