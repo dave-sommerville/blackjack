@@ -217,43 +217,70 @@ main {
 }
 
 .dealer-info {
-  height: 0;
-  width: 0;
-  background-color: #396;
+  height: 120px;
+  width: 100px;
+  display: none;
   border-radius: 15px;
   position: absolute;
-  right: -275px;
+  right: 3px;
+  top: 2px;
+  z-index: 500;
+  background-color: #396;
+  padding-top: 15px;
   overflow: hidden;
+  text-align: right;
   transition: all 0.5s ease-in-out;
 
   p {
-    font-size: 1.2rem;
+    font-size: 0.7rem;
+    line-height: 8px;
+    margin: 5px auto;
   }
 
   ul {
-    margin-left: 25px;
-    font-size: 1rem;
+    font-size: 0.6rem;
+    text-align: center;
   }
+
 }
 
+.underline {
+  text-decoration: underline;
+}
 .dealer-info.growth {
-  height: 225px;
-  width: 200px;
+  display: block;
 }
 
 .player-info {
-  height: 20px;
-  width: 20px;
-  background-color: #396;
+  height: 200px;
+  width: 175px;
+  display: none;
+  border-radius: 15px;
   position: absolute;
-  right: -20px;
+  right: 3px;
+  top: 2px;
+  z-index: 500;
+  background-color: #396;
+  padding-top: 15px;
   overflow: hidden;
+  text-align: right;
   transition: all 0.5s ease-in-out;
+
+  p {
+    font-size: 1.4rem;
+    line-height: 8px;
+    margin: 5px auto;
+  }
+
+  ul {
+    font-size: 1.2rem;
+    text-align: center;
+  }
+
 }
 
 .player-info.growth {
-  height: 200px;
-  width: 100px;
+  display: block;
 }
 
 .dealer-image-wrapper {

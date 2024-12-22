@@ -11,8 +11,9 @@ const dealerDisplay = select('.dealer-display');
 const dealerValueDisplay = select('.dealer-value-display');
 const dealerImgDisplay = select('.dealer-image-wrapper');
 const dealerInfoDisplay = select('.dealer-info');
-const dealerInfoButton = select('.fa-circle-info');
-const playerInfoButton = select('.player-info');
+const dealerInfoButton = select('.dealer-btn');
+const playerInfoDisplay = select('.player-info');
+const playerInfoButton = select('.player-btn');
 const finalResultDisplay = select('.final-result-display');
 const playerDisplay = select('.player-display');
 const playerValueDisplay = select('.player-value-display');
@@ -395,5 +396,5 @@ listen('click', dealerInfoButton, () => {
 });
 
 listen('click', playerInfoButton, () => {
-  playerInfoButton.classList.toggle('growth');
+  playerInfoDisplay.classList.toggle('growth');
 });
