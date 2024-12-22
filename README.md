@@ -17,21 +17,29 @@ I first began creating a Blackjack game the same week that I started learning Ja
 ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
 ![JavaScript](https://shields.io/badge/JavaScript-F7DF1E?logo=JavaScript&logoColor=000&style=flat-square)
-## Planned Features and Fixes  
-- Make game recognize a natural 21 
-- Improve game animation / "processing" time 
-- Improved UI
-- Potentially add an insurance and/or split feature 
+## Planned Features and Fixes 
+- Add music/sound effects  
+- Further gameplay animations 
+- Player bank added to localStorage
+- Method for player to top up their bank if too low
+- Watch for a natural 21 
+  - Deal payout not currently functioning 
+  - Dealer 21 while showing Ace auto finishes game 
+  - Player given insurance option 
+- Watch for twin cards 
+  - Play split hands as two rounds in same UI 
 
 ### Preview 
 ![Website Preview](./src/img/scrnshot-preview.jpg)
+### Image Attribution
 
+**Image by:** [Harald Eicher](https://pixabay.com/users/teacherbingo-18391860/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=7155166)  
+**Source:** [Pixabay](https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=7155166)  
 
-Image by <a href="https://pixabay.com/users/teacherbingo-18391860/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=7155166">Harald Eicher</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=7155166">Pixabay</a>
+### Icon Attribution
+**SVG Deck**  
+- [Icon by TekEye](https://tekeye.uk/playing_cards/svg-playing-cards#google_vignette)
 
-<a href="https://www.freepik.com/icon/heart-card_10798411#fromView=resource_detail&position=15">Icon by riajulislam</a><a href="https://www.freepik.com/icon/poker-chip_11155392#fromView=search&page=1&position=92&uuid=14b66ee6-480a-40ff-bd42-72963f81f7af">Icon by Iconsea</a>
-<a href="https://www.freepik.com/icon/capital_4333393#fromView=search&page=1&position=34&uuid=3fb99b42-66fc-436a-b895-4f81d711196f">Icon by juicy_fish</a>
-
-
-Icon by <a class="link_pro" href="https://freeicons.io/business-collection-icon/piggy-bank-icon-22292">Muhammad Haq</a> on <a href="https://freeicons.io">freeicons.io</a>
+**Piggy Bank Icon**  
+- [Icon by Muhammad Haq](https://freeicons.io/business-collection-icon/piggy-bank-icon-22292) on [freeicons.io](https://freeicons.io)
 
