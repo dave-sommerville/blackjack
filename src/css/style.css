@@ -10,6 +10,11 @@ button {
 	border: none;
 }
 
+ul {
+  text-decoration: none;
+  list-style-type: none;
+}
+
 /*-------------------------------------------->
 	Utility Classes 
 <---------------------------------------------*/
@@ -203,19 +208,37 @@ main {
   position: relative;
 }
 
-.dealer-info {
-  height: 20px;
-  width: 20px;
-  background-color: #396;
+.fa-circle-info {
+  font-size: 1.8rem;
+  color: #396;
   position: absolute;
-  right: -400px;
+  right: -50px;
+  cursor: pointer;
+}
+
+.dealer-info {
+  height: 0;
+  width: 0;
+  background-color: #396;
+  border-radius: 15px;
+  position: absolute;
+  right: -275px;
   overflow: hidden;
   transition: all 0.5s ease-in-out;
+
+  p {
+    font-size: 1.2rem;
+  }
+
+  ul {
+    margin-left: 25px;
+    font-size: 1rem;
+  }
 }
 
 .dealer-info.growth {
-  height: 200px;
-  width: 100px;
+  height: 225px;
+  width: 200px;
 }
 
 .player-info {

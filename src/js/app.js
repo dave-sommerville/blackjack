@@ -10,7 +10,8 @@ import { Player } from "./class.js";
 const dealerDisplay = select('.dealer-display');
 const dealerValueDisplay = select('.dealer-value-display');
 const dealerImgDisplay = select('.dealer-image-wrapper');
-const dealerInfoButton = select('.dealer-info');
+const dealerInfoDisplay = select('.dealer-info');
+const dealerInfoButton = select('.fa-circle-info');
 const playerInfoButton = select('.player-info');
 const finalResultDisplay = select('.final-result-display');
 const playerDisplay = select('.player-display');
@@ -390,7 +391,7 @@ listen('click', restartButton, () => {
 });
 
 listen('click', dealerInfoButton, () => {
-  dealerInfoButton.classList.toggle('growth');
+  dealerInfoDisplay.classList.toggle('growth');
 });
 
 listen('click', playerInfoButton, () => {
