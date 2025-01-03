@@ -153,6 +153,7 @@ function blackJackPayout() {
   playerBetTotal = 0;
   updateBankDisplay();
   hideActionButtons();
+  restartBtn();
 }
 
 function hit(handObj) {
@@ -165,6 +166,7 @@ function dealerTurn() {
     hit(dealer);
   }
   updateDisplay(player, playerDisplay, playerImgDisplay); 
+  updateBankDisplay();
   playerValueDisplay.textContent = player.handValue;
 }
 
@@ -200,6 +202,7 @@ function dealerCheck() {
   } else if (dealer.handValue < player.handValue) {
     finalResultDisplay.textContent = 'YOU WIN!';
     playerBank += pot; 
+
   } else {
     finalResultDisplay.textContent = 'PUSH';
     playerBank += playerBetTotal; 
@@ -208,9 +211,9 @@ function dealerCheck() {
 
 function finalResult() {
   updateDisplay(dealer, dealerDisplay, dealerImgDisplay);
+  dealerCheck();
   updateBankDisplay();
   hideActionButtons();
-  dealerCheck();
   restartButton.classList.remove('hidden');
   pot = 0;
   playerBetTotal = 0;

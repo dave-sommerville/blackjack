@@ -1,5 +1,10 @@
 @charset "utf-8";
 
+/*
+  - Fix bank display
+  - Fix 21 issue
+  - localStorage bank
+*/
 html{
     font-family:"poppins", "inter", sans-serif;
 }
