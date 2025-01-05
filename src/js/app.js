@@ -374,7 +374,7 @@ let timeRemaining = 5;
 const interval = 50; 
 const totalTime = timeRemaining * 1000; 
 let elapsedTime = 0;
-adDisplay.classList.remove('hidden');
+// adDisplay.classList.remove('hidden');
 const timer = setInterval(() => {
     elapsedTime += interval;
 
@@ -460,8 +460,6 @@ listen('click', allInButton, () => {
 
 listen('click', placeBet, () => {
   setBet();
-  adDisplay.close();
-
   clickFX.play();
 });
 

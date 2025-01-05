@@ -48,6 +48,7 @@ display: flex;
 .hidden {
 	display: none; 
 	opacity: 0;
+  z-index: -100;
 }
 
 .underline {
@@ -93,7 +94,7 @@ header {
 main {
 	position: relative;
 	width: 100%;
-  height: 100svh;
+  height: 90svh;
 	align-items: center;
   justify-content: center;
 }
@@ -539,6 +540,29 @@ transition: all 0.5s ease-in-out;
 .timer-text {
   font-size: 2rem;
   color: #333;
+}
+
+.website-link {
+  width: 450px;
+  height: 10svh;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  margin: 0 auto;
+  text-decoration: none;
+
+  img {
+    height: 45px;
+    width: auto;
+  }
+
+  p {
+    font-size: 2.2rem;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 700;
+    color: #012;
+
+  }
 }
 
 /*-------------------------------------------->
