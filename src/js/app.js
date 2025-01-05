@@ -26,13 +26,14 @@ const restartButton = select('.restart-btn');
 const increaseBetTen = select('.bet10');
 const increaseBetFifty = select('.bet50');
 const increaseBetHundred = select('.bet100');
-
 const decreaseBetTen = select('.down10');
 const decreaseBetFifty = select('.down50');
 const decreaseBetHundred = select('.down100');
+const allInButton = select('.all-in');
 const placeBet = select('.place-bet');
 const betScreen = select('.bet-banking-area');
 const bankDisplay = select('.player-bank');
+const fundsDisplay = select('.funds-display');
 const sideBankDisplay = select('.side-bank-display');
 const bankWrapper = select('.bank-wrapper');
 const totalPlayerBet = select('.pot');
@@ -42,6 +43,7 @@ const clickFX = select('.click-fx');
 const shuffleFX = select('.shuffle-fx');
 const coinFX = select('.coin-fx');
 const winningFX = select('.winning-fx');
+const allInFX = select('.all-in-fx');
 
 /*-------------------------------------------------------------->
 Specialty Functions
@@ -258,6 +260,7 @@ function resetGame() {
   Button Functions 
 <--------------------------------------------------------------*/
 function potDecrease(value) {
+  fundsDisplay.textContent = '';
   if (playerBetTotal >= value) { 
     playerBetTotal -= value; 
     playerBank += value; 
@@ -273,7 +276,18 @@ function potIncrease(value) {
     updateBankDisplay();
     updateTotalBet();
   } else {
-    finalResultDisplay.textContent = 'Not enough funds to increase bet!';
+    fundsDisplay.textContent = 'Not enough funds to increase bet!';
+  }
+}
+
+function allIn() {
+  if (playerBank > 0) {
+    playerBetTotal += playerBank;
+    playerBank = 0;
+    updateBankDisplay();
+    updateTotalBet();
+  } else {
+    fundsDisplay.textContent = 'Not enough funds to increase bet!';
   }
 }
 
@@ -400,6 +414,11 @@ listen('click', decreaseBetFifty, () => {
 listen('click', decreaseBetHundred, () => {
   potDecrease(100);
   coinFX.play();
+});
+
+listen('click', allInButton, () => {
+  allIn();
+  allInFX.play();
 });
 
 listen('click', placeBet, () => {

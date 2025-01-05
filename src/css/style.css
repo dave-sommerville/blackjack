@@ -142,12 +142,19 @@ main {
     position: absolute;
     top: -10px;
     left: -10px;
+    cursor: pointer;
 
     img {
       height: 60px;
       width: auto;
     }
   }
+}
+
+.funds-display {
+  margin-left: 5px;
+  width: 180px;
+  font-size: 0.8rem;
 }
 
 .money-sack {

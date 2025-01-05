@@ -65,10 +65,10 @@
     <section class="no-select bet-banking-area">
       <h1>BLACKJACK</h1>
       <div class="bank-area f-col">
-        <!-- <figure class="all-in">
+        <figure class="all-in">
         <img src="./src/img/bomb.png">
         <figcaption>ALL IN</figcaption>
-        </figure> -->
+        </figure>
         <div class="money-sack player-bank f-col">
         </div>
         <p>
@@ -98,7 +98,10 @@
           <i class="fa-solid fa-angle-down"></i>
         </div>
       </div>
-      <button class="btn place-bet">DEAL</button>
+      <div class="flex">
+        <button class="btn place-bet">DEAL</button>
+        <p class="funds-display"></p>
+      </div>
     </section>
     <section>
 			<audio class="click-fx">
@@ -116,7 +119,11 @@
       <audio class="winning-fx">
 				<source src="./src/media/winning-fx.mp3" type="audio/mp3">
 				Your browser does not support the audio element.
-			</audio>				
+			</audio>
+      <audio class="all-in-fx">
+				<source src="./src/media/all-in-fx.mp3" type="audio/mp3">
+				Your browser does not support the audio element.
+			</audio>
 		</section>
   </main>
 </body>
