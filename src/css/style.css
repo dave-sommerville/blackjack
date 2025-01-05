@@ -511,87 +511,39 @@ transition: all 0.5s ease-in-out;
   font-size: 2rem;
 }
 
+.ad-display {
+  width: 80svw;
+  height: 80svh;
+  position: absolute;
+  background: #fff;
+  border-radius: 10px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 10000;
+}
+
+.progress-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 10px;
+  width: 0;
+  background: #4caf50;
+  border-radius: 10px 10px 0 0;
+  transition: width 0.1s;
+}
+
+.timer-text {
+  font-size: 2rem;
+  color: #333;
+}
+
 /*-------------------------------------------->
 	Media Queries 
-<---------------------------------------------
-
-@media (max-width: 768px) {
-	h1 {
-		font-size: 3.5rem;
-	}
-	
-	.dealer-image-wrapper {
-		width: 130px; 
-		height: 110px; 
-		
-		img {
-			height: auto;
-			width: 55px;
-		}
-	}
-	.final-result-display {
-    font-size: 2rem;
-    height: 70px;
-    line-height: 70px;
-  }
-
-	.player-image-wrapper {
-		width: 320px; 
-		height: 185px; 
-    padding: 25px;
-
-		img {
-			width: 100px;
-		}
-	}
-  
-  .money-display, .bet-display {
-    width: 80px;
-    font-size: 1.6rem;
-  }
-
-  .bet-banking-area {
-    width: 400px;
-    height: 500px;
-    padding: 25px 50px;
-  }
-
-  .button {
-    width: 70px; 
-    height: 70px;
-    font-size: 1.2rem;
-  }
-
-  .money-sack {
-    width: 150px;
-  }
-
-  .deal-bet {
-    width: 320px;
-  }
-
-  .btn {
-    width: 90px;
-    height: 50px;
-    font-size: 1.6rem;
-  }
-
-  .double-btn {
-    width: 50px;
-  }
-
-  .pot-display {
-    width: 70px;
-    height: 70px;
-  }
-
-  .pot {
-    line-height: 70px;
-    font-size: 2.4rem;
-  }
-
-}
-*/
+<---------------------------------------------*/
 @media (max-width: 480px) {
 	h1 {
 		font-size: 2.4rem;

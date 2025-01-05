@@ -355,6 +355,43 @@ function restartBtn() {
   playerImgDisplay.innerHTML = '';
   dealerImgDisplay.innerHTML = '';
 }
+/*-------------------------------------------------------------->
+  Needs formatting, triggering, and content
+
+
+
+
+<--------------------------------------------------------------*/
+
+
+
+const adDisplay = select('.ad-display');
+
+const progressBar = select('.progress-bar');
+const timerText = select('.timer-text');
+
+let timeRemaining = 5; 
+const interval = 50; 
+const totalTime = timeRemaining * 1000; 
+let elapsedTime = 0;
+adDisplay.classList.remove('hidden');
+const timer = setInterval(() => {
+    elapsedTime += interval;
+
+    const progress = (elapsedTime / totalTime) * 100;
+    progressBar.style.width = `${progress}%`;
+
+    if (elapsedTime % 1000 === 0) {
+        timeRemaining -= 1;
+        timerText.textContent = timeRemaining > 0 ? timeRemaining : "Time's up!";
+    }
+    if (timeRemaining <= 0) {
+      adDisplay.classList.add('hidden');
+    }
+    if (elapsedTime >= totalTime) {
+        clearInterval(timer);
+    }
+}, interval);
 
 /*-------------------------------------------------------------->
   Page Load and Listeners
@@ -423,6 +460,8 @@ listen('click', allInButton, () => {
 
 listen('click', placeBet, () => {
   setBet();
+  adDisplay.close();
+
   clickFX.play();
 });
 
