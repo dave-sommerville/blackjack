@@ -133,6 +133,9 @@ function startingDeal() {
   } else {
     hideDealShowAction();
   }
+  if (player.handValue[0] === player.handValue[1]) {
+    console.log('split?');
+  }
   updateDisplay(player, playerDisplay, playerImgDisplay);
   playerValueDisplay.textContent = player.handValue;
   dealerFirstDisplay();
