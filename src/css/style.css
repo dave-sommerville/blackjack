@@ -51,6 +51,7 @@ display: flex;
   z-index: -100;
 }
 
+
 .underline {
   text-decoration: underline;
 }
@@ -516,14 +517,19 @@ transition: all 0.5s ease-in-out;
   width: 80svw;
   height: 80svh;
   position: absolute;
+  display: none;
   background: #fff;
   border-radius: 10px;
   margin: auto;
-  display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  z-index: 10000;
+  z-index: -100;
+}
+
+.ad-display.visible {
+    display: flex;
+    z-index: 10000;
 }
 
 .progress-bar {

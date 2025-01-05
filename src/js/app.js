@@ -374,7 +374,7 @@ let timeRemaining = 5;
 const interval = 50; 
 const totalTime = timeRemaining * 1000; 
 let elapsedTime = 0;
-// adDisplay.classList.remove('hidden');
+adDisplay.classList.add('visible');
 const timer = setInterval(() => {
     elapsedTime += interval;
 
@@ -386,7 +386,7 @@ const timer = setInterval(() => {
         timerText.textContent = timeRemaining > 0 ? timeRemaining : "Time's up!";
     }
     if (timeRemaining <= 0) {
-      adDisplay.classList.add('hidden');
+      adDisplay.classList.remove('visible');
     }
     if (elapsedTime >= totalTime) {
         clearInterval(timer);
