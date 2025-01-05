@@ -18,7 +18,6 @@ const finalResultDisplay = select('.final-result-display');
 const playerDisplay = select('.player-display');
 const playerValueDisplay = select('.player-value-display');
 const playerImgDisplay = select('.player-image-wrapper');
-const dealBetButton = select('.deal-bet');
 const startButton = select('.start-btn');
 const hitButton = select('.hit-btn');
 const holdButton = select('.hold-btn');
@@ -39,6 +38,10 @@ const bankWrapper = select('.bank-wrapper');
 const totalPlayerBet = select('.pot');
 const sidePlayerBet = select('.side-pot');
 
+const clickFX = select('.click-fx');
+const shuffleFX = select('.shuffle-fx');
+const coinFX = select('.coin-fx');
+const winningFX = select('.winning-fx');
 
 /*-------------------------------------------------------------->
 Specialty Functions
@@ -185,6 +188,7 @@ function bustCheck(handObj) {
         sidePlayerBet.textContent = '';
       } else if (handObj === dealer) {
           finalResultDisplay.textContent = 'DEALER BUSTS! YOU WIN!';
+          winningFX.play();
           hideActionButtons();
           restartButton.classList.remove('hidden');
           playerBank += pot; 
@@ -199,11 +203,13 @@ function bustCheck(handObj) {
 function dealerCheck() {
   if (dealer.handValue > 21) {
     finalResultDisplay.textContent = 'DEALER BUSTS! YOU WIN!';
+    winningFX.play();
     playerBank += pot; 
   } else if (dealer.handValue > player.handValue) {
     finalResultDisplay.textContent = 'DEALER WINS!';
   } else if (dealer.handValue < player.handValue) {
     finalResultDisplay.textContent = 'YOU WIN!';
+    winningFX.play();
     playerBank += pot; 
 
   } else {
@@ -285,6 +291,7 @@ function setBet() {
 function startBtn() {
   resetGame()
   finalResultDisplay.textContent = 'DEALING...';
+  shuffleFX.play();
   setTimeout(() => {
     finalResultDisplay.textContent = '';
     startingDeal();
@@ -342,59 +349,67 @@ function restartBtn() {
 listen('load', window, () => {
   updateBankDisplay(player, playerDisplay, playerImgDisplay);
   updateBankDisplay(dealer, dealerDisplay, dealerImgDisplay);
+  betScreen.classList.add('visible');
 });
 
 listen('click', startButton, () => { 
   startBtn();
+  clickFX.play();
 }); 
 
 listen('click', hitButton, () => {
   hitBtn();
-  
+  clickFX.play();
 });
 
 listen('click', doubleButton, () => {
   doubleBtn();
+  clickFX.play();
 });
 
 listen('click', holdButton, () => {
   holdBtn();
-});
-
-listen('load', window, () => {
-  betScreen.classList.add('visible');
+  clickFX.play();
 });
 
 listen('click', increaseBetTen, () => {
   potIncrease(10);
+  coinFX.play();
 });
 
 listen('click', increaseBetFifty, () => {
   potIncrease(50);
+  coinFX.play();
 });
 
 listen('click', increaseBetHundred, () => {
   potIncrease(100);
+  coinFX.play();
 });
 
 listen('click', decreaseBetTen, () => {
   potDecrease(10);
+  coinFX.play();
 });
 
 listen('click', decreaseBetFifty, () => {
   potDecrease(50);
+  coinFX.play();
 });
 
 listen('click', decreaseBetHundred, () => {
   potDecrease(100);
+  coinFX.play();
 });
 
 listen('click', placeBet, () => {
   setBet();
+  clickFX.play();
 });
 
 listen('click', restartButton, () => {
   restartBtn();
+  clickFX.play();
 });
 
 listen('click', dealerInfoButton, () => {
