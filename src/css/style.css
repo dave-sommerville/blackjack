@@ -1,9 +1,7 @@
 @charset "utf-8";
 
 /*
-  - Fix bank display
-  - Fix 21 issue
-  - localStorage bank
+- 
 */
 html{
     font-family:"poppins", "inter", sans-serif;
@@ -50,7 +48,6 @@ display: flex;
 	opacity: 0;
   z-index: -100;
 }
-
 
 .underline {
   text-decoration: underline;
@@ -481,6 +478,11 @@ left: 0;
 transform: translateX(-120px);
 opacity: 0;
 transition: all 0.5s ease-in-out;
+
+  p {
+    width: 120px;
+    font-size: 1rem;
+  }
 }
 
 .bank-wrapper.visible {
@@ -499,6 +501,17 @@ transition: all 0.5s ease-in-out;
   margin-bottom: 25px;
   text-align: center;
   font-size: 2rem;
+  color: #fefefe;
+}
+
+.money-display-ad {
+  position: relative;
+}
+
+.writing-wrapper {
+  position: absolute;
+  width: 100px;
+  top: 50px;
 }
 
 .bet-display {
@@ -512,6 +525,11 @@ transition: all 0.5s ease-in-out;
   text-align: center;
   font-size: 2rem;
 }
+
+/*-------------------------------------------->
+Ad Modal
+<---------------------------------------------*/
+
 
 .ad-display {
   width:50vw;
@@ -586,7 +604,7 @@ h2 {
 }
 
 /*-------------------------------------------->
-	Media Queries 
+Media Queries 
 <---------------------------------------------*/
 @media (max-width: 480px) {
 	h1 {

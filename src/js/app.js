@@ -1,6 +1,6 @@
 'use strict';
 import { cardObjects } from "./deck.js";
-import { select, listen, isImageFile, createImage, shuffle } from "./utils.js";
+import { select, listen, createImage, shuffle, sleep } from "./utils.js";
 import { Player } from "./class.js";
 
 /*-------------------------------------------------------------->
@@ -38,12 +38,17 @@ const sideBankDisplay = select('.side-bank-display');
 const bankWrapper = select('.bank-wrapper');
 const totalPlayerBet = select('.pot');
 const sidePlayerBet = select('.side-pot');
+const adButton = select('.ad-btn');
+const adButtonText = select('.ad-btn-text');
 
 const clickFX = select('.click-fx');
 const shuffleFX = select('.shuffle-fx');
 const coinFX = select('.coin-fx');
 const winningFX = select('.winning-fx');
 const allInFX = select('.all-in-fx');
+const adDisplay = select('.ad-display');
+const progressBar = select('.progress-bar');
+const timerText = select('.timer-text');
 
 /*-------------------------------------------------------------->
 Specialty Functions
@@ -178,26 +183,25 @@ function dealerTurn() {
   playerValueDisplay.textContent = player.handValue;
 }
 
+function busted() {
+  hideActionButtons();
+  restartButton.classList.remove('hidden');
+  pot = 0;
+  playerBetTotal = 0;
+  totalPlayerBet.textContent = '';
+  sidePlayerBet.textContent = '';
+}
+
 function bustCheck(handObj) {
   if (handObj.handValue > 21) {  
       if (handObj === player) {
         finalResultDisplay.textContent = 'YOU BUSTED! YOU LOSE!';
-        hideActionButtons();
-        restartButton.classList.remove('hidden');
-        pot = 0;
-        playerBetTotal = 0;
-        totalPlayerBet.textContent = '';
-        sidePlayerBet.textContent = '';
+        isBankrupt();
+        busted();
       } else if (handObj === dealer) {
           finalResultDisplay.textContent = 'DEALER BUSTS! YOU WIN!';
           winningFX.play();
-          hideActionButtons();
-          restartButton.classList.remove('hidden');
-          playerBank += pot; 
-          pot = 0;
-          playerBetTotal = 0;
-          totalPlayerBet.textContent = '';
-          sidePlayerBet.textContent = '';
+          busted();
       }
   }
 }
@@ -223,6 +227,7 @@ function dealerCheck() {
 function finalResult() {
   updateDisplay(dealer, dealerDisplay, dealerImgDisplay);
   dealerCheck();
+  isBankrupt();
   updateBankDisplay();
   hideActionButtons();
   restartButton.classList.remove('hidden');
@@ -355,43 +360,51 @@ function restartBtn() {
   playerImgDisplay.innerHTML = '';
   dealerImgDisplay.innerHTML = '';
 }
+
+function advertBtn() {
+  winningFX.play();
+  adDisplay.classList.add('visible');
+  adButton.classList.add('hidden');
+  adButtonText.classList.add('hidden');
+  sideBankDisplay.classList.remove('hidden');
+  playerBank += 1000;
+  startTimer(5);
+  updateBankDisplay();
+}
+
 /*-------------------------------------------------------------->
-  Needs formatting, triggering, and content
-
-
-
-
+  Ad Display
 <--------------------------------------------------------------*/
+function isBankrupt() {
+  if (playerBank <= 0) {
+    adButton.classList.remove('hidden');
+    adButtonText.classList.remove('hidden');
+    sideBankDisplay.classList.add('hidden')
+  }
+}
 
+function startTimer(durationInSeconds) {
+    let timeRemaining = durationInSeconds;
+    const interval = 50; 
+    const totalTime = timeRemaining * 1000; 
+    let elapsedTime = 0;
 
-
-const adDisplay = select('.ad-display');
-
-const progressBar = select('.progress-bar');
-const timerText = select('.timer-text');
-
-let timeRemaining = 5; 
-const interval = 50; 
-const totalTime = timeRemaining * 1000; 
-let elapsedTime = 0;
-adDisplay.classList.add('visible');
-const timer = setInterval(() => {
-    elapsedTime += interval;
-
-    const progress = (elapsedTime / totalTime) * 100;
-    progressBar.style.width = `${progress}%`;
-
-    if (elapsedTime % 1000 === 0) {
-        timeRemaining -= 1;
-        timerText.textContent = timeRemaining > 0 ? timeRemaining : "Time's up!";
-    }
-    if (timeRemaining <= 0) {
-      adDisplay.classList.remove('visible');
-    }
-    if (elapsedTime >= totalTime) {
-        clearInterval(timer);
-    }
-}, interval);
+    const timer = setInterval(() => {
+        elapsedTime += interval;
+        const progress = (elapsedTime / totalTime) * 100;
+        progressBar.style.width = `${progress}%`;
+        if (elapsedTime % 1000 === 0) {
+            timeRemaining -= 1;
+            timerText.textContent = timeRemaining > 0 ? timeRemaining : "Time's up!";
+        }
+        if (timeRemaining <= 0) {
+            adDisplay.classList.remove('visible');
+        }
+        if (elapsedTime >= totalTime) {
+            clearInterval(timer);
+        }
+    }, interval);
+}
 
 /*-------------------------------------------------------------->
   Page Load and Listeners
@@ -466,6 +479,10 @@ listen('click', placeBet, () => {
 listen('click', restartButton, () => {
   restartBtn();
   clickFX.play();
+});
+
+listen('click', adButton, () => {
+  advertBtn();
 });
 
 listen('click', dealerInfoButton, () => {

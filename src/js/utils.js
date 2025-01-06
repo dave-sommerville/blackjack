@@ -11,10 +11,6 @@ export function listen(event, element, callback) {
   return element.addEventListener(event, callback);
 }
 
-export function isImageFile(file) {
-  return file && file.type.startsWith('image');
-}
-
 export function createImage(imageSrc) {
   const img = document.createElement('img');
   img.src = imageSrc;  
@@ -31,4 +27,8 @@ export function shuffle(deck) {
   return shuffledDeck;
 }
 
-
+export function sleep(duration) {
+  return new Promise(resolve => {
+    setTimeout(resolve, duration);
+  });
+}
