@@ -514,22 +514,36 @@ transition: all 0.5s ease-in-out;
 }
 
 .ad-display {
-  width: 80svw;
-  height: 80svh;
+  width:50vw;
+  height: fit-content;
   position: absolute;
   display: none;
-  background: #fff;
+  background-color: #003;
   border-radius: 10px;
   margin: auto;
+  padding: 20px;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   z-index: -100;
+
+  img {
+    width: 16svw;
+    height: auto;
+    margin: 0 25px;
+  }
 }
 
 .ad-display.visible {
     display: flex;
     z-index: 10000;
+}
+
+h2 {
+  color: #d33;
+  text-align: center;
+  font-size: 2rem;
+  margin: 20px 0;
 }
 
 .progress-bar {
@@ -545,7 +559,7 @@ transition: all 0.5s ease-in-out;
 
 .timer-text {
   font-size: 2rem;
-  color: #333;
+  color: #d33;
 }
 
 .website-link {
@@ -566,7 +580,7 @@ transition: all 0.5s ease-in-out;
     font-size: 2.2rem;
     font-family: 'Courier New', Courier, monospace;
     font-weight: 700;
-    color: #012;
+    color: #fefefe;
 
   }
 }
