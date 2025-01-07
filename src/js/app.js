@@ -39,7 +39,6 @@ const bankWrapper = select('.bank-wrapper');
 const totalPlayerBet = select('.pot');
 const sidePlayerBet = select('.side-pot');
 const adButton = select('.ad-btn');
-const adButtonText = select('.ad-btn-text');
 
 const clickFX = select('.click-fx');
 const shuffleFX = select('.shuffle-fx');
@@ -365,7 +364,6 @@ function advertBtn() {
   winningFX.play();
   adDisplay.classList.add('visible');
   adButton.classList.add('hidden');
-  adButtonText.classList.add('hidden');
   sideBankDisplay.classList.remove('hidden');
   playerBank += 1000;
   startTimer(5);
@@ -378,7 +376,6 @@ function advertBtn() {
 function isBankrupt() {
   if (playerBank <= 0) {
     adButton.classList.remove('hidden');
-    adButtonText.classList.remove('hidden');
     sideBankDisplay.classList.add('hidden')
   }
 }

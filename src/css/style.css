@@ -1,7 +1,9 @@
 @charset "utf-8";
 
 /*
-- 
+- Disable Deal button while no funds 
+- Assess and add local bank 
+
 */
 html{
     font-family:"poppins", "inter", sans-serif;
@@ -502,6 +504,7 @@ transition: all 0.5s ease-in-out;
   text-align: center;
   font-size: 2rem;
   color: #fefefe;
+  cursor: pointer;
 }
 
 .money-display-ad {
@@ -580,8 +583,9 @@ h2 {
   color: #d33;
 }
 
+
 .website-link {
-  width: 450px;
+  max-width: 450px;
   height: 10svh;
   justify-content: space-between;
   align-items: center;
