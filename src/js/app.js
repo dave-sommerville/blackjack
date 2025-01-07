@@ -358,6 +358,8 @@ function restartBtn() {
 
 function advertBtn() {
   winningFX.play();
+
+  restartButton.classList.remove('.hidden');
   adDisplay.classList.add('visible');
   adButton.classList.add('hidden');
   sideBankDisplay.classList.remove('hidden');
@@ -371,6 +373,7 @@ function advertBtn() {
 <--------------------------------------------------------------*/
 function isBankrupt() {
   if (playerBank <= 0) {
+    adDisplay.classList.add('hidden');
     adButton.classList.remove('hidden');
     sideBankDisplay.classList.add('hidden')
   }
