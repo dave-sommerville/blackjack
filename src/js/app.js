@@ -120,6 +120,7 @@ function updateBankDisplay() {
   let convertedBank = convert(playerBank);
   bankDisplay.textContent = `${convertedBank}`;
   sideBankDisplay.textContent = `${convertedBank}`;
+  localStorage.setItem('playerBank', playerBank); // Save to local storage
 }
 
 function updateTotalBet() {
@@ -182,7 +183,7 @@ function dealerTurn() {
   playerValueDisplay.textContent = player.handValue;
 }
 
-function busted() {
+function endGame() {
   hideActionButtons();
   restartButton.classList.remove('hidden');
   pot = 0;
@@ -196,11 +197,11 @@ function bustCheck(handObj) {
       if (handObj === player) {
         finalResultDisplay.textContent = 'YOU BUSTED! YOU LOSE!';
         isBankrupt();
-        busted();
+        endGame();
       } else if (handObj === dealer) {
           finalResultDisplay.textContent = 'DEALER BUSTS! YOU WIN!';
           winningFX.play();
-          busted();
+          endGame();
       }
   }
 }
@@ -228,12 +229,7 @@ function finalResult() {
   dealerCheck();
   isBankrupt();
   updateBankDisplay();
-  hideActionButtons();
-  restartButton.classList.remove('hidden');
-  pot = 0;
-  playerBetTotal = 0;
-  totalPlayerBet.textContent = '';
-  sidePlayerBet.textContent = '';
+  endGame();
 }
 
 function resetGame() {
@@ -408,8 +404,9 @@ function startTimer(durationInSeconds) {
 <--------------------------------------------------------------*/
 
 listen('load', window, () => {
-  updateBankDisplay(player, playerDisplay, playerImgDisplay);
-  updateBankDisplay(dealer, dealerDisplay, dealerImgDisplay);
+  const savedBank = localStorage.getItem('playerBank');
+  playerBank = savedBank ? parseInt(savedBank, 10) : 1000; // Default to 1000 if no saved value
+  updateBankDisplay();
   betScreen.classList.add('visible');
 });
 
