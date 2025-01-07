@@ -120,7 +120,9 @@ function updateBankDisplay() {
   let convertedBank = convert(playerBank);
   bankDisplay.textContent = `${convertedBank}`;
   sideBankDisplay.textContent = `${convertedBank}`;
+  localStorage.setItem('playerBank', playerBank); // Save to local storage
 }
+
 
 function updateTotalBet() {
   let convertedBet = convert(playerBetTotal);
@@ -184,7 +186,6 @@ function dealerTurn() {
 
 function endGame() {
   hideActionButtons();
-  restartButton.classList.remove('hidden');
   pot = 0;
   playerBetTotal = 0;
   totalPlayerBet.textContent = '';
@@ -195,12 +196,16 @@ function bustCheck(handObj) {
   if (handObj.handValue > 21) {  
       if (handObj === player) {
         finalResultDisplay.textContent = 'YOU BUSTED! YOU LOSE!';
+        restartButton.classList.remove('hidden');
         isBankrupt();
         endGame();
       } else if (handObj === dealer) {
-          finalResultDisplay.textContent = 'DEALER BUSTS! YOU WIN!';
-          winningFX.play();
-          endGame();
+        finalResultDisplay.textContent = 'DEALER BUSTS! YOU WIN!';
+        winningFX.play();
+        playerBank += pot;
+        updateBankDisplay();
+        endGame();
+        restartButton.classList.remove('hidden');
       }
   }
 }
@@ -209,7 +214,8 @@ function dealerCheck() {
   if (dealer.handValue > 21) {
     finalResultDisplay.textContent = 'DEALER BUSTS! YOU WIN!';
     winningFX.play();
-    playerBank += pot; 
+    playerBank += pot;
+    updateBankDisplay();
   } else if (dealer.handValue > player.handValue) {
     finalResultDisplay.textContent = 'DEALER WINS!';
   } else if (dealer.handValue < player.handValue) {
@@ -226,6 +232,7 @@ function dealerCheck() {
 function finalResult() {
   updateDisplay(dealer, dealerDisplay, dealerImgDisplay);
   dealerCheck();
+  restartButton.classList.remove('hidden');
   isBankrupt();
   updateBankDisplay();
   endGame();
@@ -357,12 +364,13 @@ function restartBtn() {
 
 function advertBtn() {
   winningFX.play();
+  restartButton.classList.remove('hidden');
   adDisplay.classList.add('visible');
   adButton.classList.add('hidden');
   sideBankDisplay.classList.remove('hidden');
   playerBank += 1000;
   startTimer(5);
-  updateBankDisplay();
+  updateBankDisplay(); 
 }
 
 /*-------------------------------------------------------------->
@@ -370,6 +378,7 @@ function advertBtn() {
 <--------------------------------------------------------------*/
 function isBankrupt() {
   if (playerBank <= 0) {
+    restartButton.classList.add('hidden');
     adButton.classList.remove('hidden');
     sideBankDisplay.classList.add('hidden')
   }
@@ -403,10 +412,12 @@ function startTimer(durationInSeconds) {
 <--------------------------------------------------------------*/
 
 listen('load', window, () => {
-  updateBankDisplay(player, playerDisplay, playerImgDisplay);
-  updateBankDisplay(dealer, dealerDisplay, dealerImgDisplay);
+  const savedBank = localStorage.getItem('playerBank');
+  playerBank = savedBank ? parseInt(savedBank, 10) : 1000; // Default to 1000 if no saved value
+  updateBankDisplay();
   betScreen.classList.add('visible');
 });
+
 
 listen('click', startButton, () => { 
   startBtn();
