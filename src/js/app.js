@@ -120,7 +120,6 @@ function updateBankDisplay() {
   let convertedBank = convert(playerBank);
   bankDisplay.textContent = `${convertedBank}`;
   sideBankDisplay.textContent = `${convertedBank}`;
-  localStorage.setItem('playerBank', playerBank); // Save to local storage
 }
 
 function updateTotalBet() {
@@ -358,8 +357,6 @@ function restartBtn() {
 
 function advertBtn() {
   winningFX.play();
-
-  restartButton.classList.remove('.hidden');
   adDisplay.classList.add('visible');
   adButton.classList.add('hidden');
   sideBankDisplay.classList.remove('hidden');
@@ -373,7 +370,6 @@ function advertBtn() {
 <--------------------------------------------------------------*/
 function isBankrupt() {
   if (playerBank <= 0) {
-    adDisplay.classList.add('hidden');
     adButton.classList.remove('hidden');
     sideBankDisplay.classList.add('hidden')
   }
@@ -407,9 +403,8 @@ function startTimer(durationInSeconds) {
 <--------------------------------------------------------------*/
 
 listen('load', window, () => {
-  const savedBank = localStorage.getItem('playerBank');
-  playerBank = savedBank ? parseInt(savedBank, 10) : 1000; // Default to 1000 if no saved value
-  updateBankDisplay();
+  updateBankDisplay(player, playerDisplay, playerImgDisplay);
+  updateBankDisplay(dealer, dealerDisplay, dealerImgDisplay);
   betScreen.classList.add('visible');
 });
 
