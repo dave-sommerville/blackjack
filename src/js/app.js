@@ -161,13 +161,13 @@ function isBlackJack() {
 }
 
 function blackJackPayout() {
-  pot = pot * 1.5;
+  pot *= 1.5;
   playerBank = playerBank + pot;
   pot = 0;
   playerBetTotal = 0;
   updateBankDisplay();
   hideActionButtons();
-  restartBtn();
+  finalResultDisplay.textContent = 'You got a Blackjack'
 }
 
 function hit(handObj) {
