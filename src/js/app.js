@@ -367,7 +367,7 @@ function advertBtn() {
   restartButton.classList.remove('hidden');
   adDisplay.classList.add('visible');
   adButton.classList.add('hidden');
-  sideBankDisplay.classList.remove('hidden');
+  bankDisplay.classList.remove('hidden');
   playerBank += 1000;
   startTimer(5);
   updateBankDisplay(); 
@@ -378,9 +378,8 @@ function advertBtn() {
 <--------------------------------------------------------------*/
 function isBankrupt() {
   if (playerBank <= 0) {
-    restartButton.classList.add('hidden');
     adButton.classList.remove('hidden');
-    sideBankDisplay.classList.add('hidden')
+    bankDisplay.classList.add('hidden');
   }
 }
 
