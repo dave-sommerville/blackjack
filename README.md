@@ -17,43 +17,34 @@ I first began creating a Blackjack game the same week that I started learning Ja
 ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
 ![JavaScript](https://shields.io/badge/JavaScript-F7DF1E?logo=JavaScript&logoColor=000&style=flat-square)
+
 ## Planned Features and Fixes 
-- Add music/sound effects  
-- Further gameplay animations 
-- Player bank added to localStorage
-- Method for player to top up their bank if too low
-- Watch for a natural 21 
-  - Deal payout not currently functioning 
-  - Dealer 21 while showing Ace auto finishes game 
-  - Player given insurance option 
-- Watch for twin cards 
-  - Play split hands as two rounds in same UI 
+- Split Function
+
+## Contributor
+Playtesting and Bug Locating 
+[Samuel Reutecky](https://github.com/mr-reutcky)
 
 ### Preview 
 ![Website Preview](./src/img/scrnshot-preview.jpg)
+
+
 ### Image Attribution
+[Harald Eicher](https://pixabay.com/users/teacherbingo-18391860/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=7155166)  
+[Pixabay](https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=7155166)  
+[Icon by TekEye](https://tekeye.uk/playing_cards/svg-playing-cards#google_vignette)
+[Icon by Muhammad Haq](https://freeicons.io/business-collection-icon/piggy-bank-icon-22292) on [freeicons.io](https://freeicons.io)
 
-**Image by:** [Harald Eicher](https://pixabay.com/users/teacherbingo-18391860/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=7155166)  
-**Source:** [Pixabay](https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=7155166)  
+### Sound Effect Attribution
 
-### Icon Attribution
-**SVG Deck**  
-- [Icon by TekEye](https://tekeye.uk/playing_cards/svg-playing-cards#google_vignette)
+Sound Effect by [freesound_community](https://pixabay.com/users/freesound_community-46691455/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=104313) from [Pixabay](https://pixabay.com/sound-effects//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=104313)
 
-**Piggy Bank Icon**  
-- [Icon by Muhammad Haq](https://freeicons.io/business-collection-icon/piggy-bank-icon-22292) on [freeicons.io](https://freeicons.io)
+Sound Effect by [floraphonic](https://pixabay.com/users/floraphonic-38928062/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=180438) from [Pixabay](https://pixabay.com/sound-effects//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=180438)
 
-Music by <a href="https://pixabay.com/users/sonican-38947841/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=260210">Dvir Silver</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=260210">Pixabay</a>
+Sound Effect by [floraphonic](https://pixabay.com/users/floraphonic-38928062/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=188227) from [Pixabay](https://pixabay.com/sound-effects//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=188227)
 
-Sound Effect by <a href="https://pixabay.com/users/freesound_community-46691455/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=104313">freesound_community</a> from <a href="https://pixabay.com/sound-effects//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=104313">Pixabay</a>
+Sound Effect by [u_8g40a9z0la](https://pixabay.com/users/u_8g40a9z0la-45586904/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=234708) from [Pixabay](https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=234708)
 
-Sound Effect by <a href="https://pixabay.com/users/floraphonic-38928062/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=180438">floraphonic</a> from <a href="https://pixabay.com/sound-effects//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=180438">Pixabay</a>
+Image by [Mostafa Elturkey](https://pixabay.com/users/mostafaelturkey36-13328910/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=4757693) from [Pixabay](https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=4757693)
 
-Sound Effect by <a href="https://pixabay.com/users/floraphonic-38928062/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=188227">floraphonic</a> from <a href="https://pixabay.com/sound-effects//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=188227">Pixabay</a>
-
-Sound Effect by <a href="https://pixabay.com/users/u_8g40a9z0la-45586904/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=234708">u_8g40a9z0la</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=234708">Pixabay</a>
-
-Image by <a href="https://pixabay.com/users/mostafaelturkey36-13328910/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=4757693">Mostafa Elturkey</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=4757693">Pixabay</a>
-
-Sound Effect by <a href="https://pixabay.com/users/freesound_community-46691455/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=101296">freesound_community</a> from <a href="https://pixabay.com/sound-effects//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=101296">Pixabay</a>
-
+Sound Effect by [freesound_community](https://pixabay.com/users/freesound_community-46691455/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=101296) from [Pixabay](https://pixabay.com/sound-effects//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=101296)
