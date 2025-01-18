@@ -543,7 +543,7 @@ Ad Modal
   width:50vw;
   height: fit-content;
   position: absolute;
-  display: flex;
+  display: none;
   background-color: #003;
   border-radius: 10px;
   margin: auto;
@@ -662,7 +662,16 @@ Media Queries
     padding: 25px;
     background: linear-gradient(to bottom right, rgb(44, 111, 78), #32631b);	
   }
-
+  .money-display {
+    width: 100px;
+    height: 80px;
+    padding-top: 38px;
+    font-size: 1.4rem;
+  }
+  .bet-display {
+    width: 80px;
+    font-size: 1.4rem;
+  }
 
   .button {
     width: 60px;
