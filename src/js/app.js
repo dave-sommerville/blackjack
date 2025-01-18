@@ -413,7 +413,6 @@ function startTimer(durationInSeconds) {
 listen('load', window, () => {
   const savedBank = localStorage.getItem('playerBank');
   playerBank = savedBank ? parseInt(savedBank, 10) : 1000; // Default to 1000 if no saved value
-  playerBank += 1000;
   updateBankDisplay();
   betScreen.classList.add('visible');
 });
