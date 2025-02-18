@@ -167,6 +167,7 @@ function blackJackPayout() {
   playerBetTotal = 0;
   updateBankDisplay();
   hideActionButtons();
+  startButton.classList.remove('hidden');
   finalResultDisplay.textContent = 'You got a Blackjack'
 }
 
