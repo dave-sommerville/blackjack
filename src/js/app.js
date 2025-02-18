@@ -415,6 +415,7 @@ listen('load', window, () => {
   const savedBank = localStorage.getItem('playerBank');
   playerBank = savedBank ? parseInt(savedBank, 10) : 1000; // Default to 1000 if no saved value
   updateBankDisplay();
+  isBankrupt();
   betScreen.classList.add('visible');
 });
 
