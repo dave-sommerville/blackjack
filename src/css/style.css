@@ -676,8 +676,11 @@ Media Queries
     width: 100%;
     height: 100%;
     border-radius: 0;
-    padding: 25px;
-    background: linear-gradient(to bottom right, rgb(44, 111, 78), #32631b);	
+    padding: 50px;
+    /* background: linear-gradient(to bottom right, rgb(44, 111, 78), #32631b);	 */
+    background: #fff url('../img/background1.jpg') no-repeat center center;
+    background-size: cover;
+    backdrop-filter: brightness(0.8);
   }
   .money-display {
     width: 100px;
@@ -714,6 +717,11 @@ Media Queries
     width: 75px;
     height: 50px;
     font-size: 1.2rem;
+  }
+
+  .place-bet{
+    width: 220px;
+    font-size: 1.8rem;
   }
 
   .double-btn {
