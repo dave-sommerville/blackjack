@@ -63,6 +63,7 @@ h1 {
 	font-size: 2.8rem;
   width: 100%;
   text-align: center;
+  margin: 25px 0;
 }
 
 p {
@@ -76,8 +77,11 @@ p {
 <---------------------------------------------*/
 
 body {
-  background: linear-gradient(to bottom right, rgb(44, 111, 78), #32631b);	border-radius: 15px;
-	color: #fff;
+  /* background: linear-gradient(to bottom right, rgb(44, 111, 78), #32631b);	border-radius: 15px; */
+  background: #fff url('../img/background1.jpg') no-repeat center center;
+  background-size: cover;
+  backdrop-filter: brightness(0.8);
+  color: #fff;
 	justify-content: center;
 	align-items: center;
 	position: relative;
@@ -103,12 +107,15 @@ main {
 	Display Info
 <---------------------------------------------*/
 .bet-banking-area {
-	width: 500px;
-	height: 600px;
-  background: linear-gradient(to bottom right, #396, #56ab2f);	
+	width: fit-content;
+	height: fit-content;
+  /* background: linear-gradient(to bottom right, #396, #56ab2f);	 */
+  background: #fff url('../img/background2.jpg') no-repeat center center;
+  filter: brightness(0.7);
+  background-size: cover;
   border-radius: 15px;
   position: absolute;
-	padding: 50px 100px;
+	padding: 25px 50px;
   z-index: -1000;
   border: 0;
   color: #fff;
@@ -137,12 +144,13 @@ main {
 		border-radius: 6px;
     text-align: left;
     padding-left: 20px;
+    margin: 25px 0;
 	}
 
   figure {
     position: absolute;
     top: -10px;
-    left: -10px;
+    left: 0;
     cursor: pointer;
 
     img {
@@ -159,7 +167,7 @@ main {
 }
 
 .money-sack, .ad-btn {
-  width: 200px;
+  width: 300px;
   background: url('../img/piggy.png') no-repeat center center;
   background-size: contain;
   padding-top: 53px;
@@ -373,7 +381,7 @@ main {
   position: relative; 
   grid-template-columns: 1fr; 
   grid-template-rows: auto; 
-  width: 400px; 
+  width: 350px; 
   height: 240px; 
   padding: 30px; 
 	margin-bottom: 50px;
