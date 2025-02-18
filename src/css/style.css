@@ -41,6 +41,11 @@ ul {
 	flex-direction: column;
 }
 
+.center {
+  width: 100%;
+  justify-content: center;
+}
+
 .flex {
 display: flex;
 }
@@ -239,6 +244,7 @@ main {
   color: #d33;
   cursor: pointer;
 }
+
 
 /*-------------------------------------------->
 	Card Handling
@@ -455,9 +461,9 @@ main {
 .btn {
   width: 120px;
   height: 60px;
-  background-color: rgb(146, 3, 98);
+  background-color: #193;
   font-weight: 500;
-  border-radius: 50%;
+  border-radius: 15px;
   box-shadow: inset 2px 3px 3px rgb(255 255 255 / 0.4), 
     inset -2px -3px 3px rgb(0 0 0 / 0.4); 
   font-size: 2rem;
@@ -484,6 +490,9 @@ main {
 }
 
 
+.place-bet{
+  width: 220px;
+}
 /*-------------------------------------------->
 	Side Info Display
 <---------------------------------------------*/
