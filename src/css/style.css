@@ -1,10 +1,4 @@
 @charset "utf-8";
-
-/*
-- Media query for ad display 
-- Side bank display small on small screens 
-
-*/
 html{
     font-family:"poppins", "inter", sans-serif;
 }
@@ -554,14 +548,16 @@ transition: all 0.5s ease-in-out;
 /*-------------------------------------------->
 Ad Modal
 <---------------------------------------------*/
-
+.invert {
+  filter: invert();
+}
 
 .ad-display {
   width:50vw;
   height: fit-content;
   position: absolute;
   display: none;
-  background-color: #003;
+  background-color: #012;
   border-radius: 10px;
   margin: auto;
   padding: 20px;
