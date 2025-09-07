@@ -554,17 +554,19 @@ Ad Modal
 
 .ad-display {
   width:50vw;
-  height: fit-content;
+  height: 50svw;
   position: absolute;
   display: none;
-  background-color: #012;
+  background: #012 url('../img/ds-code-game-room-preview.png') no-repeat center center;
+  background-size: cover;
   border-radius: 10px;
   margin: auto;
   padding: 20px;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-end;
   flex-direction: column;
   z-index: -100;
+  text-decoration: none;
+  border-bottom: none;
 
   img {
     width: 16svw;
@@ -581,24 +583,16 @@ Ad Modal
 h2 {
   color: #d33;
   text-align: center;
-  font-size: 2rem;
+  font-size: 1.6rem;
   margin: 20px 0;
 }
 
 .progress-bar {
-  position: absolute;
-  top: 0;
-  left: 0;
   height: 10px;
   width: 0;
   background: #4caf50;
   border-radius: 10px 10px 0 0;
   transition: width 0.1s;
-}
-
-.timer-text {
-  font-size: 2rem;
-  color: #d33;
 }
 
 
@@ -722,7 +716,13 @@ Media Queries
   }
 
 }
-
+@media(orientation: portrait) {
+  .ad-display {
+    width: 50svh;
+    height: 50svh;
+    font-size: 1.2rem;
+  }
+}
 /*-------------------------------------------->
 	Animations
 <---------------------------------------------*/
