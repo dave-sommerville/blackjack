@@ -553,11 +553,11 @@ Ad Modal
 }
 
 .ad-display {
-  width:50vw;
-  height: 50svw;
+  width: 500px;
+  height: 500px;
   position: absolute;
   display: none;
-  background: #012 url('../img/ds-code-game-room-preview.png') no-repeat center center;
+  background: #012 url('../img/ds-code-logo.jpg') no-repeat center center;
   background-size: cover;
   border-radius: 10px;
   margin: auto;
@@ -567,11 +567,35 @@ Ad Modal
   z-index: -100;
   text-decoration: none;
   border-bottom: none;
+  overflow: hidden;
+}
 
-  img {
-    width: 16svw;
-    height: auto;
-    margin: 25px;
+.ad-display::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.6) 50%,
+    transparent 100%
+  );
+  transform: skewX(-20deg);
+  animation: shine 4s infinite;
+}
+
+@keyframes shine {
+  0% {
+    left: -75%;
+  }
+  60% {
+    left: 125%;
+  }
+  100% {
+    left: 125%;
   }
 }
 
@@ -604,7 +628,7 @@ footer {
   display: flex;
   justify-content: center;
   img {
-    width: 200px;
+    width: 160px;
   }
 }
 /*-------------------------------------------->
@@ -734,5 +758,17 @@ Media Queries
   }
   100% {
     opacity: 1; 
+  }
+}
+
+@keyframes adFlash {
+  0%, 92%, 100% {
+    filter: brightness(1);
+  }
+  95% {
+    filter: brightness(1.6);
+  }
+  97% {
+    filter: brightness(1);
   }
 }
